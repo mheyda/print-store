@@ -47,10 +47,9 @@ main ul {
     list-style-type: none;
 }
 
-main a {
-    border: 2px solid blue;
-    width: fit-content;
+main li {
     margin: 1.5rem auto 1.5rem auto;
+    border: 2px solid blue;
 }
 
 main img {

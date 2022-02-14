@@ -47,14 +47,14 @@ main ul {
     list-style-type: none;
 }
 
-main li {
+.product-item {
     margin: 1.5rem auto 1.5rem auto;
     border: 2px solid blue;
     max-width: 75vw;
     width: 600px;
 }
 
-.thumbnail-main {
+.product-image {
     display: block;
     max-width: 75vw;
     width: 600px;
@@ -62,7 +62,7 @@ main li {
     border: 3px solid orange;
 }
 
-.item-content {
+.product-content-container {
     text-align: center;
     max-width: 75vw;
     width: 600px;
@@ -87,27 +87,27 @@ footer {
         flex-wrap: wrap;
     }
 
-    main li {
+    .product-item {
       max-width: 40vw;
     }
 
-    .thumbnail-main {
+    .product-image {
         max-width: 40vw;
         max-height: 40vw;
         height: 600px;
     }
 
-    .item-content {
+    .product-content-container {
         max-width: 40vw;
     }
 }
 
 @media (min-width: 992px) {
-    main li {
+    .product-item {
       max-width: 28vw;
     }  
 
-    .thumbnail-main, .item-content {
+    .product-image, .product-content-container {
         max-width: 28vw;
         max-height: 28vw;
     }
@@ -119,10 +119,10 @@ footer {
         margin-left: auto;
         margin-right: auto;
     }
-    main li {
+    .product-item {
       max-width: 336px;
     }
-    .thumbnail-main, .item-content {
+    .product-image, .product-content-container {
         max-width: 336px;
         max-height: 336px;
     }
@@ -144,14 +144,7 @@ footer {
 
 
 
-.myThumbSlides {
-  display: block;
-}
 
-.alt-image-slides {
-  display: flex;
-  width: 100%;
-}
 
 .modal img {
     height: 100%;
@@ -159,12 +152,18 @@ footer {
 }
 
 
-  
-  .thumbnail-small {
-    
-    padding: 2px;
-    width: 15%;
-  }
+.thumbnail-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  border: 3px solid black;
+}
+.thumbnail {
+  padding: 2px;
+  width: 60px;
+  object-fit: cover;
+}
   
   /* The Modal (background) */
   .modal {
@@ -216,7 +215,6 @@ footer {
   .mySlides img {
     max-height: 98vh;
     max-width: 75vw;
-    display: block;
     margin: auto;
     object-fit: contain;
     border: 3px solid purple;

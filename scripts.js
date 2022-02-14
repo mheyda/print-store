@@ -12,60 +12,71 @@ document.addEventListener('DOMContentLoaded', () => {
     
 });
 
+// Initialize the product images
+var listItems = document.querySelectorAll(".product-item");
+for (var i = 0; i < listItems.length; i++) {
+    showThumb(i, 0);
+}
 
-document.querySelectorAll(".thumbnail-small").forEach(function(item, i) {
-    item.onclick = function() {
-        showThumb(i + 1);
+
+// Select all product items
+document.querySelectorAll(".product-item").forEach(function(productItem, productIndex) {
+    
+    // Function to change product image based on thumbnail that is clicked
+    productItem.querySelectorAll(".thumbnail").forEach(function(thumbnail, thumbIndex) {
+        // Listen for a click on the thumbnail image
+        thumbnail.onclick = function() {
+            // Call function to change the product image to the selected thumbnail
+            showThumb(productIndex, thumbIndex);
+        }
+    })
+
+    // Function to open modal box for selected product
+    productItem.querySelectorAll(".product-image").forEach(function(productImage, imageIndex) {
+        // Listen for a click on the product image
+        productImage.onclick = function() {
+            // Open modal box
+            document.querySelectorAll(".modal")[productIndex].style.display = "block";
+            // Show selected image
+            showSlides(productIndex, imageIndex);
+        }
+    })
+
+    // Close modal box for selected product
+    productItem.querySelector(".close").onclick = function() {
+        document.querySelectorAll(".modal")[productIndex].style.display = "none";
     }
 });
 
 
 
-
-showThumb(1);
-
-function showThumb(n) {
-    var slides = document.getElementsByClassName("myThumbSlides");
+function showThumb(productIndex, thumbIndex) {
+    var item = document.querySelectorAll(".product-item")[productIndex];
+    var slides = item.querySelectorAll(".product-image");
     for (var i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    slides[n-1].style.display = "block";
+    slides[thumbIndex].style.display = "block";
 }
-
-
-
-
-
-
-
-
-function openModal() {
-    document.getElementById("myModal").style.display = "block";
-}
-
-function closeModal() {
-    document.getElementById("myModal").style.display = "none";
-}
-
-var slideIndex = 1;
-showSlides(slideIndex);
 
 function plusSlides(n) {
-    showSlides(slideIndex += n);
+    imageIndex += n;
+    showSlides(productIndex, imageIndex);
 }
-
 function currentSlide(n) {
     showSlides(slideIndex = n);
 }
-
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
+function showSlides(productIndex, imageIndex) {
+    console.log("Product Index: " + String(productIndex) + "\nImage Index: " + String(imageIndex));
+    var item = document.querySelectorAll(".product-item")[productIndex];
+    var slides = item.querySelectorAll(".mySlides");
+    
+    if (imageIndex >= slides.length) {slideIndex = 0}
+    if (imageIndex < 0) {slideIndex = slides.length - 1}
+    for (var i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    slides[slideIndex-1].style.display = "block";
+    slides[imageIndex].style.display = "block";
+    console.log(slides[imageIndex]);
 }
 

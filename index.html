@@ -12,9 +12,8 @@
         <meta name="image" property="og:image" content="" />
         <meta name="description" property="og:description" content="Marshall's Print Store" />
 
-        <!-- Link to styles and scripts -->
+        <!-- Link to styles -->
         <link rel="stylesheet" href="/styles.css">
-        <script src="/scripts.js"></script>
 
         <!-- Browser Icon and Title -->
         <link href="" rel="icon">
@@ -22,6 +21,7 @@
 
     </head>
     <body>
+        
         <!-- Navigation Bar -->
         <div class="nav-background">    
             <nav>
@@ -45,20 +45,20 @@
             <ul>
                 <li>
                     <a href="">
-                        <img src="/images/2021-Miami.jpg" alt="">
+                        <img class="thumbnail-main" src="/images/Mt_LeConte_Trail_View.jpg" alt="">
                     </a>
-                    <div>
+                    <div class="item-content">
                         Some Description
                         <br>
                         <span class="price">From $9.99</span>
                         <br>
                         <form>
                             Size: 
-                            <select id="first-item" required>
+                            <select required>
                                 <option value="" disabled selected>Size</option>
-                                <option data-price="$9.99" value="4x5">4x5</option>
-                                <option data-price="$19.99" value="8x10">8x10</option>
-                                <option data-price="$29.99" value="16x20">16x20</option>
+                                <option data-price="9.99" value="4x5">4x5</option>
+                                <option data-price="19.99" value="8x10">8x10</option>
+                                <option data-price="29.99" value="16x20">16x20</option>
                             </select>
                             Qty:
                             <input type="number" min="1" max="30" value="1">
@@ -69,20 +69,47 @@
                 </li>
                 <li>
                     <a href="">
-                        <img src="/images/Mt_LeConte_Trail_View.jpg" alt="">
+                        <img class="thumbnail-main" src="/images/Mt_LeConte_Trail_View.jpg" alt="">
                     </a>
-                    <div>
+                    <div class="item-content">
                         Some Description
                         <br>
                         <span class="price">From $9.99</span>
                         <br>
                         <form>
                             Size: 
-                            <select id="first-item" required>
+                            <select required>
                                 <option value="" disabled selected>Size</option>
-                                <option data-price="$9.99" value="4x5">4x5</option>
-                                <option data-price="$19.99" value="8x10">8x10</option>
-                                <option data-price="$29.99" value="16x20">16x20</option>
+                                <option data-price="9.99" value="4x5">4x5</option>
+                                <option data-price="19.99" value="8x10">8x10</option>
+                                <option data-price="29.99" value="16x20">16x20</option>
+                            </select>
+                            Qty:
+                            <input type="number" min="1" max="30" value="1">
+                            <br>
+                            <input type="submit" value="Add to Cart">
+                        </form>
+                    </div>
+                </li>
+
+
+
+                <li class="product-item">
+                    <a href="">
+                        <img class="thumbnail-main" src="/images/Mt_LeConte_Trail_View.jpg" alt="">
+                    </a>
+                    <div class="item-content">
+                        Some Description
+                        <br>
+                        <span class="price">From $9.99</span>
+                        <br>
+                        <form>
+                            Size: 
+                            <select required>
+                                <option value="" disabled selected>Size</option>
+                                <option data-price="9.99" value="4x5">4x5</option>
+                                <option data-price="19.99" value="8x10">8x10</option>
+                                <option data-price="29.99" value="16x20">16x20</option>
                             </select>
                             Qty:
                             <input type="number" min="1" max="30" value="1">
@@ -93,20 +120,20 @@
                 </li>
                 <li>
                     <a href="">
-                        <img src="/images/2021-Miami.jpg" alt="">
+                        <img class="thumbnail-main" src="/images/2021-Miami.jpg" alt="">
                     </a>
-                    <div>
+                    <div class="item-content">
                         Some Description
                         <br>
                         <span class="price">From $9.99</span>
                         <br>
                         <form>
                             Size: 
-                            <select id="first-item" required>
+                            <select required>
                                 <option value="" disabled selected>Size</option>
-                                <option data-price="$9.99" value="4x5">4x5</option>
-                                <option data-price="$19.99" value="8x10">8x10</option>
-                                <option data-price="$29.99" value="16x20">16x20</option>
+                                <option data-price="9.99" value="4x5">4x5</option>
+                                <option data-price="19.99" value="8x10">8x10</option>
+                                <option data-price="29.99" value="16x20">16x20</option>
                             </select>
                             Qty:
                             <input type="number" min="1" max="30" value="1">
@@ -117,20 +144,20 @@
                 </li>
                 <li>
                     <a href="">
-                        <img src="/images/Mt_LeConte_Trail_View.jpg" alt="">
+                        <img class="thumbnail-main" src="/images/Mt_LeConte_Trail_View.jpg" alt="">
                     </a>
-                    <div>
+                    <div class="item-content">
                         Some Description
                         <br>
                         <span class="price">From $9.99</span>
                         <br>
                         <form>
                             Size: 
-                            <select id="first-item" required>
+                            <select required>
                                 <option value="" disabled selected>Size</option>
-                                <option data-price="$9.99" value="4x5">4x5</option>
-                                <option data-price="$19.99" value="8x10">8x10</option>
-                                <option data-price="$29.99" value="16x20">16x20</option>
+                                <option data-price="9.99" value="4x5">4x5</option>
+                                <option data-price="19.99" value="8x10">8x10</option>
+                                <option data-price="29.99" value="16x20">16x20</option>
                             </select>
                             Qty:
                             <input type="number" min="1" max="30" value="1">
@@ -139,6 +166,156 @@
                         </form>
                     </div>
                 </li>
+
+
+
+
+
+                <li class="product-item">
+                    
+                    <div id="myThumbModal" class="thumbModal">
+                        
+                        <div class="thumb-modal-content">
+
+                            <div class="myThumbSlides">
+                                <img class="thumbnail-main cursor" src="/images/2021-Miami.jpg" onclick="openModal(); currentSlide(1)">
+                            </div>
+                            <div class="myThumbSlides">
+                                <img class="thumbnail-main cursor" src="/images/Mt_LeConte_Trail_View.jpg" onclick="openModal(); currentSlide(2)">
+                            </div>
+                            <div class="myThumbSlides">
+                                <img class="thumbnail-main cursor" src="/images/sample1.jpg" onclick="openModal(); currentSlide(3)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="alt-image-slides">
+                        <div class="thumbnail-small">
+                            <img class="cursor" src="/images/2021-Miami.jpg" style="width:100%" alt="Nature and sunrise">
+                        </div>
+                        <div class="thumbnail-small">
+                            <img class="cursor" src="/images/Mt_LeConte_Trail_View.jpg" style="width:100%" alt="Snow">
+                        </div>
+                        <div class="thumbnail-small">
+                            <img class="cursor" src="/images/sample1.jpg" style="width:100%" alt="Mountains and fjords">
+                        </div>
+                    </div>
+                    
+                    <div class="item-content">
+                        Some Description
+                        <br>
+                        <span class="price">From $9.99</span>
+                        <br>
+                        <form>
+                            Size: 
+                            <select required>
+                                <option value="" disabled selected>Size</option>
+                                <option data-price="9.99" value="4x5">4x5</option>
+                                <option data-price="19.99" value="8x10">8x10</option>
+                                <option data-price="29.99" value="16x20">16x20</option>
+                            </select>
+                            Qty:
+                            <input type="number" min="1" max="30" value="1">
+                            <br>
+                            <input type="submit" value="Add to Cart">
+                        </form>
+                    </div>
+                    <div id="myModal" class="modal">
+                        <span class="close cursor" onclick="closeModal()">&times;</span>
+                        <div class="modal-content">
+
+                            <div class="mySlides">
+                                <img src="/images/2021-Miami.jpg">
+                            </div>
+
+                            <div class="mySlides">
+                                <img src="/images/Mt_LeConte_Trail_View.jpg">
+                            </div>
+
+                            <div class="mySlides">
+                                <img src="/images/sample1.jpg">
+                            </div>
+                            
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li>
+                    
+                    <div id="myThumbModal" class="thumbModal">
+                        
+                        <div class="thumb-modal-content">
+
+                            <div class="myThumbSlides">
+                                <img class="thumbnail-main cursor" src="/images/2021-Miami.jpg" onclick="openModal(); currentSlide(1)">
+                            </div>
+                            <div class="myThumbSlides">
+                                <img class="thumbnail-main cursor" src="/images/Mt_LeConte_Trail_View.jpg" onclick="openModal(); currentSlide(2)">
+                            </div>
+                            <div class="myThumbSlides">
+                                <img class="thumbnail-main cursor" src="/images/sample1.jpg" onclick="openModal(); currentSlide(3)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="alt-image-slides">
+                        <div class="thumbnail-small">
+                            <img class="cursor" src="/images/2021-Miami.jpg" style="width:100%" alt="Nature and sunrise">
+                        </div>
+                        <div class="thumbnail-small">
+                            <img class="cursor" src="/images/Mt_LeConte_Trail_View.jpg" style="width:100%" alt="Snow">
+                        </div>
+                        <div class="thumbnail-small">
+                            <img class="cursor" src="/images/sample1.jpg" style="width:100%" alt="Mountains and fjords">
+                        </div>
+                    </div>
+                    
+                    <div class="item-content">
+                        Some Description
+                        <br>
+                        <span class="price">From $9.99</span>
+                        <br>
+                        <form>
+                            Size: 
+                            <select required>
+                                <option value="" disabled selected>Size</option>
+                                <option data-price="9.99" value="4x5">4x5</option>
+                                <option data-price="19.99" value="8x10">8x10</option>
+                                <option data-price="29.99" value="16x20">16x20</option>
+                            </select>
+                            Qty:
+                            <input type="number" min="1" max="30" value="1">
+                            <br>
+                            <input type="submit" value="Add to Cart">
+                        </form>
+                    </div>
+                    <div id="myModal" class="modal">
+                        <span class="close cursor" onclick="closeModal()">&times;</span>
+                        <div class="modal-content">
+
+                            <div class="mySlides">
+                                <img src="/images/2021-Miami.jpg">
+                            </div>
+
+                            <div class="mySlides">
+                                <img src="/images/Mt_LeConte_Trail_View.jpg">
+                            </div>
+
+                            <div class="mySlides">
+                                <img src="/images/sample1.jpg">
+                            </div>
+                            
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        </div>
+                    </div>
+                </li>
+
             </ul>
         </main>
         
@@ -147,5 +324,7 @@
             Footer
         </footer>
 
+        <!-- JavaScript File -->
+        <script src="/scripts.js"></script>
     </body>
 </html>

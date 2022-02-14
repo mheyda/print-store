@@ -50,15 +50,19 @@ main ul {
 main li {
     margin: 1.5rem auto 1.5rem auto;
     border: 2px solid blue;
+    max-width: 75vw;
+    width: 600px;
 }
 
-main img {
+.thumbnail-main {
+    display: block;
     max-width: 75vw;
     width: 600px;
     object-fit: contain;
+    border: 3px solid orange;
 }
 
-main li div {
+.item-content {
     text-align: center;
     max-width: 75vw;
     width: 600px;
@@ -83,19 +87,27 @@ footer {
         flex-wrap: wrap;
     }
 
-    main img {
+    main li {
+      max-width: 40vw;
+    }
+
+    .thumbnail-main {
         max-width: 40vw;
         max-height: 40vw;
         height: 600px;
     }
 
-    main li div {
+    .item-content {
         max-width: 40vw;
     }
 }
 
 @media (min-width: 992px) {
-    main img, main li div {
+    main li {
+      max-width: 28vw;
+    }  
+
+    .thumbnail-main, .item-content {
         max-width: 28vw;
         max-height: 28vw;
     }
@@ -107,11 +119,14 @@ footer {
         margin-left: auto;
         margin-right: auto;
     }
-    
-    main img, main li div {
+    main li {
+      max-width: 336px;
+    }
+    .thumbnail-main, .item-content {
         max-width: 336px;
         max-height: 336px;
     }
+    
 }
 
 @media (min-width: 1400px) {
@@ -125,3 +140,121 @@ footer {
         margin-right: auto;
     }
 }
+
+
+
+
+.myThumbSlides {
+  display: block;
+}
+
+.alt-image-slides {
+  display: flex;
+  width: 100%;
+}
+
+.modal img {
+    height: 100%;
+    width: 100%;
+}
+
+
+  
+  .thumbnail-small {
+    
+    padding: 2px;
+    width: 15%;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 1vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    padding: 0;
+    width: 90%;
+    height: 98vh;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid white;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    position: absolute;
+    top: -10px;
+    right: 0;
+    padding: 15px;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .mySlides {
+    display: none;
+    border: 3px solid green;
+  }
+  .mySlides img {
+    max-height: 98vh;
+    max-width: 75vw;
+    display: block;
+    margin: auto;
+    object-fit: contain;
+    border: 3px solid purple;
+  }
+  
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    padding: 14px;
+    background-color: blue;
+    opacity: 0.8;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  

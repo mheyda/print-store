@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
 });
 
+
+
 // Initialize the product images
 var listItems = document.querySelectorAll(".product-item");
 for (var i = 0; i < listItems.length; i++) {
@@ -38,14 +40,36 @@ document.querySelectorAll(".product-item").forEach(function(productItem, product
             // Open modal box
             document.querySelectorAll(".modal")[productIndex].style.display = "block";
             // Show selected image
-            showSlides(productIndex, imageIndex);
+            console.log("Open modal passing in imageIndex: " + imageIndex);
+            imageIndex = showSlides(productIndex, imageIndex);
+            console.log("Open modal now has imageIndex: " + imageIndex);
+        }
+
+        // Modal box switch to previous image
+        productItem.querySelector(".prev").onclick = function() {
+            console.log("Previous button received imageIndex: " + imageIndex);
+            imageIndex -= 1;
+            console.log("Previous button passing in imageIndex: " + imageIndex);
+            imageIndex = showSlides(productIndex, imageIndex);
+            console.log("Previous button now has imageIndex: " + imageIndex);
+        }
+        // Modal box switch to next image
+        productItem.querySelector(".next").onclick = function() {
+            console.log("Next button received imageIndex: " + imageIndex);
+            imageIndex += 1;
+            console.log("Next button passing in imageIndex: " + imageIndex);
+            imageIndex = showSlides(productIndex, imageIndex);
+            console.log("Next button now has imageIndex: " + imageIndex);
         }
     })
 
     // Close modal box for selected product
     productItem.querySelector(".close").onclick = function() {
-        document.querySelectorAll(".modal")[productIndex].style.display = "none";
+        productItem.querySelector(".modal").style.display = "none";
     }
+
+    
+
 });
 
 
@@ -59,24 +83,30 @@ function showThumb(productIndex, thumbIndex) {
     slides[thumbIndex].style.display = "block";
 }
 
-function plusSlides(n) {
-    imageIndex += n;
-    showSlides(productIndex, imageIndex);
-}
+
 function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 function showSlides(productIndex, imageIndex) {
-    console.log("Product Index: " + String(productIndex) + "\nImage Index: " + String(imageIndex));
+    console.log(imageIndex);
     var item = document.querySelectorAll(".product-item")[productIndex];
     var slides = item.querySelectorAll(".mySlides");
     
-    if (imageIndex >= slides.length) {slideIndex = 0}
-    if (imageIndex < 0) {slideIndex = slides.length - 1}
+    console.log("Slide: " + slides + "\nSlide length: " + slides.length);
+
+    if (imageIndex >= slides.length) {
+        console.log(imageIndex);
+        console.log("YES");
+        imageIndex = 0;
+        console.log(imageIndex);
+    }
+    if (imageIndex < 0) {imageIndex = slides.length - 1}
     for (var i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
+    console.log("Product Index: " + String(productIndex) + "\nImage Index: " + String(imageIndex));
     slides[imageIndex].style.display = "block";
     console.log(slides[imageIndex]);
+    return imageIndex;
 }
 

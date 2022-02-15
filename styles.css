@@ -160,7 +160,7 @@ footer {
   border: 3px solid black;
 }
 .thumbnail {
-  padding: 2px;
+  margin: 2px;
   width: 60px;
   object-fit: cover;
 }

@@ -19,59 +19,46 @@
         <link href="" rel="icon">
         <title>Prints | Marshall Heyda</title>
 
+        <!-- Font awesome icons -->
+        <script src="https://kit.fontawesome.com/a7e713de55.js" crossorigin="anonymous"></script>
     </head>
     <body>
         
         <!-- Navigation Bar -->
-        <div class="nav-background">    
-            <nav>
-                <ul>
-                    <a href="index.html">
-                        <li>
-                            Home
-                        </li>
-                    </a>
-                    <a href="">
-                        <li>
-                            Cart
-                        </li>
-                    </a>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <ul>
+                <a href="index.html">
+                    <li>
+                        Home
+                    </li>
+                </a>
+                <a href="">
+                    <li class="cart">
+                        Cart
+                        <div class="cart-symbol">
+                            <span class="cart-count">9</span>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        
+                    </li>
+                </a>
+            </ul>
+        </nav>
 
         <!-- Store Items -->
         <main>
             <ul>
-                
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
                 <li class="product-item">
                     <div class="product-image-container">
-                        <img class="product-image cursor" src="/images/1.jpg">
-                        <img class="product-image cursor" src="/images/2.jpg">
-                        <img class="product-image cursor" src="/images/3.jpg">
+                        <img class="product-image cursor" src="/images/1.jpg" alt="">
+                        <img class="product-image cursor" src="/images/2.jpg" alt="">
+                        <img class="product-image cursor" src="/images/3.jpg" alt="">
                     </div>
-                    <br>
                     <div class="thumbnail-container">
-                        <img class="thumbnail cursor" src="/images/1.jpg" alt="Nature and sunrise">
-                        <img class="thumbnail cursor" src="/images/2.jpg" alt="Snow">
-                        <img class="thumbnail cursor" src="/images/3.jpg" alt="Mountains and fjords">
+                        <img class="thumbnail cursor" src="/images/1.jpg" alt="">
+                        <img class="thumbnail cursor" src="/images/2.jpg" alt="">
+                        <img class="thumbnail cursor" src="/images/3.jpg" alt="">
                     </div>
                     <div class="product-content-container">
                         Some Description
@@ -92,18 +79,12 @@
                             <input type="submit" value="Add to Cart">
                         </form>
                     </div>
-                    <div id="1stModal" class="modal">
+                    <div class="modal-container">
                         <span class="close cursor">&times;</span>
                         <div class="modal-content">
-                            <div class="mySlides">
-                                <img src="/images/1.jpg">
-                            </div>
-                            <div class="mySlides">
-                                <img src="/images/2.jpg">
-                            </div>
-                            <div class="mySlides">
-                                <img src="/images/3.jpg">
-                            </div>
+                            <img class="modal-image" src="/images/1.jpg" alt="">
+                            <img class="modal-image" src="/images/2.jpg" alt="">
+                            <img class="modal-image" src="/images/3.jpg" alt="">
                             <a class="prev">&#10094;</a>
                             <a class="next">&#10095;</a>
                         </div>
@@ -112,15 +93,12 @@
 
                 <li class="product-item">
                     <div class="product-image-container">
-                        <img class="product-image cursor" src="/images/4.jpg">
-                        <img class="product-image cursor" src="/images/5.jpg">
-                        
+                        <img class="product-image cursor" src="/images/4.jpg" alt="">
+                        <img class="product-image cursor" src="/images/5.jpg" alt="">
                     </div>
-                    <br>
                     <div class="thumbnail-container">
-                        <img class="thumbnail cursor" src="/images/4.jpg" alt="Nature and sunrise">
-                        <img class="thumbnail cursor" src="/images/5.jpg" alt="Snow">
-                        
+                        <img class="thumbnail cursor" src="/images/4.jpg" alt="">
+                        <img class="thumbnail cursor" src="/images/5.jpg" alt="">
                     </div>
                     <div class="product-content-container">
                         Some Description
@@ -141,28 +119,64 @@
                             <input type="submit" value="Add to Cart">
                         </form>
                     </div>
-                    <div id="2ndModal" class="modal">
+                    <div class="modal-container">
                         <span class="close cursor">&times;</span>
                         <div class="modal-content">
-                            <div class="mySlides">
-                                <img src="/images/4.jpg">
-                            </div>
-                            <div class="mySlides">
-                                <img src="/images/5.jpg">
-                            </div>
-                            
+                            <img class="modal-image" src="/images/4.jpg" alt="">
+                            <img class="modal-image" src="/images/5.jpg" alt="">
                             <a class="prev">&#10094;</a>
                             <a class="next">&#10095;</a>
                         </div>
                     </div>
                 </li>
 
+                <li class="product-item">
+                    <div class="product-image-container">
+                        <img class="product-image cursor" src="/images/1.jpg" alt="">
+                        <img class="product-image cursor" src="/images/2.jpg" alt="">
+                        <img class="product-image cursor" src="/images/3.jpg" alt="">
+                    </div>
+                    <div class="thumbnail-container">
+                        <img class="thumbnail cursor" src="/images/1.jpg" alt="">
+                        <img class="thumbnail cursor" src="/images/2.jpg" alt="">
+                        <img class="thumbnail cursor" src="/images/3.jpg" alt="">
+                    </div>
+                    <div class="product-content-container">
+                        Some Description
+                        <br>
+                        <span class="price">From $9.99</span>
+                        <br>
+                        <form>
+                            Size: 
+                            <select required>
+                                <option value="" disabled selected>Size</option>
+                                <option data-price="9.99" value="4x5">4x5</option>
+                                <option data-price="19.99" value="8x10">8x10</option>
+                                <option data-price="29.99" value="16x20">16x20</option>
+                            </select>
+                            Qty:
+                            <input type="number" min="1" max="30" value="1">
+                            <br>
+                            <input type="submit" value="Add to Cart">
+                        </form>
+                    </div>
+                    <div class="modal-container">
+                        <span class="close cursor">&times;</span>
+                        <div class="modal-content">
+                            <img class="modal-image" src="/images/1.jpg" alt="">
+                            <img class="modal-image" src="/images/2.jpg" alt="">
+                            <img class="modal-image" src="/images/3.jpg" alt="">
+                            <a class="prev">&#10094;</a>
+                            <a class="next">&#10095;</a>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </main>
         
         <!-- Footer -->
         <footer>
-            Footer
+            &copy <span class="copyright-year"></span> Marshall Heyda
         </footer>
 
         <!-- JavaScript File -->

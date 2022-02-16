@@ -62,7 +62,7 @@ nav li {
 
 /* Main Section */
 main {
-  padding: 2rem;
+  
 }
 
 main ul {
@@ -73,15 +73,13 @@ main ul {
 
 .product-item {
   margin: 1.5rem auto 1.5rem auto;
-  max-width: 75vw;
-  width: 600px;
+  width: 90vw;
 }
 
 .product-image {
   display: block;
-  max-width: 75vw;
-  width: 600px;
-  height: fit-content;
+  width: 90vw;
+  height: 90vw;
   object-fit: contain;
 }
 
@@ -101,8 +99,6 @@ main ul {
 
 .product-content-container {
   text-align: justify;
-  max-width: 75vw;
-  width: 600px;
   margin-top: 5px;
   line-height: 1.5rem;
 }
@@ -111,7 +107,6 @@ main ul {
 .options {
   text-align: left;
   background-color: black;
-  width: 100%;
   height: fit-content;
   margin: 0.7rem 0 0.7rem 0;
 }
@@ -127,7 +122,7 @@ option:hover {
   background-color: black;
   padding-left: 2%;
   height: auto;
-  width: 50%;
+  width: 48%;
   border: 1px solid #c9c9c9;
   height: 2.5rem;
   font-size: 1rem;
@@ -146,7 +141,7 @@ option:hover {
   float: right;
   background-color: black;
   height: auto;
-  width: 45%;
+  width: 48%;
   border: 1px solid #c9c9c9;
   padding-left: 2%;
   height: 2.5rem;
@@ -218,6 +213,10 @@ footer {
 }
 
 @media (min-width: 768px) {
+  main {
+    padding: 2rem;
+  }
+  
   main ul {
     flex-direction: row;
     flex-wrap: wrap;
@@ -229,6 +228,7 @@ footer {
 
   .product-image {
     max-width: 40vw;
+    width: 600px;
     max-height: 40vw;
     height: 600px;
   }

@@ -128,7 +128,7 @@ option:hover {
   background-color: black;
   padding-left: 2%;
   height: auto;
-  width: 60%;
+  width: 50%;
   border: 1px solid #c9c9c9;
   height: 2.5rem;
   font-size: 1rem;
@@ -147,7 +147,7 @@ option:hover {
   float: right;
   background-color: black;
   height: auto;
-  width: 35%;
+  width: 45%;
   border: 1px solid #c9c9c9;
   padding-left: 2%;
   height: 2.5rem;
@@ -157,6 +157,10 @@ option:hover {
 
 
 .add-to-cart {
+  -moz-appearance: none; 
+	-webkit-appearance: none; 
+	appearance: none;
+
   background-color: black;
   width: 100%;
   height: 2.5rem;

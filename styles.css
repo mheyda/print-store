@@ -81,8 +81,7 @@ main ul {
   display: block;
   max-width: 75vw;
   width: 600px;
-  max-height: 75vw;
-  height: 600px;
+  height: fit-content;
   object-fit: contain;
 }
 

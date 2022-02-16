@@ -146,7 +146,7 @@ main ul {
 footer {
   margin-top: auto;
   text-align: center;
-  padding: 14px;
+  padding: 18px;
 }
 
 
@@ -183,6 +183,10 @@ footer {
   .product-image, .product-content-container {
     max-width: 28vw;
     max-height: 28vw;
+  }
+
+  footer {
+    padding: 8px;
   }
 }
 

@@ -233,6 +233,7 @@ option:hover {
   
 .next {
   right: 0;
+  margin-left: auto;
   justify-content: right;
   padding-right: 10px;
 }

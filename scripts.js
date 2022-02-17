@@ -33,6 +33,7 @@ document.querySelectorAll(".product-item").forEach(function(productItem, product
             document.querySelectorAll(".modal-container")[productIndex].style.display = "block";
             // Show selected image
             imageIndex = showSlides(productIndex, imageIndex);
+            document.body.style.overflow = "hidden";
         }
         // Modal box switch to next image
         productItem.querySelector(".next").onclick = function() {
@@ -48,6 +49,7 @@ document.querySelectorAll(".product-item").forEach(function(productItem, product
         productItem.querySelector(".close").onclick = function() {
             productItem.querySelector(".modal-container").style.display = "none";
             showThumb(productIndex, imageIndex);
+            document.body.style.overflow = "auto";
         }
     })
 });

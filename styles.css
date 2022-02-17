@@ -196,14 +196,19 @@ option:hover {
 .close {
   color: black;
   position: absolute;
+  display: flex;
+  justify-content: right;
+  padding-right: 10px;
   top: 0;
   right: 0;
-  padding: 5px 15px 5px 15px;
-  font-size: 35px;
+  width: 60px;
+  height: 70px;
+  font-size: 50px;
   font-weight: bold;
   -webkit-text-fill-color: black;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgba(255, 255, 255, 0.9);
+  border: 3px solid blue;
 }
 
 .close:hover, .close:focus {
@@ -233,8 +238,8 @@ option:hover {
   
 .next {
   right: 0;
-  margin-left: auto;
   justify-content: right;
+  -webkit-justify-content: right;
   padding-right: 10px;
 }
 

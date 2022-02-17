@@ -208,7 +208,6 @@ option:hover {
   -webkit-text-fill-color: black;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgba(255, 255, 255, 0.9);
-  border: 3px solid blue;
 }
 
 .close:hover, .close:focus {
@@ -219,13 +218,12 @@ option:hover {
 
 .prev, .next {
   position: absolute;
-  display: flex;
-  align-items: center;
+  display: block;
   margin-left: -2vh;
+  width: 50px;
+  padding: 30px 10px;
   top: 50%;
   transform: translateY(-50%);
-  width: 20vw;
-  height: 100vh;
   padding-left: 10px;
   color: white;
   font-size: 35px;
@@ -238,9 +236,7 @@ option:hover {
   
 .next {
   right: 0;
-  justify-content: right;
-  -webkit-justify-content: right;
-  padding-right: 10px;
+  text-align: right;
 }
 
 /* Footer */

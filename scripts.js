@@ -1,3 +1,129 @@
+const main = document.querySelector("main");
+
+const detail = document.querySelector("#detail");
+
+var queryString = location.search.substring(1);
+var a = queryString.split("|")[1];
+console.log("Q String: " + queryString);
+
+
+
+
+async function loadData() {
+    const response = await fetch("./products.json");
+    const products = await response.json();
+    return products;
+}
+
+window.addEventListener("DOMContentLoaded", async () => {
+    const products = await loadData();
+    
+    
+    if (a == products["product"][0]["id"]) {
+        console.log("success");
+    }
+    console.log(a);
+    if (a) {
+        var titleContainer = detail.querySelector(".product-title");
+        var imageContainer = detail.querySelector(".product-image-container");
+        var thumbnailContainer = detail.querySelector(".thumbnail-container");
+        var modalContainer = detail.querySelector(".modal-images");
+        
+        
+        titleContainer.innerHTML = products["product"][a - 1]["name"];
+        
+        imageContainer.innerHTML = `<img class="product-image cursor" src="${products["product"][a - 1]["primaryImage"]}" alt="">`;
+        
+
+
+
+        var primaryImg = document.createElement("img");
+        primaryImg.setAttribute('src', `${products["product"][a - 1]["primaryImage"]}`);
+        primaryImg.classList.add("cursor");
+        modalContainer.appendChild(primaryImg);
+        
+        numSecondaryImages = Object.keys(products["product"][a - 1]["secondaryImages"]).length;
+        for (var i = 1; i < numSecondaryImages + 1; i++) {
+            var newImg = document.createElement("img");
+            newImg.setAttribute('src', `${products["product"][a - 1]["secondaryImages"][i]}`);
+            newImg.classList.add("cursor");
+            //newImg.setAttribute('alt', '');
+            console.log(newImg);
+            modalContainer.appendChild(newImg);
+
+
+            var newThumbnail = document.createElement("img");
+            newThumbnail.setAttribute('src', `${products["product"][a - 1]["thumbnailImages"][i]}`);
+            newThumbnail.classList.add("thumbnail", "cursor");
+            thumbnailContainer.appendChild(newThumbnail);
+            //newThumbnail.setAttribute('alt', '');
+
+        }
+           
+        
+    }
+    
+
+    console.log(main);
+    
+    main.addEventListener("click", function (e) {
+        console.log(e.target.dataset.id);
+        const id = e.target.dataset.id;
+
+
+
+        
+        
+
+
+
+    });
+    
+    populateMain(products);
+
+
+
+
+
+
+    function populateMain(products) {
+        var ul = document.querySelector(".products");
+
+        for (var i = 0; i < products["product"].length; i++) {
+
+            var li = document.createElement("li");
+            li.className = "product-item";
+            li.innerHTML = `
+                        <a href="detail.html?${products["product"][i]["name"]}|${products["product"][i]["id"]}">
+                            <div class="product-image-container">
+                                <img class="product-image cursor" data-id="${i}" src="${products["product"][i]["primaryImage"]}" alt="">
+                            </div>
+                            <div class="product-content-container">
+                                <p>
+                                    ${products["product"][i]["name"]}<br>
+                                    <span class="price">${products["product"][i]["startingPrice"]}</span><br>
+                                </p>
+                            </div>
+                        </a>
+            `;
+            ul.appendChild(li);
+    
+            
+        }
+    }
+
+
+    populateDetail(0);
+
+    function populateDetail(index) {
+
+    }
+
+
+
+});
+
+
 
 
 // Initialize the product images
@@ -128,3 +254,7 @@ document.querySelectorAll(".quantity").forEach(function(quantitySelect) {
 
 // Get copyright year
 document.querySelector(".copyright-year").innerHTML = new Date().getFullYear();
+
+
+
+

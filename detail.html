@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="description" content="Marshall's Print Store">
+        <meta name="keywords" content="">
+        <meta name="author" content="Marshall Heyda">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="title" property="og:title" content="Marshall's Print Store" />
+        <meta property="og:type" content="Website" />
+        <meta name="image" property="og:image" content="" />
+        <meta name="description" property="og:description" content="Marshall's Print Store" />
+
+        <!-- Link to styles -->
+        <link rel="stylesheet" href="/styles.css">
+
+        <!-- Browser Icon and Title -->
+        <link href="" rel="icon">
+        <title>Prints | Marshall Heyda</title>
+
+        <!-- Font awesome icons -->
+        <script src="https://kit.fontawesome.com/a7e713de55.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <a href="index.html">
+                    <li>
+                        Home
+                    </li>
+                </a>
+                <a href="">
+                    <li class="cart">
+                        Cart
+                        <div class="cart-symbol">
+                            <span class="cart-count">9</span>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        
+                    </li>
+                </a>
+            </ul>
+        </nav>
+
+        <!-- Store Items -->
+        <main id="detail">
+            
+            <div class="product-image-container">
+            </div>
+            <div class="thumbnail-container">
+            </div>
+
+
+            <div class="product-content-container">
+                <p>
+                    <h1 class="product-title">Atlanta Light Trails</h1>
+                    <span class="price">From $9.99</span><br>
+                    <form>
+                        <div class="options">
+                            <select class="size cursor" required>
+                                <option value="" disabled selected>Select Size</option>
+                                <option data-price="9.99" value="4x6">4x6</option>
+                                <option data-price="19.99" value="8x12">8x10</option>
+                                <option data-price="29.99" value="12x18">16x20</option>
+                                <option data-price="39.99" value="20x30">20x30</option>
+                            </select>
+                            <select class="quantity cursor" required>
+                                <option value="" disabled selected>Quantity</option>
+                            </select>
+                        </div>
+                        <input class="add-to-cart cursor" type="submit" value="Add to Cart">
+                    </form>
+                </p>
+                
+            </div>
+
+            <div class="modal-container">
+                <div class="modal-content">
+                    <div class="modal-images">
+                        <img class="modal-image" src="/images/One Night in Atlanta/One Night in Atlanta 720x1080.jpg" alt="Long Exposure of Downtown Atlanta with Interstate Light Trails">
+                    </div>
+                    <a class="prev cursor">&#10094;</a>
+                    <a class="next cursor">&#10095;</a>
+                    <span class="close cursor">&times;</span>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer>
+            &copy <span class="copyright-year"></span> Marshall Heyda
+        </footer>
+
+        <!-- JavaScript File -->
+        <script src="/scripts.js"></script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+{
+    "product": [
+ 
+        {
+            "id": "1",
+            "name": "Atlanta Light Trails",
+            "startingPrice": "From $9.99",
+            "primaryImage": "/images/One Night in Atlanta/One Night in Atlanta 400x600.jpg",
+            "secondaryImages": {
+                "1": "/images/2.jpg",
+                "2": "/images/3.jpg",
+                "3": "/images/4.jpg",
+                "4": "/images/5.jpg"
+            },
+            "thumbnailImages": {
+                "1": "/images/2.jpg",
+                "2": "/images/3.jpg",
+                "3": "/images/4.jpg",
+                "4": "/images/5.jpg"
+            }
+        },
+ 
+        {
+            "id": "2",
+            "name": "first",
+            "startingPrice": "From $9.99",
+            "primaryImage": "/images/1.jpg"
+        },
+
+        {
+            "id": "3",
+            "name": "second",
+            "startingPrice": "From $9.99",
+            "primaryImage": "/images/2.jpg"
+        },
+
+        {
+            "id": "4",
+            "name": "third",
+            "startingPrice": "From $9.99",
+            "primaryImage": "/images/3.jpg"
+        }
+ 
+    ]
+ }

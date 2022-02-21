@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         primaryImage = document.createElement("img");
         primaryImage.classList.add("product-image", "cursor");
         primaryImage.setAttribute("src", `${products[productIndex]["productImages"][0]["mainSrc"]}`);
-        // primaryImg.setAttribute("alt", "");
+        primaryImage.setAttribute("alt", `${products[productIndex]["productImages"][0]["mainAlt"]}`);
         imageContainer.appendChild(primaryImage);
         
         // Get number of thumbnails/modal images
@@ -36,14 +36,14 @@ window.addEventListener("DOMContentLoaded", async () => {
             var newThumbnail = document.createElement("img");
             newThumbnail.classList.add("thumbnail", "cursor");
             newThumbnail.setAttribute('src', `${products[productIndex]["productImages"][i]["thumbSrc"]}`);
-            //newThumbnail.setAttribute('alt', '');
+            newThumbnail.setAttribute('alt', `${products[productIndex]["productImages"][i]["thumbAlt"]}`);
             thumbnailContainer.appendChild(newThumbnail);
             
             // Create modal images
             var newImg = document.createElement("img");
             newImg.classList.add("modal-image", "cursor");
             newImg.setAttribute('src', `${products[productIndex]["productImages"][i]["mainSrc"]}`);
-            //newImg.setAttribute('alt', '');
+            newImg.setAttribute('alt', `${products[productIndex]["productImages"][i]["mainAlt"]}`);
             console.log(newImg);
             modalContainer.appendChild(newImg);
         }
@@ -110,6 +110,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         // Change product image based on thumbnail that was clicked
         function showThumb(imageIndex) {
             primaryImage.setAttribute("src", `${products[productIndex]["productImages"][imageIndex]["mainSrc"]}`);
+            primaryImage.setAttribute("alt", `${products[productIndex]["productImages"][imageIndex]["mainAlt"]}`)
             console.log(primaryImage.src);
         }        
     }

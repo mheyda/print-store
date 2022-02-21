@@ -9,33 +9,33 @@
         "productImages": [
             {
                 "mainSrc": "/images/One Night in Atlanta/One Night in Atlanta 400x600.jpg",
-                "mainAlt": "",
+                "mainAlt": "Main alt for ATL",
                 "thumbSrc": "/images/One Night in Atlanta/One Night in Atlanta 50x75.jpg",
-                "thumbAlt": ""
+                "thumbAlt": "Thumb alt for ATL"
             },
             {
                 "mainSrc": "/images/2.jpg",
-                "mainAlt": "",
+                "mainAlt": "Main alt for 2",
                 "thumbSrc": "/images/2.jpg",
-                "thumbAlt": ""
+                "thumbAlt": "Thumb alt for 2"
             },
             {
                 "mainSrc": "/images/3.jpg",
-                "mainAlt": "",
+                "mainAlt": "Main alt for 3",
                 "thumbSrc": "/images/3.jpg",
-                "thumbAlt": ""
+                "thumbAlt": "Thumb alt for 3"
             },
             {
                 "mainSrc": "/images/4.jpg",
-                "mainAlt": "",
+                "mainAlt": "Main alt for 4",
                 "thumbSrc": "/images/4.jpg",
-                "thumbAlt": ""
+                "thumbAlt": "Thumb alt for 4"
             },
             {
                 "mainSrc": "/images/5.jpg",
-                "mainAlt": "",
+                "mainAlt": "Main alt for 5",
                 "thumbSrc": "/images/5.jpg",
-                "thumbAlt": ""
+                "thumbAlt": "Thumb alt for 5"
             }
         ],
         "thumbnailImages": {

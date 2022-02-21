@@ -10,38 +10,42 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     
     if (productIndex) {
+        // Get containers from detail page
         const detail = document.querySelector("#detail");
-
-
         var titleContainer = detail.querySelector(".product-title");
         var imageContainer = detail.querySelector(".product-image-container");
         var thumbnailContainer = detail.querySelector(".thumbnail-container");
         var modalContainer = detail.querySelector(".modal-images");
         
+        // Update title for selected product
+        titleContainer.innerHTML = products[productIndex]["name"];
         
-        titleContainer.innerHTML = products["product"][productIndex - 1]["name"];
+        // Populate image container for selected product
         primaryImage = document.createElement("img");
         primaryImage.classList.add("product-image", "cursor");
-        primaryImage.setAttribute("src", `${products["product"][productIndex - 1]["productImages"][0]}`);
+        primaryImage.setAttribute("src", `${products[productIndex]["productImages"][0]["mainSrc"]}`);
         // primaryImg.setAttribute("alt", "");
         imageContainer.appendChild(primaryImage);
         
-        
-        numProductImages = Object.keys(products["product"][productIndex - 1]["productImages"]).length;
+        // Get number of thumbnails/modal images
+        numProductImages = Object.keys(products[productIndex]["productImages"]).length;
+        console.log("length product images: " + numProductImages);
+        // Loop through creating html elements for every thumbnail and every modal image
         for (var i = 0; i < numProductImages; i++) {
+            // Create thumbnails
+            var newThumbnail = document.createElement("img");
+            newThumbnail.classList.add("thumbnail", "cursor");
+            newThumbnail.setAttribute('src', `${products[productIndex]["productImages"][i]["thumbSrc"]}`);
+            //newThumbnail.setAttribute('alt', '');
+            thumbnailContainer.appendChild(newThumbnail);
+            
+            // Create modal images
             var newImg = document.createElement("img");
             newImg.classList.add("modal-image", "cursor");
-            newImg.setAttribute('src', `${products["product"][productIndex - 1]["productImages"][i]}`);
+            newImg.setAttribute('src', `${products[productIndex]["productImages"][i]["mainSrc"]}`);
             //newImg.setAttribute('alt', '');
             console.log(newImg);
             modalContainer.appendChild(newImg);
-
-
-            var newThumbnail = document.createElement("img");
-            newThumbnail.setAttribute('src', `${products["product"][productIndex - 1]["thumbnailImages"][i]}`);
-            newThumbnail.classList.add("thumbnail", "cursor");
-            thumbnailContainer.appendChild(newThumbnail);
-            //newThumbnail.setAttribute('alt', '');
         }
 
 
@@ -105,7 +109,8 @@ window.addEventListener("DOMContentLoaded", async () => {
 
         // Change product image based on thumbnail that was clicked
         function showThumb(imageIndex) {
-            primaryImage.setAttribute("src", `${products["product"][productIndex - 1]["productImages"][imageIndex]}`);
+            primaryImage.setAttribute("src", `${products[productIndex]["productImages"][imageIndex]["mainSrc"]}`);
+            console.log(primaryImage.src);
         }        
     }
     
@@ -130,19 +135,19 @@ async function loadData() {
 function populateMain(products) {
     var productList = document.querySelector(".products");
 
-    for (var i = 0; i < products["product"].length; i++) {
+    for (var i = 0; i < products.length; i++) {
 
         var li = document.createElement("li");
         li.className = "product-item";
         li.innerHTML = `
-                    <a href="detail.html?${products["product"][i]["name"]}|${products["product"][i]["id"]}">
+                    <a href="detail.html?${products[i]["name"]}|${products[i]["id"]}">
                         <div class="product-image-container">
-                            <img class="product-image cursor" data-id="${i}" src="${products["product"][i]["productImages"][0]}" alt="">
+                            <img class="product-image cursor" data-id="${i}" src="${products[i]["productImages"][0]["mainSrc"]}" alt="">
                         </div>
                         <div class="product-content-container">
                             <p>
-                                ${products["product"][i]["name"]}<br>
-                                <span class="price">${products["product"][i]["startingPrice"]}</span><br>
+                                ${products[i]["name"]}<br>
+                                <span class="price">${products[i]["startingPrice"]}</span><br>
                             </p>
                         </div>
                     </a>

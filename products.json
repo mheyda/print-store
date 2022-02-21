@@ -1,74 +1,95 @@
-{
-    "product": [
- 
-        {
-            "id": "1",
-            "name": "Atlanta Light Trails",
-            "startingPrice": "From $9.99",
-            "prices": {
-                
-            },
-            "productImages": {
-                "0": "/images/One Night in Atlanta/One Night in Atlanta 400x600.jpg",
-                "1": "/images/2.jpg",
-                "2": "/images/3.jpg",
-                "3": "/images/4.jpg",
-                "4": "/images/5.jpg"
-            },
-            "thumbnailImages": {
-                "0": "/images/One Night in Atlanta/One Night in Atlanta 50x75.jpg",
-                "1": "/images/2.jpg",
-                "2": "/images/3.jpg",
-                "3": "/images/4.jpg",
-                "4": "/images/5.jpg"
-            }
+[
+    {
+        "id": "0",
+        "name": "Atlanta Light Trails",
+        "startingPrice": "From $9.99",
+        "prices": {
+            
         },
- 
-        {
-            "id": "2",
-            "name": "first",
-            "startingPrice": "From $9.99",
-            "productImages": {
-                "0": "/images/1.jpg",
-                "1": "/images/2.jpg",
-                "2": "/images/2.jpg",
-                "3": "/images/2.jpg",
-                "4": "/images/2.jpg"
+        "productImages": [
+            {
+                "mainSrc": "/images/One Night in Atlanta/One Night in Atlanta 400x600.jpg",
+                "mainAlt": "",
+                "thumbSrc": "/images/One Night in Atlanta/One Night in Atlanta 50x75.jpg",
+                "thumbAlt": ""
             },
-            "thumbnailImages": {
-                "0": "/images/1.jpg",
-                "1": "/images/2.jpg",
-                "2": "/images/2.jpg",
-                "3": "/images/2.jpg",
-                "4": "/images/2.jpg"
+            {
+                "mainSrc": "/images/2.jpg",
+                "mainAlt": "",
+                "thumbSrc": "/images/2.jpg",
+                "thumbAlt": ""
+            },
+            {
+                "mainSrc": "/images/3.jpg",
+                "mainAlt": "",
+                "thumbSrc": "/images/3.jpg",
+                "thumbAlt": ""
+            },
+            {
+                "mainSrc": "/images/4.jpg",
+                "mainAlt": "",
+                "thumbSrc": "/images/4.jpg",
+                "thumbAlt": ""
+            },
+            {
+                "mainSrc": "/images/5.jpg",
+                "mainAlt": "",
+                "thumbSrc": "/images/5.jpg",
+                "thumbAlt": ""
             }
-        },
-
-        {
-            "id": "3",
-            "name": "second",
-            "startingPrice": "From $9.99",
-            "productImages": {
-                "0": "/images/2.jpg",
-                "1": "/images/2.jpg",
-                "2": "/images/3.jpg",
-                "3": "/images/4.jpg",
-                "4": "/images/5.jpg"
-            }
-        },
-
-        {
-            "id": "4",
-            "name": "third",
-            "startingPrice": "From $9.99",
-            "productImages": {
-                "0": "/images/4.jpg",
-                "1": "/images/2.jpg",
-                "2": "/images/3.jpg",
-                "3": "/images/4.jpg",
-                "4": "/images/5.jpg"
-            }
+        ],
+        "thumbnailImages": {
+            "0": "/images/One Night in Atlanta/One Night in Atlanta 50x75.jpg",
+            "1": "/images/2.jpg",
+            "2": "/images/3.jpg",
+            "3": "/images/4.jpg",
+            "4": "/images/5.jpg"
         }
- 
-    ]
- }
+    },
+
+    {
+        "id": "1",
+        "name": "first",
+        "startingPrice": "From $9.99",
+        "productImages": {
+            "0": "/images/1.jpg",
+            "1": "/images/2.jpg",
+            "2": "/images/2.jpg",
+            "3": "/images/2.jpg",
+            "4": "/images/2.jpg"
+        },
+        "thumbnailImages": {
+            "0": "/images/1.jpg",
+            "1": "/images/2.jpg",
+            "2": "/images/2.jpg",
+            "3": "/images/2.jpg",
+            "4": "/images/2.jpg"
+        }
+    },
+
+    {
+        "id": "2",
+        "name": "second",
+        "startingPrice": "From $9.99",
+        "productImages": {
+            "0": "/images/2.jpg",
+            "1": "/images/2.jpg",
+            "2": "/images/3.jpg",
+            "3": "/images/4.jpg",
+            "4": "/images/5.jpg"
+        }
+    },
+
+    {
+        "id": "3",
+        "name": "third",
+        "startingPrice": "From $9.99",
+        "productImages": {
+            "0": "/images/4.jpg",
+            "1": "/images/2.jpg",
+            "2": "/images/3.jpg",
+            "3": "/images/4.jpg",
+            "4": "/images/5.jpg"
+        }
+    }
+]

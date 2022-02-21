@@ -13,6 +13,7 @@
             "299.99",
             "399.99"
         ],
+        "maxQuantity": "30",
         "productImages": [
             {
                 "mainSrc": "/images/One Night in Atlanta/One Night in Atlanta 400x600.jpg",
@@ -61,6 +62,7 @@
             "111.99",
             "1111.99"
         ],
+        "maxQuantity": "95",
         "productImages": [
             {
                 "mainSrc": "/images/1.jpg",
@@ -109,6 +111,7 @@
             "222.99",
             "2222.99"
         ],
+        "maxQuantity": "10",
         "productImages": [
             {
                 "mainSrc": "/images/2.jpg",

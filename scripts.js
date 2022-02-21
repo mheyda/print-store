@@ -19,6 +19,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         var thumbnailContainer = detail.querySelector(".thumbnail-container");
         var modalContainer = detail.querySelector(".modal-images");
         var sizeSelector = detail.querySelector(".size");
+        var quantitySelector = detail.querySelector(".quantity");
         
         // Update title for selected product
         titleContainer.innerHTML = products[productIndex]["name"];
@@ -156,7 +157,26 @@ window.addEventListener("DOMContentLoaded", async () => {
         }
 
 
+        // Initialize previously selected quantity value
+        var previousQtyIndex = 0;
+        var previousQtyHTML = "Quantity";
 
+        var maxQuantity = products[productIndex]["maxQuantity"];
+
+        // Create options for every quantity select box
+        for (var i = 0; i < maxQuantity; i++) {
+            var option = document.createElement('option');
+            option.value = i + 1;
+            option.innerHTML = i + 1;
+            quantitySelector.appendChild(option);
+        }
+        // If quantity is changed, update quantity box to show `Quantity: ${selected amount}` and replace previously selected quantity with original value
+        quantitySelector.onchange = function() {
+            quantitySelector.querySelectorAll("option")[previousQtyIndex].innerHTML = previousQtyHTML;
+            quantitySelector.querySelectorAll("option")[quantitySelector.selectedIndex].innerHTML = `Quantity: ${quantitySelector.selectedIndex}`;
+            previousQtyIndex = quantitySelector.selectedIndex;
+            previousQtyHTML = quantitySelector.selectedIndex;
+        }
 
 
 
@@ -214,24 +234,8 @@ function populateMain(products) {
 
 
 
-// Initialize previously selected quantity value
-var previousQtyIndex = 0;
-// Select quantity box for all product items
-document.querySelectorAll(".quantity").forEach(function(quantitySelect) {
-    // Create options for every quantity select box
-    for (var i = 1; i < 31; i++) {
-        var option = document.createElement('option');
-        option.value = i;
-        option.innerHTML = i;
-        quantitySelect.appendChild(option);
-    }
-    // If quantity is changed, update quantity box to show `Quantity: ${selected amount}` and replace previously selected quantity with original value
-    quantitySelect.onchange = function() {
-        quantitySelect.querySelectorAll("option")[previousQtyIndex].innerHTML = previousQtyIndex;
-        quantitySelect.querySelectorAll("option")[quantitySelect.selectedIndex].innerHTML = `Quantity: ${quantitySelect.selectedIndex}`;
-        previousQtyIndex = quantitySelect.selectedIndex;
-    }
-});
+
+
 
 
 

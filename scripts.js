@@ -2,14 +2,16 @@ const main = document.querySelector("main");
 
 var queryString = location.search.substring(1);
 var productIndex = queryString.split("|")[1];
+var htmlPage = window.location.pathname;
 
 
 window.addEventListener("DOMContentLoaded", async () => {
     // Get product data
     const products = await loadData();
 
-    
-    if (productIndex) {
+    // If on detail page
+    if (htmlPage === "/detail.html") {
+        console.log("At detail.html");
         // Get containers from detail page
         const detail = document.querySelector("#detail");
         var titleContainer = detail.querySelector(".product-title");
@@ -116,7 +118,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
     
     // If at index.html with no search query, populate with products
-    else {
+    else if (htmlPage === "/index.html") {
+        console.log("At index.html");
         populateMain(products);
     }
     
@@ -132,18 +135,17 @@ async function loadData() {
     return products;
 }
 
-// Populate index.html with all the products in "products.json"
+// Method to populate index.html with all the products in "products.json"
 function populateMain(products) {
     var productList = document.querySelector(".products");
 
     for (var i = 0; i < products.length; i++) {
-
         var li = document.createElement("li");
         li.className = "product-item";
         li.innerHTML = `
-                    <a href="detail.html?${products[i]["name"]}|${products[i]["id"]}">
+                    <a href="detail.html?${products[i]["name"]}|${i}">
                         <div class="product-image-container">
-                            <img class="product-image cursor" data-id="${i}" src="${products[i]["productImages"][0]["mainSrc"]}" alt="">
+                            <img class="product-image cursor" data-id="${i}" src="${products[i]["productImages"][0]["mainSrc"]}" alt="${products[i]["productImages"][0]["mainAlt"]}">
                         </div>
                         <div class="product-content-container">
                             <p>
@@ -153,9 +155,7 @@ function populateMain(products) {
                         </div>
                     </a>
         `;
-        productList.appendChild(li);
-
-        
+        productList.appendChild(li);   
     }
 }
 

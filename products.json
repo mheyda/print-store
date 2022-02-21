@@ -5,7 +5,9 @@
             "id": "1",
             "name": "Atlanta Light Trails",
             "startingPrice": "From $9.99",
-            "primaryImage": "/images/One Night in Atlanta/One Night in Atlanta 400x600.jpg",
+            "prices": {
+                
+            },
             "productImages": {
                 "0": "/images/One Night in Atlanta/One Night in Atlanta 400x600.jpg",
                 "1": "/images/2.jpg",
@@ -26,7 +28,6 @@
             "id": "2",
             "name": "first",
             "startingPrice": "From $9.99",
-            "primaryImage": "/images/1.jpg",
             "productImages": {
                 "0": "/images/1.jpg",
                 "1": "/images/2.jpg",
@@ -47,14 +48,26 @@
             "id": "3",
             "name": "second",
             "startingPrice": "From $9.99",
-            "primaryImage": "/images/2.jpg"
+            "productImages": {
+                "0": "/images/2.jpg",
+                "1": "/images/2.jpg",
+                "2": "/images/3.jpg",
+                "3": "/images/4.jpg",
+                "4": "/images/5.jpg"
+            }
         },
 
         {
             "id": "4",
             "name": "third",
             "startingPrice": "From $9.99",
-            "primaryImage": "/images/3.jpg"
+            "productImages": {
+                "0": "/images/4.jpg",
+                "1": "/images/2.jpg",
+                "2": "/images/3.jpg",
+                "3": "/images/4.jpg",
+                "4": "/images/5.jpg"
+            }
         }
  
     ]

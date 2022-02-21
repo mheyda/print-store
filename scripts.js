@@ -31,22 +31,18 @@ window.addEventListener("DOMContentLoaded", async () => {
         
         
         titleContainer.innerHTML = products["product"][a - 1]["name"];
+        primaryImage = document.createElement("img");
+        primaryImage.classList.add("product-image", "cursor");
+        primaryImage.setAttribute("src", `${products["product"][a - 1]["primaryImage"]}`);
+        // primaryImg.setAttribute("alt", "");
+        imageContainer.appendChild(primaryImage);
         
-        imageContainer.innerHTML = `<img class="product-image cursor" src="${products["product"][a - 1]["primaryImage"]}" alt="">`;
         
-
-
-
-        var primaryImg = document.createElement("img");
-        primaryImg.setAttribute('src', `${products["product"][a - 1]["primaryImage"]}`);
-        primaryImg.classList.add("cursor");
-        modalContainer.appendChild(primaryImg);
-        
-        numSecondaryImages = Object.keys(products["product"][a - 1]["secondaryImages"]).length;
-        for (var i = 1; i < numSecondaryImages + 1; i++) {
+        numProductImages = Object.keys(products["product"][a - 1]["productImages"]).length;
+        for (var i = 0; i < numProductImages; i++) {
             var newImg = document.createElement("img");
-            newImg.setAttribute('src', `${products["product"][a - 1]["secondaryImages"][i]}`);
-            newImg.classList.add("cursor");
+            newImg.classList.add("modal-image", "cursor");
+            newImg.setAttribute('src', `${products["product"][a - 1]["productImages"][i]}`);
             //newImg.setAttribute('alt', '');
             console.log(newImg);
             modalContainer.appendChild(newImg);
@@ -57,8 +53,80 @@ window.addEventListener("DOMContentLoaded", async () => {
             newThumbnail.classList.add("thumbnail", "cursor");
             thumbnailContainer.appendChild(newThumbnail);
             //newThumbnail.setAttribute('alt', '');
-
         }
+
+
+
+
+        var imageIndex = 0;
+    
+        // Update image index
+        function updateImageIndex(newImageIndex) {
+            imageIndex = newImageIndex;
+        }
+
+
+        // Open modal box
+        primaryImage.onclick = function() {
+            detail.querySelector(".modal-container").style.display = "block";
+            // Show selected image
+            console.log("Image index: " + imageIndex);
+            imageIndex = showSlides(imageIndex);
+            document.body.style.overflow = "hidden";
+        }
+        // Modal box switch to next image
+        detail.querySelector(".next").onclick = function() {
+            imageIndex += 1;
+            imageIndex = showSlides(imageIndex);
+            showThumb(imageIndex);
+        }
+        // Modal box switch to previous image
+        detail.querySelector(".prev").onclick = function() {
+            imageIndex -= 1;
+            imageIndex = showSlides(imageIndex);
+            showThumb(imageIndex);
+        }
+        // Close modal box for selected product
+        detail.querySelector(".close").onclick = function() {
+            detail.querySelector(".modal-container").style.display = "none";
+            showThumb(imageIndex);
+            document.body.style.overflow = "auto";
+        }
+
+        // Change modal box image
+        function showSlides(imageIndex) {
+            var slides = detail.querySelectorAll(".modal-image");
+            if (imageIndex >= slides.length) {imageIndex = 0}
+            if (imageIndex < 0) {imageIndex = slides.length - 1}
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[imageIndex].style.display = "block";
+            return imageIndex;
+        }
+
+
+
+
+
+
+
+        // Thumbnail image functions
+        detail.querySelectorAll(".thumbnail").forEach(function(thumbnail, imageIndex) {
+            // Change product image to selected thumbnail
+            thumbnail.onclick = function() {
+                showThumb(imageIndex);
+                updateImageIndex(imageIndex);
+            }
+        })
+
+        // Change product image based on thumbnail that was clicked
+        function showThumb(imageIndex) {
+            primaryImage.setAttribute("src", `${products["product"][a - 1]["productImages"][imageIndex]}`);
+        }
+
+
+        
            
         
     }
@@ -111,16 +179,6 @@ window.addEventListener("DOMContentLoaded", async () => {
             
         }
     }
-
-
-    populateDetail(0);
-
-    function populateDetail(index) {
-
-    }
-
-
-
 });
 
 
@@ -137,20 +195,6 @@ for (var i = 0; i < listItems.length; i++) {
 document.querySelectorAll(".product-item").forEach(function(productItem, productIndex) {
 
     var imageIndex = 0;
-    
-    // Update image index
-    function updateImageIndex(newImageIndex) {
-        imageIndex = newImageIndex;
-    }
-    
-    // Thumbnail image functions
-    productItem.querySelectorAll(".thumbnail").forEach(function(thumbnail, imageIndex) {
-        // Change product image to selected thumbnail
-        thumbnail.onclick = function() {
-            showThumb(productIndex, imageIndex);
-            updateImageIndex(imageIndex);
-        }
-    })
 
     // Modal box functions
     productItem.querySelectorAll(".product-image").forEach(function(productImage) {
@@ -180,16 +224,6 @@ document.querySelectorAll(".product-item").forEach(function(productItem, product
     })
 });
 
-
-// Change product image based on thumbnail that was clicked
-function showThumb(productIndex, imageIndex) {
-    var item = document.querySelectorAll(".product-item")[productIndex];
-    var slides = item.querySelectorAll(".product-image");
-    for (var i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slides[imageIndex].style.display = "block";
-}
 
 // Change modal box image
 function showSlides(productIndex, imageIndex) {

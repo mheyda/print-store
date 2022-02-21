@@ -186,7 +186,7 @@ option:hover {
 .modal-image {
   display: none;
 
-  height: 100%;
+  height: 96vh;
   width: 85%;
   margin-left: auto;
   margin-right: auto;

@@ -18,6 +18,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         var imageContainer = detail.querySelector(".product-image-container");
         var thumbnailContainer = detail.querySelector(".thumbnail-container");
         var modalContainer = detail.querySelector(".modal-images");
+        var sizeSelector = detail.querySelector(".size");
         
         // Update title for selected product
         titleContainer.innerHTML = products[productIndex]["name"];
@@ -31,7 +32,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         
         // Get number of thumbnails/modal images
         numProductImages = Object.keys(products[productIndex]["productImages"]).length;
-        console.log("length product images: " + numProductImages);
+
         // Loop through creating html elements for every thumbnail and every modal image
         for (var i = 0; i < numProductImages; i++) {
             // Create thumbnails
@@ -50,6 +51,20 @@ window.addEventListener("DOMContentLoaded", async () => {
             modalContainer.appendChild(newImg);
         }
 
+
+
+
+        // Get number of size options
+        numProductSizes = products[productIndex]["sizes"].length;
+        console.log(numProductSizes);
+        for (var i = 0; i < numProductSizes; i++) {
+            // Create size options
+            var newSize = document.createElement("option");
+            newSize.dataset.price = `${products[productIndex]["prices"][i]}`;
+            newSize.value = `${products[productIndex]["sizes"][i]}`;
+            newSize.innerHTML = `${products[productIndex]["sizes"][i]}`;
+            sizeSelector.appendChild(newSize);
+        }
 
 
 
@@ -114,7 +129,39 @@ window.addEventListener("DOMContentLoaded", async () => {
             primaryImage.setAttribute("src", `${products[productIndex]["productImages"][imageIndex]["mainSrc"]}`);
             primaryImage.setAttribute("alt", `${products[productIndex]["productImages"][imageIndex]["mainAlt"]}`)
             console.log(primaryImage.src);
-        }        
+        }      
+        
+        
+
+
+
+        // Initialize price value
+        detail.querySelector(".price").innerHTML = `From $${products[productIndex]["prices"][0]}`;
+
+        // Initialize previously selected size value
+        var previousSizeIndex = 0;
+        var previousSizeHTML = "Select Size";
+
+        sizeSelector.onchange = function() {
+            // Update the size box to show `Size: ${selected size}` and replace previously selected size with original value
+            sizeSelector.querySelectorAll("option")[previousSizeIndex].innerHTML = previousSizeHTML;
+            previousSizeIndex = sizeSelector.selectedIndex;
+            previousSizeHTML = sizeSelector.querySelectorAll("option")[previousSizeIndex].innerHTML;
+            var selectedOption = sizeSelector.querySelectorAll("option")[sizeSelector.selectedIndex];
+            selectedOption.innerHTML = `Size: ${selectedOption.innerHTML}`;
+
+            // Update the price of a product when the user selects a size
+            var price = sizeSelector.options[sizeSelector.selectedIndex].dataset.price;
+            detail.querySelector('.price').innerHTML = `$${price}`;
+        }
+
+
+
+
+
+
+
+
     }
     
     // If at index.html with no search query, populate with products
@@ -150,7 +197,7 @@ function populateMain(products) {
                         <div class="product-content-container">
                             <p>
                                 ${products[i]["name"]}<br>
-                                <span class="price">${products[i]["startingPrice"]}</span><br>
+                                <span class="price">From $${products[i]["prices"][0]}</span><br>
                             </p>
                         </div>
                     </a>
@@ -163,25 +210,7 @@ function populateMain(products) {
 
 
 
-// Initialize previously selected size value
-var previousSizeIndex = 0;
-var previousSizeHTML = "Select Size";
-// Select size box for all product items
-document.querySelectorAll('.size').forEach(function(sizeSelect, i) {
-    
-    sizeSelect.onchange = function() {
-        // Update the size box to show `Size: ${selected size}` and replace previously selected size with original value
-        sizeSelect.querySelectorAll("option")[previousSizeIndex].innerHTML = previousSizeHTML;
-        previousSizeIndex = sizeSelect.selectedIndex;
-        previousSizeHTML = sizeSelect.querySelectorAll("option")[previousSizeIndex].innerHTML;
-        var selectedOption = sizeSelect.querySelectorAll("option")[sizeSelect.selectedIndex];
-        selectedOption.innerHTML = `Size: ${selectedOption.innerHTML}`;
 
-        // Update the price of a product when the user selects a size
-        var price = sizeSelect.options[sizeSelect.selectedIndex].dataset.price;
-        document.querySelectorAll('.price')[i].innerHTML = `$${price}`;
-    }
-});
 
 
 

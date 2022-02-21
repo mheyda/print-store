@@ -1,10 +1,18 @@
 [
     {
         "name": "Atlanta Light Trails",
-        "startingPrice": "From $9.99",
-        "prices": {
-            
-        },
+        "sizes": [
+            "4x6",
+            "8x12",
+            "16x24",
+            "20x30"
+        ],
+        "prices": [
+            "99.99",
+            "199.99",
+            "299.99",
+            "399.99"
+        ],
         "productImages": [
             {
                 "mainSrc": "/images/One Night in Atlanta/One Night in Atlanta 400x600.jpg",
@@ -36,56 +44,97 @@
                 "thumbSrc": "/images/5.jpg",
                 "thumbAlt": "Thumb alt for 5"
             }
+        ]
+    },
+
+    {
+        "name": "First",
+        "sizes": [
+            "4x6",
+            "8x12",
+            "16x24",
+            "20x30"
         ],
-        "thumbnailImages": {
-            "0": "/images/One Night in Atlanta/One Night in Atlanta 50x75.jpg",
-            "1": "/images/2.jpg",
-            "2": "/images/3.jpg",
-            "3": "/images/4.jpg",
-            "4": "/images/5.jpg"
-        }
+        "prices": [
+            "1.99",
+            "11.99",
+            "111.99",
+            "1111.99"
+        ],
+        "productImages": [
+            {
+                "mainSrc": "/images/1.jpg",
+                "mainAlt": "Main alt for ATL",
+                "thumbSrc": "/images/1.jpg",
+                "thumbAlt": "Thumb alt for ATL"
+            },
+            {
+                "mainSrc": "/images/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "/images/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "/images/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "/images/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "/images/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "/images/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            },
+            {
+                "mainSrc": "/images/5.jpg",
+                "mainAlt": "Main alt for 5",
+                "thumbSrc": "/images/5.jpg",
+                "thumbAlt": "Thumb alt for 5"
+            }
+        ]
     },
 
     {
-        "name": "first",
-        "startingPrice": "From $9.99",
-        "productImages": {
-            "0": "/images/1.jpg",
-            "1": "/images/2.jpg",
-            "2": "/images/2.jpg",
-            "3": "/images/2.jpg",
-            "4": "/images/2.jpg"
-        },
-        "thumbnailImages": {
-            "0": "/images/1.jpg",
-            "1": "/images/2.jpg",
-            "2": "/images/2.jpg",
-            "3": "/images/2.jpg",
-            "4": "/images/2.jpg"
-        }
-    },
+        "name": "Second",
+        "sizes": [
+            "4x6",
+            "8x12",
+            "16x24",
+            "20x30"
+        ],
+        "prices": [
+            "2.99",
+            "22.99",
+            "222.99",
+            "2222.99"
+        ],
+        "productImages": [
+            {
+                "mainSrc": "/images/2.jpg",
+                "mainAlt": "Main alt for ATL",
+                "thumbSrc": "/images/2.jpg",
+                "thumbAlt": "Thumb alt for ATL"
+            },
+            {
+                "mainSrc": "/images/3.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "/images/3.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "/images/4.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "/images/4.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "/images/5.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "/images/5.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            }
 
-    {
-        "name": "second",
-        "startingPrice": "From $9.99",
-        "productImages": {
-            "0": "/images/2.jpg",
-            "1": "/images/2.jpg",
-            "2": "/images/3.jpg",
-            "3": "/images/4.jpg",
-            "4": "/images/5.jpg"
-        }
-    },
-
-    {
-        "name": "third",
-        "startingPrice": "From $9.99",
-        "productImages": {
-            "0": "/images/4.jpg",
-            "1": "/images/2.jpg",
-            "2": "/images/3.jpg",
-            "3": "/images/4.jpg",
-            "4": "/images/5.jpg"
-        }
+        ]
     }
 ]

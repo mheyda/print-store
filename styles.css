@@ -318,3 +318,48 @@ footer {
     margin-right: auto;
   }
 }
+
+
+
+
+
+
+
+
+
+.cart-item {
+  display: flex;
+  width: 100vw;
+  height: 5rem;
+  align-items: center;
+  border: 3px solid green;
+}
+
+.remove-from-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 5rem;
+  border: 3px solid blue;
+}
+.cart-image {
+  display: block;
+  max-width: 75px;
+  max-height: 75px;
+  border: 3px solid red;
+  object-fit: contain;
+}
+.cart-description {
+  margin-right: auto;
+  padding: 1rem;
+}
+.cart-quantity {
+  width: 200px;
+  border: 3px solid blue;
+}
+.cart-price {
+  width: 150px;
+  border: 3px solid red;
+  text-align: right;
+}

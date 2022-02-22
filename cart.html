@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="description" content="Marshall's Print Store">
+        <meta name="keywords" content="">
+        <meta name="author" content="Marshall Heyda">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="title" property="og:title" content="Marshall's Print Store" />
+        <meta property="og:type" content="Website" />
+        <meta name="image" property="og:image" content="" />
+        <meta name="description" property="og:description" content="Marshall's Print Store" />
+
+        <!-- Link to styles -->
+        <link rel="stylesheet" href="/styles.css">
+
+        <!-- Browser Icon and Title -->
+        <link href="" rel="icon">
+        <title>Prints | Marshall Heyda</title>
+
+        <!-- Font awesome icons -->
+        <script src="https://kit.fontawesome.com/a7e713de55.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <a href="index.html">
+                    <li>
+                        Home
+                    </li>
+                </a>
+                <a href="">
+                    <li class="cart">
+                        Cart
+                        <div class="cart-symbol">
+                            <span class="cart-count">9</span>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        
+                    </li>
+                </a>
+            </ul>
+        </nav>
+
+        <!-- Shopping Cart -->
+        <main id="cart">
+            <h1>Shopping Cart</h1>
+            <div id="cart-header">
+                Item 
+                Quantity 
+                Price
+            </div>
+            <ul>
+                <li class="cart-item">
+                    <span class="remove-from-cart cursor">&times;</span>
+                    <img class="cart-image cursor" src="/images/1.jpg" alt="">
+                    <div class="cart-description">
+                        Title
+                        <br>
+                        Size
+                    </div>
+                    <select class="quantity cart-quantity cursor" required>
+                        <option value="" disabled selected>Quantity</option>
+                    </select>
+                    <span class="cart-price">$56.99</span>
+                </li>
+            </ul>
+        </main>
+        
+        <!-- Footer -->
+        <footer>
+            &copy <span class="copyright-year"></span> Marshall Heyda
+        </footer>
+
+        <!-- JavaScript File -->
+        <script src="/scripts.js"></script>
+    </body>
+</html>

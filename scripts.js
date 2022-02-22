@@ -1,7 +1,7 @@
 const main = document.querySelector("main");
 
 var queryString = location.search.substring(1);
-var productIndex = queryString.split("|")[1];
+var productIndex = queryString.split("|")[0];
 var htmlPage = window.location.pathname;
 
 
@@ -14,37 +14,46 @@ window.addEventListener("DOMContentLoaded", async () => {
         const detailMain = document.querySelector("#detail");
         console.log("At detail.html");
         
+        // Populate title, primary image, starting price, modal images, thumbnail images, sizes and quantities
         populateTitle(products, detailMain, productIndex);
         primaryImage = populatePrimaryImage(products, detailMain, productIndex);
+        populateStartingPrice(products, detailMain, productIndex);
         populateModal(products, detailMain);
         populateThumbnails(products, detailMain);
-
-        // Populate Size, Price, and Quantity Content
-        var sizeSelector = detailMain.querySelector(".size");
-        var quantitySelector = detailMain.querySelector(".quantity");
+        sizeSelector = populateSizes(products, detailMain, productIndex);
+        quantitySelector = populateQuantities(products, detailMain, productIndex);
         
-
-        // Get number of size options
-        numProductSizes = products[productIndex]["sizes"].length;
-        for (var i = 0; i < numProductSizes; i++) {
-            // Create size options
-            var newSize = document.createElement("option");
-            newSize.dataset.price = `${products[productIndex]["prices"][i]}`;
-            newSize.value = `${products[productIndex]["sizes"][i]}`;
-            newSize.innerHTML = `${products[productIndex]["sizes"][i]}`;
-            sizeSelector.appendChild(newSize);
+        // Initialize previously selected size value
+        var previousSizeIndex = 0;
+        var previousSizeHTML = "Select Size";
+        // If size is changed, update the size box to show `Size: ${selected size}` and replace previously selected size with original value
+        sizeSelector.onchange = function() {
+            sizeSelector.querySelectorAll("option")[previousSizeIndex].innerHTML = previousSizeHTML;
+            previousSizeIndex = sizeSelector.selectedIndex;
+            previousSizeHTML = sizeSelector.querySelectorAll("option")[previousSizeIndex].innerHTML;
+            var selectedOption = sizeSelector.querySelectorAll("option")[sizeSelector.selectedIndex];
+            selectedOption.innerHTML = `Size: ${selectedOption.innerHTML}`;
+            var price = sizeSelector.options[sizeSelector.selectedIndex].dataset.price;
+            detailMain.querySelector('.price').innerHTML = `$${price}`;
         }
 
+        // Initialize previously selected quantity value
+        var previousQtyIndex = 0;
+        var previousQtyHTML = "Quantity";
+        // If quantity is changed, update quantity box to show `Quantity: ${selected amount}` and replace previously selected quantity with original value
+        quantitySelector.onchange = function() {
+            quantitySelector.querySelectorAll("option")[previousQtyIndex].innerHTML = previousQtyHTML;
+            quantitySelector.querySelectorAll("option")[quantitySelector.selectedIndex].innerHTML = `Quantity: ${quantitySelector.selectedIndex}`;
+            previousQtyIndex = quantitySelector.selectedIndex;
+            previousQtyHTML = quantitySelector.selectedIndex;
+        }
 
-
+        // Modal and thumbnail methods
         var slideIndex = 0;
-    
         // Update image index
         function updateImageIndex(newSlideIndex) {
             slideIndex = newSlideIndex;
         }
-
-
         // Open modal box
         primaryImage.onclick = function() {
             detailMain.querySelector(".modal-container").style.display = "block";
@@ -65,13 +74,12 @@ window.addEventListener("DOMContentLoaded", async () => {
             slideIndex = showSlides(slideIndex);
             showThumb(slideIndex);
         }
-        // Close modal box for selected product
+        // Close modal box
         detailMain.querySelector(".close").onclick = function() {
             detailMain.querySelector(".modal-container").style.display = "none";
             showThumb(slideIndex);
             document.body.style.overflow = "auto";
         }
-
         // Change modal box image
         function showSlides(imageIndex) {
             var slides = detailMain.querySelectorAll(".modal-image");
@@ -83,74 +91,20 @@ window.addEventListener("DOMContentLoaded", async () => {
             slides[imageIndex].style.display = "block";
             return imageIndex;
         }
-
-        // Thumbnail image functions
-        detailMain.querySelectorAll(".thumbnail").forEach(function(thumbnail, imageIndex) {
-            // Change product image to selected thumbnail
-            thumbnail.onclick = function() {
-                showThumb(imageIndex);
-                updateImageIndex(imageIndex);
-            }
-        })
-
-        // Change product image based on thumbnail that was clicked
+        // Change product image based on thumbnail that was clicked or modal image that was closed
         function showThumb(imageIndex) {
             primaryImage.setAttribute("src", `${products[productIndex]["productImages"][imageIndex]["mainSrc"]}`);
             primaryImage.setAttribute("alt", `${products[productIndex]["productImages"][imageIndex]["mainAlt"]}`)
             console.log(primaryImage.src);
-        }      
-        
-        
-
-
-
-        // Populate starting price value
-        populateStartingPrice(products, detailMain, productIndex);
-
-
-        // Initialize previously selected size value
-        var previousSizeIndex = 0;
-        var previousSizeHTML = "Select Size";
-
-        sizeSelector.onchange = function() {
-            // Update the size box to show `Size: ${selected size}` and replace previously selected size with original value
-            sizeSelector.querySelectorAll("option")[previousSizeIndex].innerHTML = previousSizeHTML;
-            previousSizeIndex = sizeSelector.selectedIndex;
-            previousSizeHTML = sizeSelector.querySelectorAll("option")[previousSizeIndex].innerHTML;
-            var selectedOption = sizeSelector.querySelectorAll("option")[sizeSelector.selectedIndex];
-            selectedOption.innerHTML = `Size: ${selectedOption.innerHTML}`;
-
-            // Update the price of a product when the user selects a size
-            var price = sizeSelector.options[sizeSelector.selectedIndex].dataset.price;
-            detailMain.querySelector('.price').innerHTML = `$${price}`;
-        }
-
-
-        // Initialize previously selected quantity value
-        var previousQtyIndex = 0;
-        var previousQtyHTML = "Quantity";
-
-        var maxQuantity = products[productIndex]["maxQuantity"];
-
-        // Create options for every quantity select box
-        for (var i = 0; i < maxQuantity; i++) {
-            var option = document.createElement('option');
-            option.value = i + 1;
-            option.innerHTML = i + 1;
-            quantitySelector.appendChild(option);
-        }
-        // If quantity is changed, update quantity box to show `Quantity: ${selected amount}` and replace previously selected quantity with original value
-        quantitySelector.onchange = function() {
-            quantitySelector.querySelectorAll("option")[previousQtyIndex].innerHTML = previousQtyHTML;
-            quantitySelector.querySelectorAll("option")[quantitySelector.selectedIndex].innerHTML = `Quantity: ${quantitySelector.selectedIndex}`;
-            previousQtyIndex = quantitySelector.selectedIndex;
-            previousQtyHTML = quantitySelector.selectedIndex;
-        }
-
-
-
-
-
+        } 
+        // When a thumbnail is clicked, update primary image and update image index
+        thumbnails = detailMain.querySelectorAll(".thumbnail");
+        thumbnails.forEach(function(thumbnail, imageIndex) {
+            thumbnail.onclick = function() {
+                showThumb(imageIndex);
+                updateImageIndex(imageIndex);
+            }
+        });
     }
     
     // If at index.html with no search query, populate with products
@@ -183,7 +137,7 @@ function populateMain(products, indexMain) {
         var li = document.createElement("li");
         li.className = "product-item";
         li.innerHTML = `
-                    <a href="detail.html?${products[i]["name"]}|${i}">
+                    <a href="detail.html?${i}|${products[i]["name"]}">
                         <div class="product-image-container">
                             <img class="product-image cursor">
                         </div>
@@ -211,7 +165,7 @@ function populateMain(products, indexMain) {
 
 // Method to Populate Title Content
 function populateTitle(products, container, productIndex) {
-    container.querySelector(".product-title").innerHTML = products[productIndex]["name"];
+    container.querySelector(".product-title").innerHTML = products[productIndex]["name"].replace(/-/g, " ");
 }
 
 // Method to Populate Primary Image Content
@@ -229,7 +183,7 @@ function populateModal(products, container) {
     for (var i = 0; i < numModalImages; i++) {
         // Create modal images
         var newModalImage = document.createElement("img");
-        newModalImage.classList.add("modal-image", "cursor");
+        newModalImage.classList.add("modal-image");
         newModalImage.setAttribute('src', `${products[productIndex]["productImages"][i]["mainSrc"]}`);
         newModalImage.setAttribute('alt', `${products[productIndex]["productImages"][i]["mainAlt"]}`);
         modalContainer.appendChild(newModalImage);
@@ -255,15 +209,32 @@ function populateStartingPrice(products, container, productIndex) {
     container.querySelector(".price").innerHTML = `From $${products[productIndex]["prices"][0]}`;
 }
 
+// Method to Populate Size Selector
+function populateSizes(products, container, productIndex) {
+    var sizeSelector = container.querySelector(".size");
+    numProductSizes = products[productIndex]["sizes"].length;
+    for (var i = 0; i < numProductSizes; i++) {
+        var newSize = document.createElement("option");
+        newSize.dataset.price = `${products[productIndex]["prices"][i]}`;
+        newSize.value = `${products[productIndex]["sizes"][i]}`;
+        newSize.innerHTML = `${products[productIndex]["sizes"][i]}`;
+        sizeSelector.appendChild(newSize);
+    }
+    return sizeSelector;
+}
 
-
-
-
-
+// Method to Populate Quantity Selector
+function populateQuantities(products, container, productIndex) {
+    var quantitySelector = container.querySelector(".quantity");
+    var maxQuantity = products[productIndex]["maxQuantity"];
+    for (var i = 0; i < maxQuantity; i++) {
+        var option = document.createElement('option');
+        option.value = i + 1;
+        option.innerHTML = i + 1;
+        quantitySelector.appendChild(option);
+    }
+    return quantitySelector;
+}
 
 // Get copyright year
 document.querySelector(".copyright-year").innerHTML = new Date().getFullYear();
-
-
-
-

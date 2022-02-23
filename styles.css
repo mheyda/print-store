@@ -10,7 +10,7 @@ body {
   min-height: 100vh;
   background-color: black;
 }
-h3 {
+h2, h3 {
   font-weight: 300;
 }
 a {
@@ -85,6 +85,8 @@ main ul {
 
 .product-image {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 90vw;
   max-height: 90vw;
   object-fit: contain;
@@ -95,6 +97,7 @@ main ul {
   flex-wrap: wrap;
   position: relative;
   width: 100%;
+  justify-content: center;
 }
 
 .thumbnail {
@@ -106,12 +109,6 @@ main ul {
 
 .product-content-container {
   text-align: center;
-  margin-top: 5px;
-  line-height: 1.5rem;
-}
-
-.product-detail-container {
-  text-align: left;
   margin-top: 5px;
   line-height: 1.5rem;
 }
@@ -133,7 +130,6 @@ option:hover {
   
   background-color: black;
   padding-left: 2%;
-  height: auto;
   width: 48%;
   border: 1px solid #c9c9c9;
   height: 2.5rem;
@@ -152,7 +148,6 @@ option:hover {
   
   float: right;
   background-color: black;
-  height: auto;
   width: 48%;
   border: 1px solid #c9c9c9;
   padding-left: 2%;
@@ -268,7 +263,7 @@ footer {
   main {
     padding: 2rem;
   }
-  
+
   main ul {
     flex-direction: row;
     flex-wrap: wrap;
@@ -287,6 +282,33 @@ footer {
 
   .product-content-container {
     max-width: 40vw;
+  }
+
+  #detail {
+    display: flex;
+  }
+  
+  .detail-image-container {
+    border: 3px solid red;
+    width: 50%;
+  }
+  
+  .product-detail-container {
+    border: 3px solid blue;
+    display: block;
+    width: 50%;
+    text-align: left;
+    margin-top: 5px;
+    line-height: 1.5rem;
+  }
+
+  .options {
+    margin-top: 3rem;
+  }
+  .size, .quantity, .add-to-cart {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
   }
 }
 
@@ -310,6 +332,18 @@ footer {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+  }
+  #detail {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid green;
+  }
+  .detail-image-container {
+    width: 560px;
+  }
+  .product-detail-container {
+    width: 560px;
   }
   .product-item {
     max-width: 336px;

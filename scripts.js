@@ -139,7 +139,7 @@ function populateMain(products, indexMain) {
         li.innerHTML = `
                     <a href="detail.html?${i}|${products[i]["name"]}">
                         <div class="product-image-container">
-                            <img class="product-image cursor">
+                            <img class="product-image index-image cursor">
                         </div>
                         <div class="product-content-container">
                             <p>

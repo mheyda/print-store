@@ -85,12 +85,24 @@ main ul {
 .product-title {
   margin-top: 0.5rem;
 }
-.product-image {
+
+.index-image {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 90vw;
   max-height: 90vw;
+  object-fit: contain;
+}
+
+.detail-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90vw;
+  width: 1080px;
+  max-height: 90vw;
+  height: 1080px;
   object-fit: contain;
 }
 
@@ -275,10 +287,16 @@ footer {
     max-width: 40vw;
   }
 
-  .product-image {
+  .index-image {
     max-width: 40vw;
     width: 600px;
     max-height: 40vw;
+    height: 600px;
+  }
+
+  .detail-image {
+    max-width: 100%;
+    max-height: 75vh;
     height: 600px;
   }
 
@@ -299,8 +317,10 @@ footer {
     border: 3px solid blue;
     display: block;
     width: 50%;
+    padding-left: 1rem;
     text-align: left;
-    margin-top: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
     line-height: 1.5rem;
   }
 
@@ -319,7 +339,7 @@ footer {
     max-width: 28vw;
   }  
 
-  .product-image, .product-content-container {
+  .index-image, .product-content-container {
     max-width: 28vw;
     max-height: 28vw;
   }
@@ -350,7 +370,7 @@ footer {
   .product-item {
     max-width: 336px;
   }
-  .product-image, .product-content-container {
+  .index-image, .product-content-container {
     max-width: 336px;
     max-height: 336px;
   }

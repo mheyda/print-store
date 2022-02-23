@@ -82,7 +82,9 @@ main ul {
 .product-item:hover {
   opacity: 0.8;
 }
-
+.product-title {
+  margin-top: 0.5rem;
+}
 .product-image {
   display: block;
   margin-left: auto;

@@ -3,13 +3,15 @@
   margin: 0;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 
 }
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: black;
+}
+h3 {
+  font-weight: 300;
 }
 a {
   text-decoration: none;
@@ -74,12 +76,17 @@ main ul {
 .product-item {
   margin: 1.5rem auto 1.5rem auto;
   width: 90vw;
+  transition: opacity 0.2s ease;
+}
+
+.product-item:hover {
+  opacity: 0.8;
 }
 
 .product-image {
   display: block;
   width: 90vw;
-  height: 90vw;
+  max-height: 90vw;
   object-fit: contain;
 }
 
@@ -98,7 +105,13 @@ main ul {
 }
 
 .product-content-container {
-  text-align: justify;
+  text-align: center;
+  margin-top: 5px;
+  line-height: 1.5rem;
+}
+
+.product-detail-container {
+  text-align: left;
   margin-top: 5px;
   line-height: 1.5rem;
 }

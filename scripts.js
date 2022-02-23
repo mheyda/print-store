@@ -108,7 +108,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
     
     // If at index.html with no search query, populate with products
-    else if (htmlPage === "/index.html") {
+    else {
         console.log("At index.html");
         const indexMain = document.querySelector("#index");
         populateMain(products, indexMain);
@@ -143,7 +143,7 @@ function populateMain(products, indexMain) {
                         </div>
                         <div class="product-content-container">
                             <p>
-                                <h1 class="product-title"></h1>
+                                <h3 class="product-title"></h3>
                                 <p class="price"></p>
                             </p>
                         </div>

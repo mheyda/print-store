@@ -74,7 +74,7 @@ main ul {
 }
 
 .product-item {
-  margin: 1.5rem auto 1.5rem auto;
+  margin: 2rem auto 2rem auto;
   width: 90vw;
   transition: opacity 0.2s ease;
 }
@@ -196,7 +196,7 @@ option:hover {
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.85);
 }
   
 .modal-content {
@@ -207,7 +207,6 @@ option:hover {
 
 .modal-image {
   display: none;
-
   height: 96vh;
   width: 85%;
   margin-left: auto;
@@ -216,10 +215,11 @@ option:hover {
 }
 
 .close {
+  border: 3px solid blue;
   color: black;
   position: absolute;
-  display: flex;
-  justify-content: right;
+  display: block;
+  text-align: right;
   padding-right: 10px;
   top: 0;
   right: 0;
@@ -229,13 +229,7 @@ option:hover {
   font-weight: bold;
   -webkit-text-fill-color: black;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgba(255, 255, 255, 0.9);
-}
-
-.close:hover, .close:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
+  -webkit-text-stroke-color: white;
 }
 
 .prev, .next {
@@ -253,7 +247,12 @@ option:hover {
   -webkit-user-select: none;
   -webkit-text-fill-color: black;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgba(255, 255, 255, 0.9);
+  -webkit-text-stroke-color: white;
+  transition: background-color 0.3s ease;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(255, 255, 255, 0.9);
 }
   
 .next {
@@ -309,12 +308,10 @@ footer {
   }
   
   .detail-image-container {
-    border: 3px solid red;
     width: 50%;
   }
   
   .product-detail-container {
-    border: 3px solid blue;
     display: block;
     width: 50%;
     padding-left: 1rem;
@@ -359,13 +356,12 @@ footer {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    border: 3px solid green;
   }
   .detail-image-container {
-    width: 560px;
+    width: 550px;
   }
   .product-detail-container {
-    width: 560px;
+    width: 550px;
   }
   .product-item {
     max-width: 336px;

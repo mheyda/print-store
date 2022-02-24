@@ -1,8 +1,9 @@
-const main = document.querySelector("main");
-
 var queryString = location.search.substring(1);
 var productIndex = queryString.split("|")[0];
 var htmlPage = window.location.pathname;
+
+const indexMain = document.querySelector("#index");
+const detailMain = document.querySelector("#detail");
 
 
 window.addEventListener("DOMContentLoaded", async () => {
@@ -11,7 +12,6 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     // If on detail page
     if (htmlPage === "/detail.html") {
-        const detailMain = document.querySelector("#detail");
         console.log("At detail.html");
         
         // Populate title, primary image, starting price, modal images, thumbnail images, sizes and quantities
@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         sizeSelector = populateSizes(products, detailMain, productIndex);
         quantitySelector = populateQuantities(products, detailMain, productIndex);
         
-        // Initialize previously selected size value
+        // Initialize previously selected SIZE value
         var previousSizeIndex = 0;
         var previousSizeHTML = "Select Size";
         // If size is changed, update the size box to show `Size: ${selected size}` and replace previously selected size with original value
@@ -37,7 +37,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             detailMain.querySelector('.price').innerHTML = `$${price}`;
         }
 
-        // Initialize previously selected quantity value
+        // Initialize previously selected QUANTITY value
         var previousQtyIndex = 0;
         var previousQtyHTML = "Quantity";
         // If quantity is changed, update quantity box to show `Quantity: ${selected amount}` and replace previously selected quantity with original value
@@ -80,7 +80,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             showThumb(slideIndex);
             document.body.style.overflow = "auto";
         }
-        // Change modal box image
+        // Update modal box image
         function showSlides(imageIndex) {
             var slides = detailMain.querySelectorAll(".modal-image");
             if (imageIndex >= slides.length) {imageIndex = 0}
@@ -110,11 +110,9 @@ window.addEventListener("DOMContentLoaded", async () => {
     // If at index.html with no search query, populate with products
     else {
         console.log("At index.html");
-        const indexMain = document.querySelector("#index");
         populateMain(products, indexMain);
     }
     
-
 });
 
 
@@ -135,18 +133,12 @@ function populateMain(products, indexMain) {
     // Loop through all products, creating a list index for each
     for (var i = 0; i < products.length; i++) {
         var li = document.createElement("li");
-        li.className = "product-item";
+        li.classList.add("index-item", "hover-opacity", "two-sec-ease");
         li.innerHTML = `
                     <a href="detail.html?${i}|${products[i]["name"]}">
-                        <div class="product-image-container">
-                            <img class="product-image index-image cursor">
-                        </div>
-                        <div class="product-content-container">
-                            <p>
-                                <h3 class="product-title"></h3>
-                                <p class="price"></p>
-                            </p>
-                        </div>
+                        <img class="product-image index-image cursor">
+                        <h3 class="product-title text-align-center"></h3>
+                        <p class="price text-align-center"></p>
                     </a>
         `;
         // Populate the title, primary image, and starting price for each product
@@ -236,5 +228,5 @@ function populateQuantities(products, container, productIndex) {
     return quantitySelector;
 }
 
-// Get copyright year
+// Auto update copyright year
 document.querySelector(".copyright-year").innerHTML = new Date().getFullYear();

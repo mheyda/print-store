@@ -1,19 +1,23 @@
+// Get query string, product index, and html page name
 var queryString = location.search.substring(1);
 var productIndex = queryString.split("|")[0];
 var htmlPage = window.location.pathname;
 
+// Get main sections for index and detail pages
 const indexMain = document.querySelector("#index");
 const detailMain = document.querySelector("#detail");
 
+// Auto update copyright year
+document.querySelector(".copyright-year").innerHTML = new Date().getFullYear();
 
-window.addEventListener("DOMContentLoaded", async () => {
-    // Get product data and main section
-    const products = await loadData();
+// ----------------- //
+// detail.html page  //
+// ----------------- //
+if (htmlPage === "/detail.html") {
+    window.addEventListener("DOMContentLoaded", async () => {
+        // Get product data and main section
+        const products = await loadData();
 
-    // If on detail page
-    if (htmlPage === "/detail.html") {
-        console.log("At detail.html");
-        
         // Populate title, primary image, starting price, modal images, thumbnail images, sizes and quantities
         populateTitle(products, detailMain, productIndex);
         primaryImage = populatePrimaryImage(products, detailMain, productIndex);
@@ -48,7 +52,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             previousQtyHTML = quantitySelector.selectedIndex;
         }
 
-        // Modal and thumbnail methods
+        // Modal and thumbnail functions
         var slideIndex = 0;
         // Update image index
         function updateImageIndex(newSlideIndex) {
@@ -105,26 +109,34 @@ window.addEventListener("DOMContentLoaded", async () => {
                 updateImageIndex(imageIndex);
             }
         });
-    }
-    
-    // If at index.html with no search query, populate with products
-    else {
+    })
+}
+// ----------------- //
+// index.html page   //
+// ----------------- //
+else {
+    window.addEventListener("DOMContentLoaded", async () => {
+        // Get product data and main section
+        const products = await loadData();
         console.log("At index.html");
         populateMain(products, indexMain);
-    }
-    
-});
+    });
+}
 
 
 
-// Method to load JSON product data
+// ------------------ //
+// FUNCTIONS          //
+// ------------------ //
+
+// Function to load JSON product data
 async function loadData() {
     const response = await fetch("./products.json");
     const products = await response.json();
     return products;
 }
 
-// Method to populate index.html with all the products in "products.json"
+// Function to populate index.html with all the products in "products.json"
 function populateMain(products, indexMain) {
     // Create unordered list
     productList = document.createElement("ul");
@@ -155,12 +167,12 @@ function populateMain(products, indexMain) {
 
 
 
-// Method to Populate Title Content
+// Function to Populate Title Content
 function populateTitle(products, container, productIndex) {
     container.querySelector(".product-title").innerHTML = products[productIndex]["name"].replace(/-/g, " ");
 }
 
-// Method to Populate Primary Image Content
+// Function to Populate Primary Image Content
 function populatePrimaryImage(products, container, productIndex) {
     primaryImage = container.querySelector(".product-image");
     primaryImage.src = `${products[productIndex]["productImages"][0]["mainSrc"]}`;
@@ -168,7 +180,7 @@ function populatePrimaryImage(products, container, productIndex) {
     return primaryImage;
 }
 
-// Method to Populate Modal Images Content
+// Function to Populate Modal Images Content
 function populateModal(products, container) {
     var modalContainer = container.querySelector(".modal-images");
     numModalImages = products[productIndex]["productImages"].length;
@@ -183,7 +195,7 @@ function populateModal(products, container) {
     }
 }
 
-// Method to Populate Thumbnail Images
+// Function to Populate Thumbnail Images
 function populateThumbnails(products, container) {
     var thumbnailContainer = container.querySelector(".thumbnail-container");
     numThumbnails = products[productIndex]["productImages"].length;
@@ -197,12 +209,12 @@ function populateThumbnails(products, container) {
     }
 }
 
-// Method to Populate Starting Price
+// Function to Populate Starting Price
 function populateStartingPrice(products, container, productIndex) {
     container.querySelector(".price").innerHTML = `From $${products[productIndex]["prices"][0]}`;
 }
 
-// Method to Populate Size Selector
+// Function to Populate Size Selector
 function populateSizes(products, container, productIndex) {
     var sizeSelector = container.querySelector(".size");
     numProductSizes = products[productIndex]["sizes"].length;
@@ -216,7 +228,7 @@ function populateSizes(products, container, productIndex) {
     return sizeSelector;
 }
 
-// Method to Populate Quantity Selector
+// Function to Populate Quantity Selector
 function populateQuantities(products, container, productIndex) {
     var quantitySelector = container.querySelector(".quantity");
     var maxQuantity = products[productIndex]["maxQuantity"];
@@ -228,6 +240,3 @@ function populateQuantities(products, container, productIndex) {
     }
     return quantitySelector;
 }
-
-// Auto update copyright year
-document.querySelector(".copyright-year").innerHTML = new Date().getFullYear();

@@ -10,6 +10,9 @@ body {
   min-height: 100vh;
   background-color: black;
 }
+main {
+  padding: 2rem 1rem;
+}
 h2, h3 {
   font-weight: 300;
   margin-top: 0.5rem;
@@ -40,6 +43,9 @@ i {
 }
 .text-align-center {
   text-align: center;
+}
+.object-fit-contain {
+  object-fit: contain;
 }
 
 /* -------------------- */
@@ -72,11 +78,9 @@ nav li {
 
 
 /* -------------------- */
-/* Main Section         */
+/* Index Page Section   */
 /* -------------------- */
-main {
-  margin: 2rem 0;
-}
+
 .index-item {
   margin: 2rem auto;
 }
@@ -84,23 +88,9 @@ main {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 90vw;
-  max-height: 90vw;
-  object-fit: contain;
-}
-.thumbnail-container {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
   width: 100%;
-  justify-content: center;
 }
-.thumbnail {
-  margin: 5px 5px 0 0;
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-}
+
 
 /* ---------------------- */
 /* Detail Page Components */
@@ -109,11 +99,16 @@ main {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 90vw;
+  max-width: 100%;
   width: 1080px;
   max-height: 90vw;
   height: 1080px;
-  object-fit: contain;
+}
+.thumbnail {
+  margin: 5px 5px 0 0;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
 }
 .size, .quantity {
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMC4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA0LjkgMTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQuOSAxMDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6I2ZmZmZmZjt9DQo8L3N0eWxlPg0KPHRpdGxlPmFycm93czwvdGl0bGU+DQo8cG9seWdvbiBjbGFzcz0ic3QwIiBwb2ludHM9IjEuNCw0LjcgMi41LDMuMiAzLjUsNC43ICIvPg0KPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSIzLjUsNS4zIDIuNSw2LjggMS40LDUuMyAiLz4NCjwvc3ZnPg==) no-repeat right 2px center;
@@ -165,22 +160,18 @@ main {
   background-color: rgba(0, 0, 0, 0.85);
 }
 .modal-content {
-  position: relative;
   height: 96vh;
   padding: 2vh;
 }
 .modal-image {
-  display: none;
   height: 96vh;
   width: 85%;
   margin-left: auto;
   margin-right: auto;
-  object-fit: contain;
 }
 .close {
-  color: black;
+  color: white;
   position: absolute;
-  display: block;
   text-align: right;
   padding-right: 10px;
   top: 0;
@@ -188,10 +179,6 @@ main {
   width: 60px;
   height: 70px;
   font-size: 50px;
-  font-weight: bold;
-  -webkit-text-fill-color: black;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
 }
 .prev, .next {
   position: absolute;
@@ -205,11 +192,6 @@ main {
   color: white;
   font-size: 35px;
   user-select: none;
-  -webkit-user-select: none;
-  -webkit-text-fill-color: black;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
-  transition: background-color 0.3s ease;
 }
 .next {
   right: 0;
@@ -225,67 +207,49 @@ footer {
   padding: 18px;
 }
 
-@media (min-width: 576px) {
 
-}
-
+/* -------------------- */
+/* Media Queries        */
+/* -------------------- */
 @media (min-width: 768px) {
-  main {
-    padding: 2rem;
-  }
-
   main ul {
     display: flex;
     flex-wrap: wrap;
   }
-
   .index-image {
     max-width: 40vw;
     width: 600px;
     max-height: 40vw;
     height: 600px;
   }
-
-  .detail-image {
-    max-width: 100%;
-    max-height: 75vh;
-    height: 600px;
-  }
-
-  .product-content-container {
-    max-width: 40vw;
-  }
-
   #detail {
     display: flex;
   }
-  
   .detail-image-container {
     width: 50%;
+    padding-right: 1rem;
   }
-  
-  .product-detail-container {
-    display: block;
+  .detail-image {
+    max-height: 75vh;
+  }
+  .detail-content-container {
     width: 50%;
     padding-left: 1rem;
-    text-align: left;
     margin-top: auto;
     margin-bottom: auto;
-    line-height: 1.5rem;
   }
   .size, .quantity, .add-to-cart {
-    display: block;
     width: 100%;
+    height: 4rem;
+    margin-top: 1.5rem;
   }
 }
 
 @media (min-width: 992px) {
-
-  .index-image, .product-content-container {
+  .index-image {
     max-width: 28vw;
     max-height: 28vw;
   }
-
 }
 
 @media (min-width: 1200px) {
@@ -294,8 +258,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
   }
-
-  .index-image, .product-content-container {
+  .index-image {
     max-width: 336px;
     max-height: 336px;
   }

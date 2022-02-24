@@ -136,7 +136,7 @@ function populateMain(products, indexMain) {
         li.classList.add("index-item", "hover-opacity", "two-sec-ease");
         li.innerHTML = `
                     <a href="detail.html?${i}|${products[i]["name"]}">
-                        <img class="product-image index-image cursor">
+                        <img class="product-image index-image object-fit-contain cursor">
                         <h3 class="product-title text-align-center"></h3>
                         <p class="price text-align-center"></p>
                     </a>
@@ -175,9 +175,10 @@ function populateModal(products, container) {
     for (var i = 0; i < numModalImages; i++) {
         // Create modal images
         var newModalImage = document.createElement("img");
-        newModalImage.classList.add("modal-image");
+        newModalImage.classList.add("modal-image", "object-fit-contain");
         newModalImage.setAttribute('src', `${products[productIndex]["productImages"][i]["mainSrc"]}`);
         newModalImage.setAttribute('alt', `${products[productIndex]["productImages"][i]["mainAlt"]}`);
+        newModalImage.style.display = "none";
         modalContainer.appendChild(newModalImage);
     }
 }

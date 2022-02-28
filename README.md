@@ -29,9 +29,13 @@ The home page displays every available product by pulling data from a local JSON
 When a product is clicked on, the user is brought to the detail page for that product. This displays the product's starting price, size options, quantity options, and a button to add to the shopping cart. Secondary product images can be viewed by clicking on one of the thumbnails or by opening the modal image gallery with a click on the primary image. 
 
 ### Shopping Cart Page
-*This functionality is currently being built*
+*This functionality is currently being built<br>
 The shopping cart page will display all the products that a user has added to their cart, as well as the total price of the items they selected. There will be a button to proceed to checkout.
 
 ### Checkout Page
-*This functionality is currently being built*
+*This functionality is currently being built<br>
 The checkout page will allow the user to type in required information, which will be verified by a payment API. If the user's information is verified, the payment will be processed and display a success message.
+
+<br>
+<br>
+### See it in action <a href="https://mheyda-print-store.netlify.app/" target="_blank"><ins>here</ins></a>*. :smile:

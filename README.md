@@ -2,7 +2,8 @@
 
 ## Overview
 As a hobbyist photographer, I wanted to practice my frontend coding skills by developing a simple ecommerce site for photography prints from scratch. My intention was to solidify my knowledge of vanilla JavaScript, HTML, and CSS before learning a frontend framework, so I decided to build the entire site solely with these technologies while connecting to an API that would securely handle payments.
-
+### See it in action <a href="https://mheyda-print-store.netlify.app/" target="_blank"><ins>here</ins></a>*. :smile:
+<br>
 
 ## File Structure
 ### HTML Files
@@ -35,7 +36,3 @@ The shopping cart page will display all the products that a user has added to th
 ### Checkout Page
 *This functionality is currently being built<br>
 The checkout page will allow the user to type in required information, which will be verified by a payment API. If the user's information is verified, the payment will be processed and display a success message.
-
-<br>
-<br>
-### See it in action <a href="https://mheyda-print-store.netlify.app/" target="_blank"><ins>here</ins></a>*. :smile:

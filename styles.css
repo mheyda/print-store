@@ -267,7 +267,10 @@ nav a {
   min-width: 75px;
   text-align: right;
 }
-
+#checkout-button {
+  height: 50px;
+  margin-top: 2rem;
+}
 
 /* -------------------- */
 /* Footer               */
@@ -331,6 +334,14 @@ footer {
   }
   .cart-price, .cart-header-price {
     width: 150px;
+  }
+  #checkout-button {
+    display: flex;
+    width: 150px;
+    margin-top: 2rem;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
   }
 }
 

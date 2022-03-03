@@ -47,26 +47,15 @@
         <!-- Shopping Cart -->
         <main id="cart">
             <h1>Shopping Cart</h1>
+            <div id="empty-cart">You have nothing in your shopping cart. <a href="/">Click here to keep shopping.</a></div>
             <div id="cart-header">
-                Item 
-                Quantity 
-                Price
+                <span class="cart-header-item">Item</span>
+                <span class="cart-header-quantity">Quantity</span>
+                <span class="cart-header-price">Price</span>
             </div>
             <ul>
-                <li class="cart-item">
-                    <span class="remove-from-cart cursor">&times;</span>
-                    <img class="cart-image cursor" src="/images/1.jpg" alt="">
-                    <div class="cart-description">
-                        Title
-                        <br>
-                        Size
-                    </div>
-                    <select class="quantity cart-quantity cursor" required>
-                        <option value="" disabled selected>Quantity</option>
-                    </select>
-                    <span class="cart-price">$56.99</span>
-                </li>
             </ul>
+            <div id="subtotal">Subtotal: </div>
         </main>
         
         <!-- Footer -->

@@ -1,11 +1,23 @@
+//sessionStorage.clear()
+
 // Get query string, product index, and html page name
 var queryString = location.search.substring(1);
 var productIndex = queryString.split("|")[0];
 var htmlPage = window.location.pathname;
 
-// Get main sections for index and detail pages
+// Get main sections for index, detail, and cart pages
 const indexMain = document.querySelector("#index");
 const detailMain = document.querySelector("#detail");
+const cartMain = document.querySelector("#cart");
+
+// If cart is empty, create one
+if (sessionStorage.getItem("products") === null) {
+    cart = [];
+    sessionStorage.setItem("products", JSON.stringify(cart));
+}
+
+// Keep cart quantity on nav updated
+updateCartQuantity();
 
 // Auto update copyright year
 document.querySelector(".copyright-year").innerHTML = new Date().getFullYear();
@@ -15,7 +27,7 @@ document.querySelector(".copyright-year").innerHTML = new Date().getFullYear();
 // ----------------- //
 if (htmlPage === "/detail.html") {
     window.addEventListener("DOMContentLoaded", async () => {
-        // Get product data and main section
+        // Get product data
         const products = await loadData();
 
         // Populate title, primary image, starting price, modal images, thumbnail images, sizes and quantities
@@ -109,8 +121,168 @@ if (htmlPage === "/detail.html") {
                 updateImageIndex(imageIndex);
             }
         });
+
+        // Add item to cart from detail page
+        detailMain.querySelector("#add-to-cart").onsubmit = function() {
+            // Get product name, quantity, and size that user wants to add to cart
+            productName = detailMain.querySelector(".product-title").innerHTML;
+            productQuantity = detailMain.querySelector(".quantity").options[detailMain.querySelector(".quantity").selectedIndex].value;
+            productSize = detailMain.querySelector(".size").options[detailMain.querySelector(".size").selectedIndex].value;
+            productPrice = detailMain.querySelector(".price").innerHTML;
+
+            // Pull cart data from storage
+            cart = JSON.parse(sessionStorage.getItem("products"));
+            
+            // Loop through existing objects and see if the item user wants to add to cart is already in their cart
+            // If it is, add the selected quantity to the existing quantity
+            var alreadyExists = false;
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i]["name"] === productName && cart[i]["size"] === productSize) {
+                    alreadyExists = true;
+                    if ((parseInt(cart[i]["quantity"]) + parseInt(productQuantity)) > parseInt(products[cart[i]["index"]]["maxQuantity"])) {
+                        alert("Maximum quantity for this item is " + String(parseInt(products[cart[i]["index"]]["maxQuantity"])) + ".");
+                    }
+                    else {
+                        cart[i]["quantity"] = String(parseInt(cart[i]["quantity"]) + parseInt(productQuantity));
+                    }
+                }
+            }
+            // If it's not already in the cart, add it to the cart
+            if (alreadyExists === false) {
+                cart.push({name: `${productName}`, size: `${productSize}`, quantity: `${productQuantity}`, price:`${productPrice}`, index:`${productIndex}`});
+            }
+            // Push cart back to session storage
+            sessionStorage.setItem("products", JSON.stringify(cart));  
+
+            // Update cart quantity
+            updateCartQuantity();
+
+            // Notify user that item has been added to cart
+            addToCartButton = detailMain.querySelector(".add-to-cart");
+            addToCartButton.value = "Item has been added!";
+            timeout = setTimeout(addedToCartMessage, 3000);
+            function addedToCartMessage() {
+                console.log("Waiting")
+                detailMain.querySelector(".add-to-cart").value = "Add to Cart";
+            }
+
+            // Don't refresh page
+            return false;     
+        }
     })
 }
+// ----------------- //
+// cart.html page   //
+// ----------------- //
+else if (htmlPage === "/cart.html") {
+    window.addEventListener("DOMContentLoaded", async () => {
+        // Get product data
+        const products = await loadData();
+
+        cart = JSON.parse(sessionStorage.getItem("products"));
+
+        cartList = cartMain.querySelector("ul");
+
+        // If cart is empty, display a message
+        if (cart.length === 0) {
+            cartMain.querySelector("#empty-cart").style.display = "block";
+            cartMain.querySelector("#cart-header").style.display = "none";
+            cartMain.querySelector("#subtotal").style.display = "none";
+        }
+
+        // Loop through cart items and add them to cart.html
+        for (var i = 0; i < cart.length; i++) {
+            // Hide empty cart message and display header and subtotal
+            cartMain.querySelector("#empty-cart").style.display = "none";
+            cartMain.querySelector("#cart-header").style.display = "flex";
+            cartMain.querySelector("#subtotal").style.display = "block";
+            // Find JSON array index of product in cart to get image src
+            for (var j = 0; j < products.length; j++) {
+                if (cart[i]["name"] === products[j]["name"].replace(/-/g, " ")) {
+                    var cartImageSrc = products[j]["productImages"][0]["mainSrc"];
+                    var cartImageAlt = products[j]["productImages"][0]["mainAlt"]
+                    var cartMaxQuantity = products[j]["maxQuantity"];
+                }
+            }
+            // Create list item to add to cart list with proper information
+            var li = document.createElement("li");
+            li.classList.add("cart-item");
+            li.innerHTML = 
+                `<a href="/cart.html" class="remove-from-cart cursor">&times;</a>
+                <a href="detail.html?${cart[i]["index"]}|${cart[i]["name"]}"><img class="cart-image cursor" src="${cartImageSrc}" alt="${cartImageAlt}"></a>
+                <div class="cart-description">
+                    <span class="cart-product-name">${cart[i]["name"]}</span>
+                    <br>
+                    <span class="cart-product-size">Size: ${cart[i]["size"]}</span>
+                </div>
+                <input class="cart-quantity" type="number" value="${parseInt(cart[i]["quantity"])}" min="1" max="${cartMaxQuantity}">
+                
+                <span class="cart-price">$${(parseFloat(cart[i]["price"].replace("$", "")) * parseInt(cart[i]["quantity"])).toFixed(2)}</span>`
+            cartList.appendChild(li);
+        }
+        
+        // Initialize subtotal
+        updateSubtotal();
+
+
+        // Listen for user to change quantity
+        cartQuantityInputs = cartMain.querySelectorAll(".cart-quantity");
+        cartQuantityInputs.forEach(function(cartQuantityInput, index) {
+            cartQuantityInput.onchange = function() {
+                // Don't allow user to input less than 1
+                if (cartQuantityInput.value < 1) {
+                    cartQuantityInput.value = 1;
+                    alert("Quantity must be greater than zero.");
+                    updateSubtotal();
+                }
+                // Don't allow user to input more than max quantity allowed for item
+                if (cartQuantityInput.value > parseInt(products[cart[index]["index"]]["maxQuantity"])) {
+                    console.log("Input value: " + cartQuantityInput.value);
+                    console.log("Max quant: " + products[cart[index]["index"]]["maxQuantity"]);
+                    cartQuantityInput.value = products[cart[index]["index"]]["maxQuantity"];
+                    alert("Maximum quantity for this item is " + String(products[cart[index]["index"]]["maxQuantity"]) + ".")
+                    updateSubtotal();
+                }
+                cart[index]["quantity"] = cartQuantityInput.value;
+                // Push cart back to session storage
+                sessionStorage.setItem("products", JSON.stringify(cart)); 
+                // Update nav shopping cart value
+                updateCartQuantity();
+                // Update total item price
+                totalItemPrice = (cartQuantityInput.value * parseFloat(cart[index]["price"].replace("$", ""))).toFixed(2);
+                cartMain.querySelectorAll(".cart-price")[index].innerHTML = "$" + totalItemPrice;
+                // Update subtotal
+                updateSubtotal();
+            }
+        });
+
+
+        // Listen for user to delete an item from their cart
+        removeButtons = cartMain.querySelectorAll(".remove-from-cart");
+        removeButtons.forEach(function(removeButton, index) {
+            removeButton.onclick = function() {
+                cart.splice(index, 1);
+                sessionStorage.setItem("products", JSON.stringify(cart)); 
+                updateSubtotal();
+            }
+        });
+
+        // Update subtotal
+        function updateSubtotal() {
+            productCartTotals = cartMain.querySelectorAll(".cart-price");
+            console.log(productCartTotals)
+            var subtotal = 0;
+            productCartTotals.forEach(function(productCartTotal) {
+                subtotal = subtotal + parseFloat(productCartTotal.innerHTML.replace("$", ""));
+                console.log(parseFloat(productCartTotal.innerHTML.replace("$", "")));
+            })
+            subtotal = subtotal.toFixed(2);
+            cartMain.querySelector("#subtotal").innerHTML = `Subtotal: $${subtotal}`
+            console.log("Subtotal: " + subtotal)
+        }
+    });
+}
+
 // ----------------- //
 // index.html page   //
 // ----------------- //
@@ -240,3 +412,19 @@ function populateQuantities(products, container, productIndex) {
     }
     return quantitySelector;
 }
+
+// Function to update cart quantity
+function updateCartQuantity() {
+    cartObjects = JSON.parse(sessionStorage.getItem("products"));
+    cartQuantity = 0;
+    for (var i = 0; i < cartObjects.length; i++) {
+        cartQuantity = cartQuantity + parseInt(cartObjects[i]["quantity"]);
+    }
+    if (cartQuantity > 100) {
+        document.querySelector(".cart-count").innerHTML = "100+";
+    }
+    else {
+        document.querySelector(".cart-count").innerHTML = String(cartQuantity);
+    }
+}
+

@@ -9,6 +9,7 @@ var htmlPage = window.location.pathname;
 const indexMain = document.querySelector("#index");
 const detailMain = document.querySelector("#detail");
 const cartMain = document.querySelector("#cart");
+const checkoutMain = document.querySelector("#checkout");
 
 // If cart is empty, create one
 if (sessionStorage.getItem("products") === null) {
@@ -213,8 +214,7 @@ else if (htmlPage === "/cart.html") {
                 `<a href="/cart.html" class="remove-from-cart cursor">&times;</a>
                 <a href="detail.html?${cart[i]["index"]}|${cart[i]["name"]}"><img class="cart-image cursor" src="${cartImageSrc}" alt="${cartImageAlt}"></a>
                 <div class="cart-description">
-                    <span class="cart-product-name">${cart[i]["name"]}</span>
-                    <br>
+                    <h2 class="cart-product-name">${cart[i]["name"]}</h2>
                     <span class="cart-product-size">Size: ${cart[i]["size"]}</span>
                 </div>
                 <input class="cart-quantity" type="number" value="${parseInt(cart[i]["quantity"])}" min="1" max="${cartMaxQuantity}">
@@ -281,6 +281,103 @@ else if (htmlPage === "/cart.html") {
             subtotal = subtotal.toFixed(2);
             cartMain.querySelector("#subtotal").innerHTML = `Subtotal: $${subtotal}`
             console.log("Subtotal: " + subtotal)
+        }
+    });
+}
+
+// ------------------ //
+// checkout.html page //
+// ------------------ //
+else if (htmlPage === "/checkout.html") {
+    window.addEventListener("DOMContentLoaded", async () => {
+        // Get product data
+        const products = await loadData();
+
+        cart = JSON.parse(sessionStorage.getItem("products"));
+
+        checkoutList = checkoutMain.querySelector("ul");
+
+        // Loop through cart items and add them to cart.html
+        for (var i = 0; i < cart.length; i++) {
+            // Find JSON array index of product in cart to get image src
+            for (var j = 0; j < products.length; j++) {
+                if (cart[i]["name"] === products[j]["name"].replace(/-/g, " ")) {
+                    var checkoutImageSrc = products[j]["productImages"][0]["mainSrc"];
+                    var checkoutImageAlt = products[j]["productImages"][0]["mainAlt"]
+                    var checkoutMaxQuantity = products[j]["maxQuantity"];
+                }
+            }
+            // Create list item to add to cart list with proper information
+            var li = document.createElement("li");
+            li.classList.add("checkout-item");
+            li.innerHTML = 
+                `
+                <img class="checkout-image cursor" src="${checkoutImageSrc}" alt="${checkoutImageAlt}">
+                <div class="checkout-description">
+                    <h2 class="checkout-product-name">${cart[i]["name"]}</h2>
+                    <span class="checkout-product-size">Size: ${cart[i]["size"]}</span>
+                </div>
+                <div class="checkout-specifics">
+                    <h3 class="checkout-price">$${(parseFloat(cart[i]["price"].replace("$", "")) * parseInt(cart[i]["quantity"])).toFixed(2)}</h3>
+                    <input class="checkout-quantity" type="number" value="${parseInt(cart[i]["quantity"])}" min="1" max="${checkoutMaxQuantity}">
+                    <a href="/checkout.html" class="remove-from-checkout cursor">Remove</a>
+                </div>`
+            checkoutList.appendChild(li);
+        }
+        
+        // Initialize subtotal
+        updateCheckoutSubtotal();
+
+        // Listen for user to change quantity
+        checkoutQuantityInputs = checkoutMain.querySelectorAll(".checkout-quantity");
+        checkoutQuantityInputs.forEach(function(checkoutQuantityInput, index) {
+            checkoutQuantityInput.onchange = function() {
+                console.log("Changed");
+                // Don't allow user to input less than 1
+                if (checkoutQuantityInput.value < 1) {
+                    checkoutQuantityInput.value = 1;
+                    alert("Quantity must be greater than zero.");
+                    updateCheckoutSubtotal();
+                }
+                // Don't allow user to input more than max quantity allowed for item
+                if (checkoutQuantityInput.value > parseInt(products[cart[index]["index"]]["maxQuantity"])) {
+                    checkoutQuantityInput.value = products[cart[index]["index"]]["maxQuantity"];
+                    alert("Maximum quantity for this item is " + String(products[cart[index]["index"]]["maxQuantity"]) + ".")
+                    updateCheckoutSubtotal();
+                }
+                cart[index]["quantity"] = checkoutQuantityInput.value;
+                // Push cart back to session storage
+                sessionStorage.setItem("products", JSON.stringify(cart)); 
+                // Update nav shopping cart value
+                updateCartQuantity();
+                // Update total item price
+                totalItemPrice = (checkoutQuantityInput.value * parseFloat(cart[index]["price"].replace("$", ""))).toFixed(2);
+                checkoutMain.querySelectorAll(".checkout-price")[index].innerHTML = "$" + totalItemPrice;
+                // Update subtotal
+                updateCheckoutSubtotal();
+            }
+        });
+
+
+        // Listen for user to delete an item from their cart
+        removeButtons = checkoutMain.querySelectorAll(".remove-from-checkout");
+        removeButtons.forEach(function(removeButton, index) {
+            removeButton.onclick = function() {
+                cart.splice(index, 1);
+                sessionStorage.setItem("products", JSON.stringify(cart)); 
+                updateCheckoutSubtotal();
+            }
+        });
+
+        // Update subtotal
+        function updateCheckoutSubtotal() {
+            productCheckoutTotals = checkoutMain.querySelectorAll(".checkout-price");
+            var subtotal = 0;
+            productCheckoutTotals.forEach(function(productCheckoutTotal) {
+                subtotal = subtotal + parseFloat(productCheckoutTotal.innerHTML.replace("$", ""));
+            })
+            subtotal = subtotal.toFixed(2);
+            checkoutMain.querySelector("#checkout-subtotal").innerHTML = `Subtotal: $${subtotal}`
         }
     });
 }

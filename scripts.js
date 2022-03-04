@@ -188,6 +188,7 @@ else if (htmlPage === "/cart.html") {
             cartMain.querySelector("#empty-cart").style.display = "block";
             cartMain.querySelector("#cart-header").style.display = "none";
             cartMain.querySelector("#subtotal").style.display = "none";
+            cartMain.querySelector("#checkout-button").style.display = "none";
         }
 
         // Loop through cart items and add them to cart.html
@@ -196,6 +197,7 @@ else if (htmlPage === "/cart.html") {
             cartMain.querySelector("#empty-cart").style.display = "none";
             cartMain.querySelector("#cart-header").style.display = "flex";
             cartMain.querySelector("#subtotal").style.display = "block";
+            cartMain.querySelector("#checkout-button").style.display = "flex";
             // Find JSON array index of product in cart to get image src
             for (var j = 0; j < products.length; j++) {
                 if (cart[i]["name"] === products[j]["name"].replace(/-/g, " ")) {

@@ -268,6 +268,9 @@ nav a {
   text-align: right;
 }
 #checkout-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 50px;
   margin-top: 2rem;
 }
@@ -336,12 +339,9 @@ footer {
     width: 150px;
   }
   #checkout-button {
-    display: flex;
     width: 150px;
     margin-top: 2rem;
     margin-left: auto;
-    justify-content: center;
-    align-items: center;
   }
 }
 

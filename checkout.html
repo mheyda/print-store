@@ -46,14 +46,97 @@
 
         <!-- Shopping Cart -->
         <main id="checkout">
-            <div class="checkout-information">
-                <h1>Order Summary</h1>
+            <div class="user-information">
+                <div class="user-information-box user-email-container">
+                    <h1>1. Your Email</h1>
+                    <button class="input-edit button-plain">Edit</button>
+                    <form class="input-form input-form-email active">
+                        <input class="input-email" value="" placeholder="username@example.com" required>
+                        <input class="continue add-to-cart cursor" type="submit" value="Continue">
+                    </form>
+                    <div class="user-input"></div>
+                </div>
+                <div class="user-information-box user-shipping-container">
+                    <h1>2. Shipping</h1>
+                    <button class="input-edit button-plain">Edit</button>
+                    <form class="input-form input-form-shipping">
+                        <div class="flex">
+                            <input class="half-width" id="input-first-name" type="text" placeholder="First Name" required>
+                            <input class="half-width" id="input-last-name" type="text" placeholder="Last Name" required>
+                        </div>
+                        <input class="full-width" id="input-address-line-1" type="text" placeholder="Address Line 1" required>
+                        <input class="full-width" id="input-address-line-2" type="text" placeholder="Address Line 2">
+                        <select class="full-width cursor" id="input-country" required>
+                            <option value="" disabled selected hidden>Country</option>
+                            <option>United States</option>
+                            <option>Canada</option>
+                        </select>
+                        <div class="flex">
+                            <input class="quarter-width" id="input-zip-code" type="text" placeholder="Zip Code" required>
+                            <input class="half-width" id="input-city" type="text" placeholder="City" required>
+                            <select class="quarter-width cursor" id="input-state" required>
+                                <option value="" disabled selected hidden>State</option>
+                                <option>AL</option>
+                                <option>GA</option>
+                            </select>
+                        </div>
+                        <input class="full-width" id="input-phone" type="tel" placeholder="Phone Number" maxlength="10" required>
+
+                        <input class="continue add-to-cart cursor" type="submit" value="Continue">
+                    </form>
+                    <div class="user-input">
+                        <div><span id="user-first-name"></span> <span id="user-last-name"></span></div>
+                        <div id="user-address-line-1"></div>
+                        <div id="user-address-line-2"></div>
+                        <div><span id="user-city"></span>, <span id="user-state"></span> <span id="user-zip-code"></span></div>
+                        <div id="user-country"></div>
+                        <div id="user-phone"></div>
+                    </div>
+                </div>
+                <div class="user-information-box user-payment-container">
+                    <h1>3. Payment</h1>
+                    <button class="input-edit button-plain">Edit</button>
+                    <form class="input-form input-form-payment">
+                        <input class="full-width" id="input-card-name" type="text" placeholder="Name on Card" required>
+                        <input class="full-width" id="input-card-number" type="number" placeholder="Card Number" required>
+                        <div class="flex">
+                            <input class="half-width" id="input-card-expiration" placeholder="MM/YY" required>
+                            <input class="half-width" id="input-card-cvv" placeholder="CVV" required>
+                        </div>
+                        <input class="continue add-to-cart cursor" type="submit" value="Continue">
+                    </form>
+                    <div class="user-input">
+                        <div id="user-card-name"></div>
+                        <div id="user-card-number"></div>
+                        <div><span id="user-card-expiration"></span> <span id="user-card-cvv"></span></div>
+                    </div>
+                </div>
+                <div class="user-information-box user-review-container">
+                    <h1>4. Review & Purchase</h1>
+                    <button class="input-edit button-plain">Edit</button>
+                    <div class="user-input">
+                        <h3>Email</h3><br><div id="user-email-information"></div><br>
+                        <h3>Shipping</h3><br><div id="user-shipping-information"></div><br>
+                        <h3>Payment</h3><br><div id="user-payment-information"></div>
+                    </div>
+                    <form class="input-form">
+                        <input class="hidden">
+                        
+                        <input class="full-width cursor" id="purchase" type="submit" value="Complete Purchase">
+                    </form>
+                    
+                </div>
             </div>
             <div class="order-summary">
                 <h1>Order Summary</h1>
                 <ul>
                 </ul>
-                <div class="text-align-right" id="checkout-subtotal">Subtotal: </div>
+                <p class="accounting-line-items">
+                    <div class="text-align-left flex">Subtotal: <span id="checkout-subtotal"></span></div>
+                    <div class="text-align-left flex">Tax: <span id="checkout-tax"></span></div>
+                    <div class="text-align-left flex">Shipping: <span id="checkout-shipping">$0.00</span></div>
+                    <strong><div class="text-align-left flex">Grand Total: <span id="checkout-grandtotal"></span></div></strong>
+                </p>
             </div>
         </main>
         

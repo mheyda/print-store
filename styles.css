@@ -57,6 +57,26 @@ i {
 .object-fit-contain {
   object-fit: contain;
 }
+.full-width {
+  width: 100%;
+  box-sizing: border-box;
+}
+.half-width {
+  width: 49%;
+  box-sizing: border-box;
+}
+.third-width {
+  width: 33%;
+  box-sizing: border-box;
+}
+.quarter-width {
+  width: 24%;
+  box-sizing: border-box;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
 
 /* -------------------- */
 /* Navigation Bar       */
@@ -262,13 +282,7 @@ nav a {
 .cart-product-size {
   font-size: 0.7rem;
 }
-.cart-quantity {
-  background-color: var(--primaryDark);
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--primaryLight);
-  text-align: center;
-}
+
 .cart-price {
   min-width: 75px;
   text-align: right;
@@ -384,8 +398,70 @@ footer {
 
 
 
-.order-summary h1 {
-  padding-bottom: 1rem;
+
+.continue {
+  height: 2.4rem;
+}
+select {
+  background-color: var(--primaryDark);
+  margin: 0.5rem 0;
+  border: 1px solid var(--primaryLight);
+  height: 2.4rem;
+}
+option:disabled {
+  color: gray;
+}
+input {
+  background-color: var(--primaryDark);
+  color: var(--primaryLight);
+  border: 1px solid var(--primaryLight);
+  height: 2.4rem;
+  padding-left: 0.4rem;
+  margin: 0.5rem 0;
+}
+.input-quantity {
+  width: 2.4rem;
+}
+.input-email {
+  width: calc(100% - 0.6rem);
+}
+.hidden {
+  display: none;
+}
+
+
+.accounting-line-items {
+  border-top: 1px solid var(--primaryLight);
+  padding-top: 1rem;
+}
+.input-form {
+  display: none;
+  padding-top: 1rem;
+}
+.user-input {
+  display: none;
+  padding-top: 1rem;
+}
+.active {
+  display: block;
+}
+.input-edit {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.button-plain {
+  background-color: transparent;
+  color: var(--primaryLight);
+  border: none;
+  padding: 0.5rem;
+}
+.button-plain:hover {
+  cursor: pointer;
+}
+.user-information-box {
+  position: relative;
 }
 
 .checkout-product-name, .cart-product-name {
@@ -404,12 +480,10 @@ footer {
   align-items: center;
   padding: 1rem 0;
 }
-.checkout-information {
-  width: 100%;
-}
-.order-summary {
+.order-summary, .user-information-box {
   border: 1px solid white;
   padding: 1rem;
+  margin-bottom: 2rem;
 }
 .checkout-description {
   padding: 0 1rem;
@@ -445,15 +519,18 @@ footer {
 @media (min-width: 768px) {
   #checkout {
     flex-direction: row;
+    justify-content: center;
   }
-  .checkout-information {
-    width: 50%;
+  .user-information {
+    width: 450px;
   }
   .checkout-specifics {
     height: 150px;
   }
   .order-summary {
-    width: 50%;
+    width: 450px;
+    margin-left: 2rem;
+    height: fit-content;
   }
   .checkout-image {
     width: 150px;

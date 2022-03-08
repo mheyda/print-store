@@ -212,12 +212,12 @@ else if (htmlPage === "/cart.html") {
             li.classList.add("cart-item");
             li.innerHTML = 
                 `<a href="/cart.html" class="remove-from-cart cursor">&times;</a>
-                <a href="detail.html?${cart[i]["index"]}|${cart[i]["name"]}"><img class="cart-image cursor" src="${cartImageSrc}" alt="${cartImageAlt}"></a>
+                <a href="detail.html?${cart[i]["index"]}|${(cart[i]["name"]).replace(" ", "-")}"><img class="cart-image cursor" src="${cartImageSrc}" alt="${cartImageAlt}"></a>
                 <div class="cart-description">
                     <h2 class="cart-product-name">${cart[i]["name"]}</h2>
                     <span class="cart-product-size">Size: ${cart[i]["size"]}</span>
                 </div>
-                <input class="cart-quantity" type="number" value="${parseInt(cart[i]["quantity"])}" min="1" max="${cartMaxQuantity}">
+                <input class="input-quantity" type="number" value="${parseInt(cart[i]["quantity"])}" min="1" max="${cartMaxQuantity}">
                 
                 <span class="cart-price">$${(parseFloat(cart[i]["price"].replace("$", "")) * parseInt(cart[i]["quantity"])).toFixed(2)}</span>`
             cartList.appendChild(li);
@@ -228,7 +228,7 @@ else if (htmlPage === "/cart.html") {
 
 
         // Listen for user to change quantity
-        cartQuantityInputs = cartMain.querySelectorAll(".cart-quantity");
+        cartQuantityInputs = cartMain.querySelectorAll(".input-quantity");
         cartQuantityInputs.forEach(function(cartQuantityInput, index) {
             cartQuantityInput.onchange = function() {
                 // Don't allow user to input less than 1
@@ -312,24 +312,26 @@ else if (htmlPage === "/checkout.html") {
             li.classList.add("checkout-item");
             li.innerHTML = 
                 `
-                <img class="checkout-image cursor" src="${checkoutImageSrc}" alt="${checkoutImageAlt}">
+                <img class="checkout-image" src="${checkoutImageSrc}" alt="${checkoutImageAlt}">
                 <div class="checkout-description">
                     <h2 class="checkout-product-name">${cart[i]["name"]}</h2>
                     <span class="checkout-product-size">Size: ${cart[i]["size"]}</span>
                 </div>
                 <div class="checkout-specifics">
                     <h3 class="checkout-price">$${(parseFloat(cart[i]["price"].replace("$", "")) * parseInt(cart[i]["quantity"])).toFixed(2)}</h3>
-                    <input class="checkout-quantity" type="number" value="${parseInt(cart[i]["quantity"])}" min="1" max="${checkoutMaxQuantity}">
+                    <input class="input-quantity" type="number" value="${parseInt(cart[i]["quantity"])}" min="1" max="${checkoutMaxQuantity}">
                     <a href="/checkout.html" class="remove-from-checkout cursor">Remove</a>
                 </div>`
             checkoutList.appendChild(li);
         }
         
-        // Initialize subtotal
+        // Initialize subtotal, tax, grand total
         updateCheckoutSubtotal();
+        updateTax();
+        updateCheckoutGrandTotal();
 
         // Listen for user to change quantity
-        checkoutQuantityInputs = checkoutMain.querySelectorAll(".checkout-quantity");
+        checkoutQuantityInputs = checkoutMain.querySelectorAll(".input-quantity");
         checkoutQuantityInputs.forEach(function(checkoutQuantityInput, index) {
             checkoutQuantityInput.onchange = function() {
                 console.log("Changed");
@@ -338,12 +340,16 @@ else if (htmlPage === "/checkout.html") {
                     checkoutQuantityInput.value = 1;
                     alert("Quantity must be greater than zero.");
                     updateCheckoutSubtotal();
+                    updateTax();
+                    updateCheckoutGrandTotal();
                 }
                 // Don't allow user to input more than max quantity allowed for item
                 if (checkoutQuantityInput.value > parseInt(products[cart[index]["index"]]["maxQuantity"])) {
                     checkoutQuantityInput.value = products[cart[index]["index"]]["maxQuantity"];
                     alert("Maximum quantity for this item is " + String(products[cart[index]["index"]]["maxQuantity"]) + ".")
                     updateCheckoutSubtotal();
+                    updateTax();
+                    updateCheckoutGrandTotal();
                 }
                 cart[index]["quantity"] = checkoutQuantityInput.value;
                 // Push cart back to session storage
@@ -355,9 +361,10 @@ else if (htmlPage === "/checkout.html") {
                 checkoutMain.querySelectorAll(".checkout-price")[index].innerHTML = "$" + totalItemPrice;
                 // Update subtotal
                 updateCheckoutSubtotal();
+                updateTax();
+                updateCheckoutGrandTotal();
             }
         });
-
 
         // Listen for user to delete an item from their cart
         removeButtons = checkoutMain.querySelectorAll(".remove-from-checkout");
@@ -366,19 +373,129 @@ else if (htmlPage === "/checkout.html") {
                 cart.splice(index, 1);
                 sessionStorage.setItem("products", JSON.stringify(cart)); 
                 updateCheckoutSubtotal();
+                updateTax();
+                updateCheckoutGrandTotal();
             }
         });
 
         // Update subtotal
         function updateCheckoutSubtotal() {
-            productCheckoutTotals = checkoutMain.querySelectorAll(".checkout-price");
+            var productCheckoutTotals = checkoutMain.querySelectorAll(".checkout-price");
             var subtotal = 0;
             productCheckoutTotals.forEach(function(productCheckoutTotal) {
                 subtotal = subtotal + parseFloat(productCheckoutTotal.innerHTML.replace("$", ""));
             })
             subtotal = subtotal.toFixed(2);
-            checkoutMain.querySelector("#checkout-subtotal").innerHTML = `Subtotal: $${subtotal}`
+            checkoutMain.querySelector("#checkout-subtotal").innerHTML = `$${subtotal}`
         }
+        // Update tax
+        function updateTax() {
+            const salesTax = 0.08 // 8%
+            var subtotal = checkoutMain.querySelector("#checkout-subtotal").innerHTML.replace("$", "");
+            checkoutMain.querySelector("#checkout-tax").innerHTML = `$${(subtotal * salesTax).toFixed(2)}`;
+        }
+        // Update shipping cost
+        function updateShipping() {
+
+        }
+        // Update grand total
+        function updateCheckoutGrandTotal() {
+            var subtotal = parseFloat(checkoutMain.querySelector("#checkout-subtotal").innerHTML.replace("$", ""));
+            var tax = parseFloat(checkoutMain.querySelector("#checkout-tax").innerHTML.replace("$", ""));
+            var shipping = parseFloat(checkoutMain.querySelector("#checkout-shipping").innerHTML.replace("$", ""));
+            checkoutMain.querySelector("#checkout-grandtotal").innerHTML = `$${(subtotal + tax + shipping).toFixed(2)}`;
+        }
+
+
+        // Get all user input information boxes
+        var informationBoxes = checkoutMain.querySelectorAll(".user-information-box");
+
+        // When a "continue" button is clicked, show next information box to user
+        var checkoutForms = checkoutMain.querySelectorAll(".input-form");
+        checkoutForms.forEach((checkoutForm, index) => {
+            checkoutForm.onsubmit = () => {
+                // Show next information input box
+                checkoutForm.classList.remove("active");
+                if (index < informationBoxes.length - 2) {
+                    checkoutForms[index + 1].classList.add("active");
+                }
+                else {
+                    checkoutMain.querySelector("#purchase").parentElement.classList.add("active");
+                    informationBoxes[index + 1].querySelector(".user-input").classList.add("active");
+                }
+
+                // Show information the user just typed in
+                var userInputContainer = checkoutForms[index].parentElement.querySelector(".user-input");
+                // For 1. Email section
+                if (index === 0) {
+                    var userInput = checkoutForms[index].parentElement.querySelector(".input-email").value;
+                    userInputContainer.innerHTML = userInput;
+                }
+                // For 2. Shipping section
+                else if (index === 1) {
+                    var userInputs = checkoutForms[index];
+                    var userFields = checkoutForms[index].parentElement.querySelector(".user-input");
+                    userFields.querySelector("#user-first-name").innerHTML = userInputs.querySelector("#input-first-name").value.toUpperCase();
+                    userFields.querySelector("#user-last-name").innerHTML = userInputs.querySelector("#input-last-name").value.toUpperCase();
+                    userFields.querySelector("#user-address-line-1").innerHTML = userInputs.querySelector("#input-address-line-1").value.toUpperCase();
+                    userFields.querySelector("#user-address-line-2").innerHTML = userInputs.querySelector("#input-address-line-2").value.toUpperCase();
+                    userFields.querySelector("#user-city").innerHTML = userInputs.querySelector("#input-city").value.toUpperCase();
+                    userFields.querySelector("#user-state").innerHTML = userInputs.querySelector("#input-state").value;
+                    userFields.querySelector("#user-zip-code").innerHTML = userInputs.querySelector("#input-zip-code").value;
+                    userFields.querySelector("#user-country").innerHTML = userInputs.querySelector("#input-country").value;
+                    userFields.querySelector("#user-phone").innerHTML = userInputs.querySelector("#input-phone").value;
+                }
+                // For 3. Payment section
+                else if (index === 2) {
+                    var userInputs = checkoutForms[index];
+                    var userFields = checkoutForms[index].parentElement.querySelector(".user-input");
+                    userFields.querySelector("#user-card-name").innerHTML = userInputs.querySelector("#input-card-name").value.toUpperCase();
+                    userFields.querySelector("#user-card-number").innerHTML = userInputs.querySelector("#input-card-number").value;
+                    userFields.querySelector("#user-card-expiration").innerHTML = userInputs.querySelector("#input-card-expiration").value;
+                    userFields.querySelector("#user-card-cvv").innerHTML = userInputs.querySelector("#input-card-cvv").value;
+                    
+                    // For 4. Review section
+                    var userInputs = informationBoxes[index + 1].querySelector(".input-form");
+                    var userFields = informationBoxes[index + 1].querySelector(".user-input");
+                    userFields.querySelector("#user-email-information").innerHTML = informationBoxes[0].querySelector(".user-input").innerHTML;
+                    userFields.querySelector("#user-shipping-information").innerHTML = informationBoxes[1].querySelector(".user-input").innerHTML;
+                    userFields.querySelector("#user-payment-information").innerHTML = informationBoxes[2].querySelector(".user-input").innerHTML;
+                }
+
+                userInputContainer.classList.add("active");
+
+                // Reveal edit button
+                checkoutForms[index].parentElement.querySelector(".input-edit").style.display = "block";
+
+                // Don't refresh page
+                return false;
+            }
+        })
+
+        // When an "edit" button is clicked, allow user to change their information
+        var editButtons = checkoutMain.querySelectorAll(".input-edit");
+        editButtons.forEach((editButton, index) => {
+            editButton.onclick = () => {
+                // Show correct information input box
+                informationBoxes.forEach((element) => {
+                    // Hide other input boxes and user's input information
+                    element.querySelector(".input-form").classList.remove("active");
+                })
+                informationBoxes[index].querySelector(".input-form").classList.add("active");
+
+                // Remove edit buttons and user input from successive information input boxes
+                for (var i = index + 1; i < informationBoxes.length; i++) {
+                    informationBoxes[i].querySelector(".input-edit").style.display = "none";
+                    informationBoxes[i - 1].querySelector(".user-input").classList.remove("active");
+                    informationBoxes[i].querySelector(".user-input").classList.remove("active");
+                }
+
+            }
+        })
+
+        // When a purchase is completed
+
+
     });
 }
 

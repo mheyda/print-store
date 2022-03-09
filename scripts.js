@@ -75,7 +75,6 @@ if (htmlPage === "/detail.html") {
         primaryImage.onclick = function() {
             detailMain.querySelector(".modal-container").style.display = "block";
             // Show selected image
-            console.log("Image index: " + slideIndex);
             slideIndex = showSlides(slideIndex);
             document.body.style.overflow = "hidden";
         }
@@ -112,7 +111,6 @@ if (htmlPage === "/detail.html") {
         function showThumb(imageIndex) {
             primaryImage.setAttribute("src", `${products[productIndex]["productImages"][imageIndex]["mainSrc"]}`);
             primaryImage.setAttribute("alt", `${products[productIndex]["productImages"][imageIndex]["mainAlt"]}`)
-            console.log(primaryImage.src);
         } 
         // When a thumbnail is clicked, update primary image and update image index
         thumbnails = detailMain.querySelectorAll(".thumbnail");
@@ -163,7 +161,6 @@ if (htmlPage === "/detail.html") {
             addToCartButton.value = "Item has been added!";
             timeout = setTimeout(addedToCartMessage, 3000);
             function addedToCartMessage() {
-                console.log("Waiting")
                 detailMain.querySelector(".add-to-cart").value = "Add to Cart";
             }
 
@@ -237,8 +234,6 @@ else if (htmlPage === "/cart.html") {
                 }
                 // Don't allow user to input more than max quantity allowed for item
                 if (cartQuantityInput.value > parseInt(products[cart[index]["index"]]["maxQuantity"])) {
-                    console.log("Input value: " + cartQuantityInput.value);
-                    console.log("Max quant: " + products[cart[index]["index"]]["maxQuantity"]);
                     cartQuantityInput.value = products[cart[index]["index"]]["maxQuantity"];
                     alert("Maximum quantity for this item is " + String(products[cart[index]["index"]]["maxQuantity"]) + ".")
                     updateSubtotal();
@@ -272,7 +267,6 @@ else if (htmlPage === "/cart.html") {
             var subtotal = 0;
             productCartTotals.forEach(function(productCartTotal) {
                 subtotal = subtotal + parseFloat(productCartTotal.innerHTML.replace("$", ""));
-                console.log(parseFloat(productCartTotal.innerHTML.replace("$", "")));
             })
             subtotal = subtotal.toFixed(2);
             cartMain.querySelector("#subtotal").innerHTML = `Subtotal: $${subtotal}`;
@@ -314,7 +308,7 @@ else if (htmlPage === "/checkout.html") {
                 <div class="checkout-specifics">
                     <h3 class="checkout-price">$${(parseFloat(cart[i]["price"].replace("$", "")) * parseInt(cart[i]["quantity"])).toFixed(2)}</h3>
                     <input class="input-quantity" type="number" value="${parseInt(cart[i]["quantity"])}" min="1" max="${checkoutMaxQuantity}">
-                    <a href="/checkout.html" class="remove-from-checkout cursor">Remove</a>
+                    <button class="remove-from-checkout cursor">Remove</button>
                 </div>`
             checkoutList.appendChild(li);
         }
@@ -328,7 +322,6 @@ else if (htmlPage === "/checkout.html") {
         checkoutQuantityInputs = checkoutMain.querySelectorAll(".input-quantity");
         checkoutQuantityInputs.forEach(function(checkoutQuantityInput, index) {
             checkoutQuantityInput.onchange = function() {
-                console.log("Changed");
                 // Don't allow user to input less than 1
                 if (checkoutQuantityInput.value < 1) {
                     checkoutQuantityInput.value = 1;
@@ -359,16 +352,23 @@ else if (htmlPage === "/checkout.html") {
                 updateCheckoutGrandTotal();
             }
         });
-
         // Listen for user to delete an item from their cart
         removeButtons = checkoutMain.querySelectorAll(".remove-from-checkout");
-        removeButtons.forEach(function(removeButton, index) {
+        removeButtons.forEach(function(removeButton) {
             removeButton.onclick = function() {
+                var index = Array.from(checkoutList.children).indexOf(removeButton.parentElement.parentElement)
                 cart.splice(index, 1);
                 sessionStorage.setItem("products", JSON.stringify(cart)); 
+                removeButton.parentElement.parentElement.remove();
+                updateCartQuantity();
                 updateCheckoutSubtotal();
                 updateTax();
                 updateCheckoutGrandTotal();
+                // If user removes all items from cart, redirect them to cart page
+                if (cart.length === 0) {
+                    window.location.href = "/cart.html";
+                }
+                return false;
             }
         });
 

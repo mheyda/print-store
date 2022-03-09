@@ -30,6 +30,20 @@ ul {
 i {
   font-size: 36px;
 }
+select {
+  background-color: var(--primaryDark);
+  margin: 0.5rem 0;
+  border: 1px solid var(--primaryLight);
+  height: 2.4rem;
+}
+input {
+  background-color: var(--primaryDark);
+  color: var(--primaryLight);
+  border: 1px solid var(--primaryLight);
+  height: 2.4rem;
+  padding-left: 0.4rem;
+  margin: 0.5rem 0;
+}
 
 
 /* -------------------- */
@@ -76,6 +90,9 @@ i {
 .flex {
   display: flex;
   justify-content: space-between;
+}
+.hidden {
+  display: none;
 }
 
 /* -------------------- */
@@ -401,33 +418,13 @@ footer {
 .continue {
   height: 2.4rem;
 }
-select {
-  background-color: var(--primaryDark);
-  margin: 0.5rem 0;
-  border: 1px solid var(--primaryLight);
-  height: 2.4rem;
-}
-option:disabled {
-  color: gray;
-}
-input {
-  background-color: var(--primaryDark);
-  color: var(--primaryLight);
-  border: 1px solid var(--primaryLight);
-  height: 2.4rem;
-  padding-left: 0.4rem;
-  margin: 0.5rem 0;
-}
+
 .input-quantity {
   width: 2.4rem;
 }
 .input-email {
   width: calc(100% - 0.6rem);
 }
-.hidden {
-  display: none;
-}
-
 
 .accounting-line-items {
   border-top: 1px solid var(--primaryLight);

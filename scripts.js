@@ -1,5 +1,3 @@
-//sessionStorage.clear()
-
 // Get query string, product index, and html page name
 var queryString = location.search.substring(1);
 var productIndex = queryString.split("|")[0];
@@ -23,11 +21,19 @@ updateCartQuantity();
 // Auto update copyright year
 document.querySelector(".copyright-year").innerHTML = new Date().getFullYear();
 
+// Loader
+window.onload = function () { 
+    if (document.querySelector(".loader")) {
+        document.querySelector(".loader").classList.add("fade");
+    }
+};
+
 // ----------------- //
 // detail.html page  //
 // ----------------- //
 if (htmlPage === "/detail.html") {
     window.addEventListener("DOMContentLoaded", async () => {
+
         // Get product data
         const products = await loadProducts();
 
@@ -183,18 +189,17 @@ else if (htmlPage === "/cart.html") {
         // If cart is empty, display a message
         if (cart.length === 0) {
             cartMain.querySelector("#empty-cart").style.display = "block";
-            cartMain.querySelector("#cart-header").style.display = "none";
-            cartMain.querySelector("#subtotal").style.display = "none";
-            cartMain.querySelector("#checkout-button").style.display = "none";
+        }
+        // If cart is not empty, reveal cart information and hide empty cart message
+        else {
+            cartMain.querySelector("#checkout-button").style.display = "flex";
+            cartMain.querySelector("#cart-header").style.display = "flex";
+            cartMain.querySelector("#subtotal").style.display = "block";
+            cartMain.querySelector("#empty-cart").style.display = "none";
         }
 
         // Loop through cart items and add them to cart.html
         for (var i = 0; i < cart.length; i++) {
-            // Hide empty cart message and display header and subtotal
-            cartMain.querySelector("#empty-cart").style.display = "none";
-            cartMain.querySelector("#cart-header").style.display = "flex";
-            cartMain.querySelector("#subtotal").style.display = "block";
-            cartMain.querySelector("#checkout-button").style.display = "flex";
             // Find JSON array index of product in cart to get image src
             for (var j = 0; j < products.length; j++) {
                 if (cart[i]["name"] === products[j]["name"].replace(/-/g, " ")) {

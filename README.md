@@ -1,13 +1,13 @@
 # Ecommerce Photography Print Store
 
 ## Overview
-As a hobbyist photographer, I wanted to practice my frontend coding skills by developing a simple ecommerce site for photography prints from scratch. My intention was to solidify my knowledge of vanilla JavaScript, HTML, and CSS before learning a frontend framework, so I decided to build the entire site solely with these technologies while connecting to an API that would securely handle payments.
+As a hobbyist photographer, I wanted to practice my frontend coding skills by developing a simple ecommerce site for photography prints from scratch. My intention was to solidify my knowledge of vanilla JavaScript, HTML, and CSS before learning a frontend framework, so I decided to build the entire site solely with these technologies. Future functionality could be added to process payments using an API.
 ### See it in action <a href="https://mheyda-print-store.netlify.app/" target="_blank"><ins>here</ins></a>*. :smile:
 <br>
 
 ## File Structure
 ### HTML Files
-The HTML files serve as templates that are filled with information from the JSON file using logic from JavaScript. This allows the templates to be responsive to the products available and the products the user wants to view.
+The HTML files serve as templates that are filled with information from the JSON file using logic from JavaScript. This allows the templates to be responsive to the products available and the products the user has selected.
 
 ### JSON File
 The JSON file acts similar to a database with all available product information. Since only frontend technologies were used, this was a practical alternative to a database and allows the product information to be easily adjusted when required.
@@ -30,9 +30,7 @@ The home page displays every available product by pulling data from a local JSON
 When a product is clicked on, the user is brought to the detail page for that product. This displays the product's starting price, size options, quantity options, and a button to add to the shopping cart. Secondary product images can be viewed by clicking on one of the thumbnails or by opening the modal image gallery with a click on the primary image. 
 
 ### Shopping Cart Page
-*This functionality is currently being built<br>
-The shopping cart page will display all the products that a user has added to their cart, as well as the total price of the items they selected. There will be a button to proceed to checkout.
+The shopping cart page displays all the products that the user has added to their cart. They have the option to remove the item completely, change the item quantity, or return to the detail page for any of their items. The price total for each product and the subtotal is displayed.
 
 ### Checkout Page
-*This functionality is currently being built<br>
-The checkout page will allow the user to type in required information, which will be verified by a payment API. If the user's information is verified, the payment will be processed and display a success message.
+The checkout page displays an overview of the user's shopping cart, including the subtotal, taxes, shipping cost, and grand total. There are fields for the user to enter their email address, shipping address, and credit card information. Before submitting, the user can review and confirm all of their information.

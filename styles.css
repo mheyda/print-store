@@ -239,7 +239,7 @@ nav a {
 .cart-header-quantity {
   display: flex;
   margin-left: auto;
-  width: 40px;
+  width: 3rem;
   justify-content: center;
 }
 .cart-header-price {
@@ -250,7 +250,6 @@ nav a {
 #subtotal {
   display: none;
   padding-top: 1rem;
-  text-align: right;
 }
 .cart-item {
   display: flex;
@@ -469,7 +468,7 @@ input {
 }
 #checkout {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 
 .checkout-item {

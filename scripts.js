@@ -29,7 +29,7 @@ document.querySelector(".copyright-year").innerHTML = new Date().getFullYear();
 if (htmlPage === "/detail.html") {
     window.addEventListener("DOMContentLoaded", async () => {
         // Get product data
-        const products = await loadData();
+        const products = await loadProducts();
 
         // Populate title, primary image, starting price, modal images, thumbnail images, sizes and quantities
         populateTitle(products, detailMain, productIndex);
@@ -178,10 +178,9 @@ if (htmlPage === "/detail.html") {
 else if (htmlPage === "/cart.html") {
     window.addEventListener("DOMContentLoaded", async () => {
         // Get product data
-        const products = await loadData();
+        const products = await loadProducts();
 
         cart = JSON.parse(sessionStorage.getItem("products"));
-
         cartList = cartMain.querySelector("ul");
 
         // If cart is empty, display a message
@@ -226,7 +225,6 @@ else if (htmlPage === "/cart.html") {
         // Initialize subtotal
         updateSubtotal();
 
-
         // Listen for user to change quantity
         cartQuantityInputs = cartMain.querySelectorAll(".input-quantity");
         cartQuantityInputs.forEach(function(cartQuantityInput, index) {
@@ -258,7 +256,6 @@ else if (htmlPage === "/cart.html") {
             }
         });
 
-
         // Listen for user to delete an item from their cart
         removeButtons = cartMain.querySelectorAll(".remove-from-cart");
         removeButtons.forEach(function(removeButton, index) {
@@ -272,15 +269,13 @@ else if (htmlPage === "/cart.html") {
         // Update subtotal
         function updateSubtotal() {
             productCartTotals = cartMain.querySelectorAll(".cart-price");
-            console.log(productCartTotals)
             var subtotal = 0;
             productCartTotals.forEach(function(productCartTotal) {
                 subtotal = subtotal + parseFloat(productCartTotal.innerHTML.replace("$", ""));
                 console.log(parseFloat(productCartTotal.innerHTML.replace("$", "")));
             })
             subtotal = subtotal.toFixed(2);
-            cartMain.querySelector("#subtotal").innerHTML = `Subtotal: $${subtotal}`
-            console.log("Subtotal: " + subtotal)
+            cartMain.querySelector("#subtotal").innerHTML = `Subtotal: $${subtotal}`;
         }
     });
 }
@@ -291,7 +286,7 @@ else if (htmlPage === "/cart.html") {
 else if (htmlPage === "/checkout.html") {
     window.addEventListener("DOMContentLoaded", async () => {
         // Get product data
-        const products = await loadData();
+        const products = await loadProducts();
 
         cart = JSON.parse(sessionStorage.getItem("products"));
 
@@ -311,8 +306,7 @@ else if (htmlPage === "/checkout.html") {
             var li = document.createElement("li");
             li.classList.add("checkout-item");
             li.innerHTML = 
-                `
-                <img class="checkout-image" src="${checkoutImageSrc}" alt="${checkoutImageAlt}">
+                `<img class="checkout-image" src="${checkoutImageSrc}" alt="${checkoutImageAlt}">
                 <div class="checkout-description">
                     <h2 class="checkout-product-name">${cart[i]["name"]}</h2>
                     <span class="checkout-product-size">Size: ${cart[i]["size"]}</span>
@@ -407,11 +401,11 @@ else if (htmlPage === "/checkout.html") {
         }
 
 
-        // Get all user input information boxes
+        // Get all user input information boxes and checkout forms
         var informationBoxes = checkoutMain.querySelectorAll(".user-information-box");
+        var checkoutForms = checkoutMain.querySelectorAll(".input-form");
 
         // When a "continue" button is clicked, show next information box to user
-        var checkoutForms = checkoutMain.querySelectorAll(".input-form");
         checkoutForms.forEach((checkoutForm, index) => {
             checkoutForm.onsubmit = () => {
                 // Show next information input box
@@ -489,7 +483,6 @@ else if (htmlPage === "/checkout.html") {
                     informationBoxes[i - 1].querySelector(".user-input").classList.remove("active");
                     informationBoxes[i].querySelector(".user-input").classList.remove("active");
                 }
-
             }
         })
 
@@ -505,8 +498,7 @@ else if (htmlPage === "/checkout.html") {
 else {
     window.addEventListener("DOMContentLoaded", async () => {
         // Get product data and main section
-        const products = await loadData();
-        console.log("At index.html");
+        const products = await loadProducts();
         populateMain(products, indexMain);
     });
 }
@@ -518,7 +510,7 @@ else {
 // ------------------ //
 
 // Function to load JSON product data
-async function loadData() {
+async function loadProducts() {
     const response = await fetch("./products.json");
     const products = await response.json();
     return products;
@@ -534,13 +526,11 @@ function populateMain(products, indexMain) {
     for (var i = 0; i < products.length; i++) {
         var li = document.createElement("li");
         li.classList.add("index-item", "hover-opacity", "two-sec-ease");
-        li.innerHTML = `
-                    <a href="detail.html?${i}|${products[i]["name"]}">
-                        <img class="product-image index-image object-fit-contain cursor">
-                        <h3 class="product-title text-align-center"></h3>
-                        <p class="price text-align-center"></p>
-                    </a>
-        `;
+        li.innerHTML = `<a href="detail.html?${i}|${products[i]["name"]}">
+                            <img class="product-image index-image object-fit-contain cursor">
+                            <h3 class="product-title text-align-center"></h3>
+                            <p class="price text-align-center"></p>
+                        </a>`;
         // Populate the title, primary image, and starting price for each product
         populateTitle(products, li, i);
         populatePrimaryImage(products, li, i);

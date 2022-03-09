@@ -1,0 +1,5 @@
+Make site more accessible
+Clean up CSS
+Improve checkout page so every field is verified
+Improve design and color scheme
+Organize JavaScript better (break up into files by html page?)

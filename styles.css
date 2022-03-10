@@ -30,6 +30,11 @@ ul {
 i {
   font-size: 36px;
 }
+button {
+  -moz-appearance: none; 
+	-webkit-appearance: none; 
+	appearance: none;
+}
 select {
   background-color: var(--primaryDark);
   margin: 0.5rem 0;

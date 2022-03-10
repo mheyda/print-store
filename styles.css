@@ -369,6 +369,9 @@ nav a {
   display: none;
   padding-top: 1rem;
 }
+.user-information-box input {
+  font-size: 1rem;
+}
 .active {
   display: block;
 }
@@ -389,7 +392,6 @@ nav a {
 }
 .user-information-box {
   position: relative;
-  font-size: 1rem;
 }
 .checkout-product-name, .cart-product-name {
   margin: 0;
@@ -397,6 +399,11 @@ nav a {
 #checkout {
   display: flex;
   flex-direction: column-reverse;
+}
+#checkout select {
+  padding-left: 0.4rem;
+  background-color: var(--primaryDark);
+  font-size: 1rem;
 }
 .checkout-item {
   display: flex;

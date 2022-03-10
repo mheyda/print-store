@@ -1,3 +1,4 @@
+Improve checkout page for safari
 Make site more accessible
 Clean up CSS
 Improve checkout page so every field is verified

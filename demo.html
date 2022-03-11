@@ -13,7 +13,7 @@
         <meta name="description" property="og:description" content="Marshall's Print Store" />
 
         <!-- Link to styles -->
-        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="/menu.css">
 
         <!-- Browser Icon and Title -->
         <link href="/favicon.ico" rel="icon">
@@ -29,55 +29,41 @@
         </div> -->
         
         <!-- Navigation Bar -->
-        <nav>
-            <ul id="header-nav">
-                <li class="menu">
-                    <a>
-                        <i class="fa fa-bars"></i>
-                    </a>
-                </li>
-                <li class="logo">
-                    <a href="/" class="cursor hover-opacity">
-                        Logo
-                    </a>
-                </li>
-                <li class="nav-collapse">
-                    <a class="cursor hover-opacity">
+
+        <!-- Top Navigation Menu -->
+        
+        <div id="print-shop-banner">
+            <p>Print Shop</p>
+            <nav>
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <a href="javascript:void(0);" class="hamburger-menu" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <!-- Navigation links (hidden by default) -->
+                <div id="myLinks">
+                    <a class="mobile-collapse hover-opacity cursor">
                         About
                     </a>
-                </li>
-                <li class="nav-collapse">
-                    <a class="cursor hover-opacity">
+                    <a class="mobile-collapse hover-opacity cursor">
                         Contact
                     </a>
-                </li>
-                <li class="nav-collapse">
-                    <a href="/" class="cursor hover-opacity">
+                    <a class="mobile-collapse hover-opacity cursor" href="/">
                         Shop
                     </a>
-                </li>
-                <li class="cart">
-                    <a href="/cart.html" class="cursor hover-opacity">
-                        Cart
-                        <div class="cart-symbol">
-                            <span class="cart-count"></span>
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            
-            
-        </nav>
+                </div>
+                <a class="logo hover-opacity" href="/">
+                    Logo
+                </a>
+                <a class="cart hover-opacity" href="/cart.html">
+                    Cart
+                    <div class="cart-symbol">
+                        <span class="cart-count"></span>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                </a>
+            </nav>
+        </div>
 
-        <!-- Banner -->
-        <section id="print-shop-banner">
-            <p>SHOP</p>
-            <a href="#index" class="cursor banner-button hover-opacity">Explore</a>
-            <img src="images/print shop banner 3.jpg">
-        </section>
-        
-        
         <!-- Store Items -->
         <main id="index">
             

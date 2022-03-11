@@ -3,6 +3,7 @@
   margin: 0;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
   
   /* Colors */
   --primaryDark: #141414;
@@ -63,7 +64,7 @@ input {
   transition: 0.2s ease;
 }
 .hover-opacity:hover {
-  opacity: 0.8;
+  opacity: 0.7;
   transition: opacity 0.2s ease;
 }
 .text-align-center {
@@ -133,32 +134,122 @@ input {
 /* -------------------- */
 /* Navigation Bar       */
 /* -------------------- */
+nav {
+  z-index: 99;
+}
+.solid-background a, .solid-background .fa-cart-shopping {
+  color: var(--primaryLight);
+}
+.solid-background .cart-count {
+  color: var(--primaryDark);
+}
 nav ul {
   display: flex;
+  height: 6rem;
 }
-nav li:last-child {
-  margin-left: auto;
+nav li {
+  display: flex;
+  align-items: center;
+  background-color: blue;
+
 }
 nav a {
   display: flex;
   align-items: center;
   padding: 0 1rem;
-  height: 50px;
+  height: 3rem;
+  color: var(--primaryDark);
+}
+.fa-cart-shopping {
+  color: var(--primaryDark);
 }
 .cart-count {
   position: absolute;
   margin-top: 5px;
   margin-left: 23px;
   transform: translateX(-50%);
-  color: var(--primaryDark);
+  color: var(--primaryLight);
   font-size: 0.8rem;
   font-weight: 700;
 }
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 6rem;
+}
+.cart {
+  position: absolute;
+  right: 0;
+  height: 6rem;
+}
+.nav-collapse {
+  display: none;
+}
+@media (min-width: 768px) {
+  .nav-collapse {
+    display: flex;
+  }
+  .menu {
+    display: none;
+  }
+}
+
 
 
 /* -------------------- */
 /* Index Page Section   */
 /* -------------------- */
+.banner-button {
+  background-color: transparent;
+  font-size: 1rem;
+  border: 2px solid var(--primaryDark);
+  color: var(--primaryDark);
+  padding: 0.6rem 1rem;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+}
+#print-shop-banner {
+  position: relative;
+  transform: translateY(-6rem);
+  margin-bottom: -3rem;
+}
+#print-shop-banner p {
+  font-size: 3rem;
+  color: var(--primaryDark);
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+#print-shop-banner img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  object-position: 50% 60%;
+  z-index: -1;
+}
+@media (min-width: 768px) {
+  .banner-button {
+    top: 58%;
+  }
+  #print-shop-banner p {
+    font-size: 4rem;
+    top: 42%;
+  }
+  #print-shop-banner img {
+    height: 30rem;
+  }
+
+
+
+
+
+
+}
+
 .index-item {
   margin: 0 auto 4rem auto;
 }

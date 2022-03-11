@@ -639,3 +639,22 @@ function updateCartQuantity() {
     }
 }
 
+
+
+
+const menu = document.querySelector(".menu");
+menu.onclick = () => {
+    document.querySelectorAll(".nav-collapse").forEach((navItem) => {
+        if (navItem.style.display === "flex") {
+            navItem.style.display = "none";
+            navItem.parentElement.style.flexDirection = "row";
+            console.log(menu.parentElement.parentElement.querySelector("#mobile-nav"))
+            menu.parentElement.parentElement.querySelector("#mobile-nav").display = "none";
+        }
+        else {
+            navItem.style.display = "flex";
+            navItem.parentElement.style.flexDirection = "column";
+            
+        }
+    })
+}

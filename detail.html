@@ -26,32 +26,27 @@
         
         <!-- Navigation Bar -->
         <nav class="solid-background">
-            <ul>
-                <li class="hover-opacity">
-                    <a class="cursor">
-                        About
-                    </a>
-                </li>
-                <li class="hover-opacity">
-                    <a class="cursor">
-                        Contact
-                    </a>
-                </li>
-                <li class="hover-opacity">
-                    <a href="/">
-                        Shop
-                    </a>
-                </li>
-                <li class="cart hover-opacity">
-                    <a href="/cart.html">
-                        Cart
-                        <div class="cart-symbol">
-                            <span class="cart-count"></span>
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </div>
-                    </a>
-                </li>
-            </ul>
+            <div id="header-nav">
+                <a class="cursor hover-opacity">About</a>
+                <a class="cursor hover-opacity">Contact</a>
+                <a href="/" class="cursor hover-opacity">Shop</a>
+            </div>
+
+            <a id="menu"><i class="fa fa-bars"></i></a>
+            <div id="mobile-nav">
+                <a class="cursor hover-opacity">About</a>
+                <a class="cursor hover-opacity">Contact</a>
+                <a href="/" class="cursor hover-opacity">Shop</a>
+            </div>
+
+            <a href="/" class="logo cursor hover-opacity"><img src="images/mountain-logo-white.png"></a>
+            <a href="/cart.html" class="cart cursor hover-opacity">
+                Cart
+                <div class="cart-symbol">
+                    <span class="cart-count"></span>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </a>
         </nav>
 
         <!-- Store Items -->

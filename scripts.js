@@ -643,15 +643,22 @@ function updateCartQuantity() {
 
 
 const menu = document.querySelector("#menu");
+const mobileNav = document.querySelector("#mobile-nav");
 menu.onclick = () => {
-    if (document.querySelector("#mobile-nav").style.display === "block") {
-        document.querySelector("#mobile-nav").style.display = "none";
+    if (mobileNav.style.visibility === "visible") {
+        mobileNav.style.visibility = "hidden";
+        mobileNav.classList.remove("fade-in-animation");
+        mobileNav.classList.add("fade-out-animation");
         document.querySelector("body").classList.remove("stop-scrolling");
-        console.log(document.querySelector("body").overflow)
+        menu.querySelector("i").classList.remove("fa-solid", "fa-xmark", "fade-in-animation");
+        menu.querySelector("i").classList.add("fa", "fa-bars");
     }
     else {
-        document.querySelector("#mobile-nav").style.display = "block";
+        mobileNav.style.visibility = "visible";
+        mobileNav.classList.remove("fade-out-animation");
+        mobileNav.classList.add("fade-in-animation");
         document.querySelector("body").classList.add("stop-scrolling");
-        console.log(document.querySelector("body").overflow)
+        menu.querySelector("i").classList.remove("fa", "fa-bars");
+        menu.querySelector("i").classList.add("fa-solid", "fa-xmark", "fade-in-animation");
     }
 }

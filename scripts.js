@@ -9,6 +9,28 @@ const detailMain = document.querySelector("#detail");
 const cartMain = document.querySelector("#cart");
 const checkoutMain = document.querySelector("#checkout");
 
+// Responsive Navigation
+const menu = document.querySelector("#menu");
+const mobileNav = document.querySelector("#mobile-nav");
+menu.onclick = () => {
+    if (mobileNav.style.visibility === "visible") {
+        mobileNav.style.visibility = "hidden";
+        mobileNav.classList.remove("fade-in-animation");
+        mobileNav.classList.add("fade-out-animation");
+        document.querySelector("body").classList.remove("stop-scrolling");
+        menu.querySelector("i").classList.remove("fa-solid", "fa-xmark", "fade-in-animation");
+        menu.querySelector("i").classList.add("fa", "fa-bars");
+    }
+    else {
+        mobileNav.style.visibility = "visible";
+        mobileNav.classList.remove("fade-out-animation");
+        mobileNav.classList.add("fade-in-animation");
+        document.querySelector("body").classList.add("stop-scrolling");
+        menu.querySelector("i").classList.remove("fa", "fa-bars");
+        menu.querySelector("i").classList.add("fa-solid", "fa-xmark", "fade-in-animation");
+    }
+}
+
 // If cart is empty, create one
 if (sessionStorage.getItem("products") === null) {
     cart = [];
@@ -408,6 +430,7 @@ else if (htmlPage === "/checkout.html") {
 
         // Get all user input information boxes and checkout forms
         var informationBoxes = checkoutMain.querySelectorAll(".user-information-box");
+        var informationHeaders = checkoutMain.querySelectorAll(".user-information-header");
         var checkoutForms = checkoutMain.querySelectorAll(".input-form");
 
         // When a "continue" button is clicked, show next information box to user
@@ -422,6 +445,7 @@ else if (htmlPage === "/checkout.html") {
                     checkoutMain.querySelector("#purchase").parentElement.classList.add("active");
                     informationBoxes[index + 1].querySelector(".user-input").classList.add("active");
                 }
+                informationHeaders[index + 1].classList.remove("inactive");
 
                 // Show information the user just typed in
                 var userInputContainer = checkoutForms[index].parentElement.querySelector(".user-input");
@@ -487,6 +511,8 @@ else if (htmlPage === "/checkout.html") {
                     informationBoxes[i].querySelector(".input-edit").style.display = "none";
                     informationBoxes[i - 1].querySelector(".user-input").classList.remove("active");
                     informationBoxes[i].querySelector(".user-input").classList.remove("active");
+                    informationHeaders[i].classList.add("inactive");
+
                 }
             }
         })
@@ -636,29 +662,5 @@ function updateCartQuantity() {
     }
     else {
         document.querySelector(".cart-count").innerHTML = String(cartQuantity);
-    }
-}
-
-
-
-
-const menu = document.querySelector("#menu");
-const mobileNav = document.querySelector("#mobile-nav");
-menu.onclick = () => {
-    if (mobileNav.style.visibility === "visible") {
-        mobileNav.style.visibility = "hidden";
-        mobileNav.classList.remove("fade-in-animation");
-        mobileNav.classList.add("fade-out-animation");
-        document.querySelector("body").classList.remove("stop-scrolling");
-        menu.querySelector("i").classList.remove("fa-solid", "fa-xmark", "fade-in-animation");
-        menu.querySelector("i").classList.add("fa", "fa-bars");
-    }
-    else {
-        mobileNav.style.visibility = "visible";
-        mobileNav.classList.remove("fade-out-animation");
-        mobileNav.classList.add("fade-in-animation");
-        document.querySelector("body").classList.add("stop-scrolling");
-        menu.querySelector("i").classList.remove("fa", "fa-bars");
-        menu.querySelector("i").classList.add("fa-solid", "fa-xmark", "fade-in-animation");
     }
 }

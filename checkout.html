@@ -53,16 +53,16 @@
         <main id="checkout">
             <div class="user-information">
                 <div class="user-information-box user-email-container">
-                    <h1>1. Your Email</h1>
+                    <h1 class="user-information-header">1. Your Email</h1>
                     <button class="input-edit button-plain">Edit</button>
                     <form class="input-form input-form-email active">
                         <input class="input-email" value="" type="email" placeholder="username@example.com" required>
-                        <input class="continue add-to-cart cursor" type="submit" value="Continue">
+                        <input class="full-width cursor" type="submit" value="Continue">
                     </form>
                     <div class="user-input"></div>
                 </div>
                 <div class="user-information-box user-shipping-container">
-                    <h1>2. Shipping</h1>
+                    <h1 class="inactive user-information-header">2. Shipping</h1>
                     <button class="input-edit button-plain">Edit</button>
                     <form class="input-form input-form-shipping">
                         <div class="flex">
@@ -97,7 +97,7 @@
                         </div>
                         <input class="full-width" id="input-phone" type="tel" placeholder="Phone Number" required>
 
-                        <input class="continue add-to-cart cursor" type="submit" value="Continue">
+                        <input class="full-width cursor" type="submit" value="Continue">
                     </form>
                     <div class="user-input">
                         <div><span id="user-first-name"></span> <span id="user-last-name"></span></div>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
                 <div class="user-information-box user-payment-container">
-                    <h1>3. Payment</h1>
+                    <h1 class="inactive user-information-header">3. Payment</h1>
                     <button class="input-edit button-plain">Edit</button>
                     <form class="input-form input-form-payment">
                         <input class="full-width" id="input-card-name" type="text" placeholder="Name on Card" required>
@@ -118,7 +118,7 @@
                             <input class="half-width" id="input-card-expiration" pattern="[0-9, /]{5}" placeholder="MM/YY" required>
                             <input class="half-width" id="input-card-cvv" pattern="[0-9]{3}" placeholder="CVV" required>
                         </div>
-                        <input class="continue add-to-cart cursor" type="submit" value="Continue">
+                        <input class="full-width cursor" type="submit" value="Continue">
                     </form>
                     <div class="user-input">
                         <div id="user-card-name"></div>
@@ -127,7 +127,7 @@
                     </div>
                 </div>
                 <div class="user-information-box user-review-container">
-                    <h1>4. Review & Purchase</h1>
+                    <h1 class="inactive user-information-header">4. Review & Purchase</h1>
                     <button class="input-edit button-plain">Edit</button>
                     <div class="user-input">
                         <h3>Email</h3><br><div id="user-email-information"></div><br>

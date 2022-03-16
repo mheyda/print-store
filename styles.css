@@ -280,7 +280,7 @@ nav a {
 }
 #print-shop-banner img {
   width: 100%;
-  height: calc(100vh - env(safe-area-inset-bottom));
+  height: 50vh;
   object-fit: cover;
   z-index: -1;
   filter: brightness(80%);
@@ -288,20 +288,15 @@ nav a {
 #index-banner {
   object-position: 50% 80%;
 }
-#contact-banner {
-  
-}
-#shop-banner {
-  
-}
-#print-shop-banner p {
+#print-shop-banner div {
   display: block;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--primaryLight);
   position: absolute;
   left: 50%;
   top: 50%;
+  width: 90vw;
   transform: translate(-50%, -50%);
   z-index: 10;
   line-height: 4rem;

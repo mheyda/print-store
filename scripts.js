@@ -4,6 +4,7 @@ var productIndex = queryString.split("|")[0];
 var htmlPage = window.location.pathname;
 
 // Get main sections for shop, detail, and cart pages
+const contactMain = document.querySelector("#contact");
 const shopMain = document.querySelector("#shop");
 const detailMain = document.querySelector("#detail");
 const cartMain = document.querySelector("#cart");
@@ -198,7 +199,7 @@ if (htmlPage === "/detail.html") {
     })
 }
 // ----------------- //
-// cart.html page   //
+// cart.html page    //
 // ----------------- //
 else if (htmlPage === "/cart.html") {
     window.addEventListener("DOMContentLoaded", async () => {
@@ -528,13 +529,32 @@ else if (htmlPage === "/checkout.html") {
 // ----------------- //
 // shop.html page   //
 // ----------------- //
-else {
+else if (htmlPage === "/shop.html") {
     window.addEventListener("DOMContentLoaded", async () => {
         // Get product data and main section
         const products = await loadProducts();
         populateMain(products, shopMain);
     });
 }
+
+// ----------------- //
+// contact.html page //
+// ----------------- //
+else if (htmlPage === "/contact.html") {
+    window.addEventListener("DOMContentLoaded", async () => {
+        
+    });
+}
+
+// ----------------- //
+// index.html page   //
+// ----------------- //
+else {
+    window.addEventListener("DOMContentLoaded", async () => {
+        
+    });
+}
+
 
 
 

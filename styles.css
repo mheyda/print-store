@@ -58,12 +58,20 @@ input[type="submit"] {
   border: 3px solid var(--primaryLight);
   transition: 0.2s;
   font-size: 1rem;
+  padding: 0;
+  margin: 0;
 }
 input[type="submit"]:hover {
   color: var(--primaryDark);;
   background-color: var(--primaryLight);
 }
-
+textarea {
+  background-color: var(--primaryDark);
+  border: 1px solid var(--primaryLight);
+  resize: none;
+  padding: 0.4rem;
+  margin: 0.5rem 0;
+}
 
 
 /* -------------------- */
@@ -275,8 +283,75 @@ nav a {
 }
 
 
+
 /* -------------------- */
-/* Index Page Section   */
+/* Index Page           */
+/* -------------------- */
+#index-nav {
+  height: auto;
+}
+#index-nav > #header-nav  {
+  border: 3px solid blue;
+  flex-direction: column;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: right;
+  margin: 5vw 5vw auto auto;
+}
+@media (min-width: 768px) {
+  #index-nav > #header-nav  {
+    flex-direction: row;
+  }
+}
+
+.index-logo {
+  position: absolute;
+  left: 5vw;
+  bottom: 5vw;
+}
+.index-logo img {
+  height: 30vw;
+  max-height: 300px;
+}
+#index-nav a {
+  display: flex;
+  border: 2px solid red;
+  height: auto;
+  font-size: 2rem;
+}
+#header-nav a {
+  margin-bottom: 2rem;
+}
+#index-background {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+
+/* -------------------- */
+/* Contact Page         */
+/* -------------------- */
+@media (min-width: 768px) {
+  #contact {
+    width: 768px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+#contact-message {
+  height: 10rem;
+}
+
+
+
+/* -------------------- */
+/* Shop Page Section    */
 /* -------------------- */
 #print-shop-banner {
   position: relative;
@@ -321,16 +396,17 @@ nav a {
     top: 65%;
   }
 }
-.index-item {
+.shop-item {
   margin: 0 auto 4rem auto;
 }
-.index-image {
+.shop-image {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   max-height: 65vh;
 }
+
 
 
 /* ---------------------- */
@@ -634,10 +710,10 @@ footer {
     display: flex;
     flex-wrap: wrap;
   }
-  .index-item {
+  .shop-item {
     margin: 0 auto 3rem auto;
   }
-  .index-image {
+  .shop-image {
     max-width: 45vw;
     width: 600px;
     max-height: 45vw;
@@ -705,7 +781,7 @@ footer {
 }
 
 @media (min-width: 992px) {
-  .index-image {
+  .shop-image {
     max-width: 30vw;
     max-height: 30vw;
   }
@@ -728,7 +804,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
   }
-  .index-image {
+  .shop-image {
     max-width: 420px;
     max-height: 420px;
   }

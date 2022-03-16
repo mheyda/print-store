@@ -25,18 +25,20 @@
     <body>
         
         <!-- Navigation Bar -->
-        <nav class="solid-background">
+        <nav id="main-nav" class="solid-background">
             <div id="header-nav">
+                <a href="/" class="cursor hover-opacity">Home</a>
                 <a class="cursor hover-opacity">About</a>
-                <a class="cursor hover-opacity">Contact</a>
-                <a href="/" class="cursor hover-opacity">Shop</a>
+                <a href="/contact.html" class="cursor hover-opacity">Contact</a>
+                <a href="/shop.html" class="cursor hover-opacity">Shop</a>
             </div>
 
             <a id="menu"><i class="fa fa-bars"></i></a>
             <div id="mobile-nav">
+                <a href="/" class="cursor hover-opacity">Home</a>
                 <a class="cursor hover-opacity">About</a>
-                <a class="cursor hover-opacity">Contact</a>
-                <a href="/" class="cursor hover-opacity">Shop</a>
+                <a href="/contact.html" class="cursor hover-opacity">Contact</a>
+                <a href="/shop.html" class="cursor hover-opacity">Shop</a>
             </div>
 
             <a href="/" class="logo cursor hover-opacity"><img src="images/mountain-logo-white.png"></a>
@@ -49,14 +51,14 @@
             </a>
         </nav>
 
-        <!-- Shopping Cart -->
+        <!-- Checkout -->
         <main id="checkout">
             <div class="user-information">
                 <div class="user-information-box user-email-container">
                     <h1 class="user-information-header">1. Your Email</h1>
                     <button class="input-edit button-plain">Edit</button>
                     <form class="input-form input-form-email active">
-                        <input class="input-email" value="" type="email" placeholder="username@example.com" required>
+                        <input class="input-email" value="" type="email" placeholder="username@example.com" autofocus required>
                         <input class="full-width cursor" type="submit" value="Continue">
                     </form>
                     <div class="user-input"></div>

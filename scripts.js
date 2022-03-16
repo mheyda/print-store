@@ -3,8 +3,8 @@ var queryString = location.search.substring(1);
 var productIndex = queryString.split("|")[0];
 var htmlPage = window.location.pathname;
 
-// Get main sections for index, detail, and cart pages
-const indexMain = document.querySelector("#index");
+// Get main sections for shop, detail, and cart pages
+const shopMain = document.querySelector("#shop");
 const detailMain = document.querySelector("#detail");
 const cartMain = document.querySelector("#cart");
 const checkoutMain = document.querySelector("#checkout");
@@ -446,6 +446,8 @@ else if (htmlPage === "/checkout.html") {
                     informationBoxes[index + 1].querySelector(".user-input").classList.add("active");
                 }
                 informationHeaders[index + 1].classList.remove("inactive");
+                // Focus cursor to next box
+                informationBoxes[index + 1].querySelector("input").focus();
 
                 // Show information the user just typed in
                 var userInputContainer = checkoutForms[index].parentElement.querySelector(".user-input");
@@ -524,13 +526,13 @@ else if (htmlPage === "/checkout.html") {
 }
 
 // ----------------- //
-// index.html page   //
+// shop.html page   //
 // ----------------- //
 else {
     window.addEventListener("DOMContentLoaded", async () => {
         // Get product data and main section
         const products = await loadProducts();
-        populateMain(products, indexMain);
+        populateMain(products, shopMain);
     });
 }
 
@@ -547,8 +549,8 @@ async function loadProducts() {
     return products;
 }
 
-// Function to populate index.html with all the products in "products.json"
-function populateMain(products, indexMain) {
+// Function to populate shop.html with all the products in "products.json"
+function populateMain(products, shopMain) {
     // Create unordered list
     productList = document.createElement("ul");
     productList.classList.add("products");
@@ -556,9 +558,9 @@ function populateMain(products, indexMain) {
     // Loop through all products, creating a list index for each
     for (var i = 0; i < products.length; i++) {
         var li = document.createElement("li");
-        li.classList.add("index-item", "hover-opacity", "two-sec-ease");
+        li.classList.add("shop-item", "hover-opacity", "two-sec-ease");
         li.innerHTML = `<a href="detail.html?${i}|${products[i]["name"]}">
-                            <img class="product-image index-image object-fit-contain cursor">
+                            <img class="product-image shop-image object-fit-contain cursor">
                             <h3 class="product-title text-align-center"></h3>
                             <p class="price text-align-center"></p>
                         </a>`;
@@ -571,7 +573,7 @@ function populateMain(products, indexMain) {
         productList.appendChild(li);
     }
     // Add unordered list to main
-    indexMain.appendChild(productList); 
+    shopMain.appendChild(productList); 
 }
 
 

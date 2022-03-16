@@ -17,15 +17,19 @@
 
         <!-- Browser Icon and Title -->
         <link href="/favicon.ico" rel="icon">
-        <title>Prints | Marshall Heyda</title>
+        <title>Contact | Marshall Heyda</title>
 
         <!-- Font awesome icons -->
         <script src="https://kit.fontawesome.com/a7e713de55.js" crossorigin="anonymous"></script>
     </head>
     <body>
+        <!-- Loader 
+        <div class="loader">
+            <img src="loader.gif" alt="Loading...">
+        </div> -->
         
         <!-- Navigation Bar -->
-        <nav id="main-nav" class="solid-background">
+        <nav id="main-nav">
             <div id="header-nav">
                 <a href="/" class="cursor hover-opacity">Home</a>
                 <a class="cursor hover-opacity">About</a>
@@ -41,7 +45,7 @@
                 <a href="/shop.html" class="cursor hover-opacity">Shop</a>
             </div>
 
-            <a href="/" class="logo cursor hover-opacity"><img src="images/mountain-logo-white.png"></a>
+            <a href="/" class="logo cursor hover-opacity"><img src="images/mountain-logo-black.png"></a>
             <a href="/cart.html" class="cart cursor hover-opacity">
                 Cart
                 <div class="cart-symbol">
@@ -51,46 +55,43 @@
             </a>
         </nav>
 
-        <!-- Product -->
-        <main id="detail">
-            
-            <div class="detail-image-container">
-                <img class="product-image detail-image object-fit-contain cursor">
-                <div class="thumbnail-container text-align-center">
-                </div>
-            </div>
-
-            <div class="detail-content-container">
-                <p>
-                    <h2 class="product-title"></h2>
-                    <p class="price"></p>
-                    <br>
-                    <form id="add-to-cart">
-                        <div class="options">
-                            <select class="size cursor" required>
-                                <option value="" disabled selected>Select Size</option>
-                            </select>
-                            <select class="quantity cursor" required>
-                                <option value="" disabled selected>Quantity</option>
-                            </select>
-                        </div>
-                        <input class="add-to-cart cursor" type="submit" value="Add to Cart">
-                    </form>
-                </p>
-                
-            </div>
-
-            <div class="modal-container">
-                <div class="modal-content">
-                    <div class="modal-images">
-                    </div>
-                    <a class="prev cursor">&#10094;</a>
-                    <a class="next cursor">&#10095;</a>
-                    <span class="close cursor">&times;</span>
-                </div>
-            </div>
-        </main>
+        <!-- Banner -->
+        <section id="print-shop-banner">
+            <p>CONTACT</p>
+            <a href="#contact" class="cursor banner-button hover-opacity">Send a Message</a>
+            <img src="images/print shop banner 3.jpg">
+        </section>
         
+        
+        <!-- Contact Form -->
+        <main id="contact">
+            <form onsubmit="alert('Your message has been sent!')">
+                <p>*All Fields Required</p>
+                <br>
+                <br>
+                <div class="flex">
+                    <label for="contact-first-name" class="half-width">First Name<br><input id="contact-first-name" class="full-width" type="text" autofocus required></label>
+                    <label for="contact-last-name" class="half-width">Last Name<br><input id="contact-last-name" class="full-width" type="text" required></label>
+                </div>
+                <br>
+                <div class="flex">
+                    <label for="contact-email" class="full-width">Email Address<br><input id="contact-email" class="full-width" type="email" required></label>
+                </div>
+                <br>
+                <div class="flex">
+                    <label for="contact-subject" class="full-width">Subject<br><input id="contact-subject" class="full-width" type="text" required></label>
+                </div>
+                <br>
+                <div class="flex">
+                    <label for="contact-message" class="full-width">Message<br><textarea id="contact-message" class="full-width" type="text" required></textarea></label>
+                </div>
+                <br>
+                <div class="text-align-center">
+                    <input id="contact-submit" class="cursor quarter-width" type="submit">
+                </div>
+            </form>
+        </main>
+
         <!-- Footer -->
         <footer>
             &copy <span class="copyright-year"></span> Marshall Heyda

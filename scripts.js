@@ -10,27 +10,41 @@ const detailMain = document.querySelector("#detail");
 const cartMain = document.querySelector("#cart");
 const checkoutMain = document.querySelector("#checkout");
 
-// Responsive Navigation
-const menu = document.querySelector("#menu");
-const mobileNav = document.querySelector("#mobile-nav");
-menu.onclick = () => {
-    if (mobileNav.style.visibility === "visible") {
-        mobileNav.style.visibility = "hidden";
-        mobileNav.classList.remove("fade-in-animation");
-        mobileNav.classList.add("fade-out-animation");
-        document.querySelector("body").classList.remove("stop-scrolling");
-        menu.querySelector("i").classList.remove("fa-solid", "fa-xmark", "fade-in-animation");
-        menu.querySelector("i").classList.add("fa", "fa-bars");
+
+document.addEventListener("DOMContentLoaded", async () => {
+    // Responsive Navigation
+    const menu = document.querySelector("#menu");
+    const mobileNav = document.querySelector("#mobile-nav");
+    menu.onclick = () => {
+        if (mobileNav.style.visibility === "visible") {
+            mobileNav.style.visibility = "hidden";
+            mobileNav.classList.remove("fade-in-animation");
+            mobileNav.classList.add("fade-out-animation");
+            document.querySelector("body").classList.remove("stop-scrolling");
+            menu.querySelector("i").classList.remove("fa-solid", "fa-xmark", "fade-in-animation");
+            menu.querySelector("i").classList.add("fa", "fa-bars");
+        }
+        else {
+            mobileNav.style.visibility = "visible";
+            mobileNav.classList.remove("fade-out-animation");
+            mobileNav.classList.add("fade-in-animation");
+            document.querySelector("body").classList.add("stop-scrolling");
+            menu.querySelector("i").classList.remove("fa", "fa-bars");
+            menu.querySelector("i").classList.add("fa-solid", "fa-xmark", "fade-in-animation");
+        }
     }
-    else {
-        mobileNav.style.visibility = "visible";
-        mobileNav.classList.remove("fade-out-animation");
-        mobileNav.classList.add("fade-in-animation");
-        document.querySelector("body").classList.add("stop-scrolling");
-        menu.querySelector("i").classList.remove("fa", "fa-bars");
-        menu.querySelector("i").classList.add("fa-solid", "fa-xmark", "fade-in-animation");
-    }
-}
+    // If nav button is clicked, close nav menu
+    mobileNav.querySelectorAll("a").forEach((link) => {
+        link.onclick = () => {
+            mobileNav.style.visibility = "hidden";
+            mobileNav.classList.remove("fade-in-animation");
+            mobileNav.classList.add("fade-out-animation");
+            document.querySelector("body").classList.remove("stop-scrolling");
+            menu.querySelector("i").classList.remove("fa-solid", "fa-xmark", "fade-in-animation");
+            menu.querySelector("i").classList.add("fa", "fa-bars");
+        }
+    });
+});
 
 // If cart is empty, create one
 if (sessionStorage.getItem("products") === null) {

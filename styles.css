@@ -237,7 +237,7 @@ nav a {
   z-index: 10;
 }
 .fa-bars, .fa-xmark {
-  color: var(--primaryDark);
+  color: var(--primaryLight);
   width: 2rem;
   text-align: center;
 }
@@ -249,7 +249,7 @@ nav a {
   padding-top: 7rem;
   top: 0;
   color: var(--primaryDark);
-  background-color: var(--primaryMedium);
+  background-color: var(--primaryDark);
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -295,13 +295,16 @@ nav a {
   
 }
 #print-shop-banner p {
-  font-size: 2.5rem;
+  display: block;
+  text-align: center;
+  font-size: 3rem;
   color: var(--primaryLight);
   position: absolute;
   left: 50%;
-  top: 47%;
+  top: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
+  line-height: 4rem;
 }
 .banner-button {
   background-color: transparent;
@@ -309,24 +312,6 @@ nav a {
   border: 2px solid var(--primaryLight);
   color: var(--primaryLight);
   padding: 0.6rem 1rem;
-  position: absolute;
-  left: 50%;
-  top: 53%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
-@media (min-width: 768px) {
-  #print-shop-banner img {
-  }
-  #print-shop-banner p {
-    font-size: 3.5rem;
-  }
-  .banner-button {
-  }
-}
-@media (min-width: 1400px) {
-  #print-shop-banner img {
-  }
 }
 
 

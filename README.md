@@ -1,7 +1,7 @@
 # Ecommerce Photography Print Store
 
 ## Overview
-As a hobbyist photographer, I wanted to practice my frontend engineering skills by developing a simple, fully responsive ecommerce site from scratch for photography prints. My intention was to solidify my knowledge of JavaScript, HTML, and CSS before learning a frontend framework, so I decided to build the entire site solely with these technologies. The overall site is intended to act as a photography portfolio, but the main focus is the "SHOP" tab where users can shop for products.
+As a hobbyist photographer, I wanted to practice my frontend engineering skills by developing a simple and fully responsive ecommerce site from scratch for photography prints. My intention was to solidify my knowledge of JavaScript, HTML, and CSS before learning a frontend framework, so I decided to build the entire site solely with these technologies. The overall site is intended to act as a photography portfolio, but the main focus is the "SHOP" tab where users can shop for products.
 #### See it in action <a href="https://mheyda-print-store.netlify.app/shop.html" target="_blank"><ins>here</ins></a>. :smile:
 
 ## Project Challenges

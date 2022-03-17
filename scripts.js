@@ -254,13 +254,13 @@ else if (htmlPage === "/templates/cart.html") {
             var li = document.createElement("li");
             li.classList.add("cart-item");
             li.innerHTML = 
-                `<a href="/templates/cart.html" class="remove-from-cart cursor">&times;</a>
-                <a href="/templates/detail.html?${cart[i]["index"]}|${(cart[i]["name"]).replace(" ", "-")}"><img class="cart-image cursor" src="${cartImageSrc}" alt="${cartImageAlt}"></a>
+                `<a href="/templates/cart.html" class="remove-from-cart cursor" aria-label="Remove From Cart">&times;</a>
+                <a href="/templates/detail.html?${cart[i]["index"]}|${(cart[i]["name"]).replace(" ", "-")}" aria-label="Back to Product Page"><img class="cart-image cursor" src="${cartImageSrc}" alt="${cartImageAlt}"></a>
                 <div class="cart-description">
                     <h2 class="cart-product-name">${cart[i]["name"]}</h2>
                     <span class="cart-product-size">Size: ${cart[i]["size"]}</span>
                 </div>
-                <input class="input-quantity" type="number" value="${parseInt(cart[i]["quantity"])}" min="1" max="${cartMaxQuantity}">
+                <input class="input-quantity" type="number" value="${parseInt(cart[i]["quantity"])}" min="1" max="${cartMaxQuantity}" aria-label="Quantity">
                 
                 <span class="cart-price">$${(parseFloat(cart[i]["price"].replace("$", "")) * parseInt(cart[i]["quantity"])).toFixed(2)}</span>`
             cartList.appendChild(li);
@@ -355,8 +355,8 @@ else if (htmlPage === "/templates/checkout.html") {
                 </div>
                 <div class="checkout-specifics">
                     <h3 class="checkout-price">$${(parseFloat(cart[i]["price"].replace("$", "")) * parseInt(cart[i]["quantity"])).toFixed(2)}</h3>
-                    <input class="input-quantity" type="number" value="${parseInt(cart[i]["quantity"])}" min="1" max="${checkoutMaxQuantity}">
-                    <button class="remove-from-checkout cursor">Remove</button>
+                    <input class="input-quantity" type="number" value="${parseInt(cart[i]["quantity"])}" min="1" max="${checkoutMaxQuantity}" aria-label="Quantity">
+                    <button class="remove-from-checkout cursor" aria-label="Remove From Cart">Remove</button>
                 </div>`
             checkoutList.appendChild(li);
         }

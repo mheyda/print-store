@@ -41,10 +41,10 @@
                 <a href="/templates/contact.html" class="cursor hover-opacity">Contact</a>
             </div>
 
-            <a href="/" class="logo cursor hover-opacity"><img src="/images/icons/mountain-logo-white.png" alt="Home Mountain Logo"></a>
+            <a href="/" class="logo cursor hover-opacity" aria-hidden="true"><img src="/images/icons/mountain-logo-white.png" alt="Home Mountain Logo" height="100px"></a>
             <a href="/templates/cart.html" class="cart cursor hover-opacity">
                 Cart
-                <div class="cart-symbol">
+                <div class="cart-symbol" aria-hidden="true">
                     <span class="cart-count"></span>
                     <i class="fa-solid fa-cart-shopping"></i>
                 </div>
@@ -58,7 +58,7 @@
                     <h1 class="user-information-header">1. Your Email</h1>
                     <button class="input-edit button-plain">Edit</button>
                     <form class="input-form input-form-email active">
-                        <input class="input-email" value="" type="email" placeholder="username@example.com" autofocus required>
+                        <input class="input-email" value="" type="email" placeholder="username@example.com" aria-label="Email Address" autofocus required>
                         <input class="full-width cursor" type="submit" value="Continue">
                     </form>
                     <div class="user-input"></div>
@@ -73,14 +73,14 @@
                         </div>
                         <input class="full-width" id="input-address-line-1" type="text" placeholder="Address Line 1" required>
                         <input class="full-width" id="input-address-line-2" type="text" placeholder="Address Line 2">
-                        <select class="full-width cursor" id="input-country" required>
+                        <select class="full-width cursor" id="input-country" aria-label="Country" required>
                             <option value="" disabled selected hidden>Country</option>
                             <option>United States</option>
                         </select>
                         <div class="flex">
                             <input class="quarter-width" id="input-zip-code" type="text" pattern="[0-9]{5}" placeholder="Zip Code" required>
                             <input class="half-width" id="input-city" type="text" placeholder="City" required>
-                            <select class="quarter-width cursor" id="input-state" required>
+                            <select class="quarter-width cursor" id="input-state" aria-label="State" required>
                                 <option value="" disabled selected hidden>State</option>
                                 <option>AL</option><option>AK</option><option>AZ</option><option>AR</option>
                                 <option>CA</option><option>CO</option><option>CT</option><option>DE</option>

@@ -68,7 +68,7 @@ window.onload = function () {
 // ----------------- //
 // detail.html page  //
 // ----------------- //
-if (htmlPage === "/detail.html") {
+if (htmlPage === "/templates/detail.html") {
     window.addEventListener("DOMContentLoaded", async () => {
 
         // Get product data
@@ -220,7 +220,7 @@ if (htmlPage === "/detail.html") {
 // ----------------- //
 // cart.html page    //
 // ----------------- //
-else if (htmlPage === "/cart.html") {
+else if (htmlPage === "/templates/cart.html") {
     window.addEventListener("DOMContentLoaded", async () => {
         // Get product data
         const products = await loadProducts();
@@ -254,8 +254,8 @@ else if (htmlPage === "/cart.html") {
             var li = document.createElement("li");
             li.classList.add("cart-item");
             li.innerHTML = 
-                `<a href="/cart.html" class="remove-from-cart cursor">&times;</a>
-                <a href="detail.html?${cart[i]["index"]}|${(cart[i]["name"]).replace(" ", "-")}"><img class="cart-image cursor" src="${cartImageSrc}" alt="${cartImageAlt}"></a>
+                `<a href="/templates/cart.html" class="remove-from-cart cursor">&times;</a>
+                <a href="/templates/detail.html?${cart[i]["index"]}|${(cart[i]["name"]).replace(" ", "-")}"><img class="cart-image cursor" src="${cartImageSrc}" alt="${cartImageAlt}"></a>
                 <div class="cart-description">
                     <h2 class="cart-product-name">${cart[i]["name"]}</h2>
                     <span class="cart-product-size">Size: ${cart[i]["size"]}</span>
@@ -276,7 +276,7 @@ else if (htmlPage === "/cart.html") {
                 // Don't allow user to input less than 1
                 if (cartQuantityInput.value < 1) {
                     cartQuantityInput.value = 1;
-                    alert("Quantity must be greater than zero.");
+                    alert("Quantity must be at least 1.");
                     updateSubtotal();
                 }
                 // Don't allow user to input more than max quantity allowed for item
@@ -285,13 +285,14 @@ else if (htmlPage === "/cart.html") {
                     alert("Maximum quantity for this item is " + String(products[cart[index]["index"]]["maxQuantity"]) + ".")
                     updateSubtotal();
                 }
-                cart[index]["quantity"] = cartQuantityInput.value;
+                cart[index]["quantity"] = Math.ceil(cartQuantityInput.value);
+                cartQuantityInput.value = Math.ceil(cartQuantityInput.value);
                 // Push cart back to session storage
                 sessionStorage.setItem("products", JSON.stringify(cart)); 
                 // Update nav shopping cart value
                 updateCartQuantity();
                 // Update total item price
-                totalItemPrice = (cartQuantityInput.value * parseFloat(cart[index]["price"].replace("$", ""))).toFixed(2);
+                totalItemPrice = (Math.ceil(cartQuantityInput.value) * parseFloat(cart[index]["price"].replace("$", ""))).toFixed(2);
                 cartMain.querySelectorAll(".cart-price")[index].innerHTML = "$" + totalItemPrice;
                 // Update subtotal
                 updateSubtotal();
@@ -324,7 +325,7 @@ else if (htmlPage === "/cart.html") {
 // ------------------ //
 // checkout.html page //
 // ------------------ //
-else if (htmlPage === "/checkout.html") {
+else if (htmlPage === "/templates/checkout.html") {
     window.addEventListener("DOMContentLoaded", async () => {
         // Get product data
         const products = await loadProducts();
@@ -372,7 +373,7 @@ else if (htmlPage === "/checkout.html") {
                 // Don't allow user to input less than 1
                 if (checkoutQuantityInput.value < 1) {
                     checkoutQuantityInput.value = 1;
-                    alert("Quantity must be greater than zero.");
+                    alert("Quantity must be at least 1.");
                     updateCheckoutSubtotal();
                     updateTax();
                     updateCheckoutGrandTotal();
@@ -385,13 +386,14 @@ else if (htmlPage === "/checkout.html") {
                     updateTax();
                     updateCheckoutGrandTotal();
                 }
-                cart[index]["quantity"] = checkoutQuantityInput.value;
+                cart[index]["quantity"] = Math.ceil(checkoutQuantityInput.value);
+                checkoutQuantityInput.value = Math.ceil(checkoutQuantityInput.value);
                 // Push cart back to session storage
                 sessionStorage.setItem("products", JSON.stringify(cart)); 
                 // Update nav shopping cart value
                 updateCartQuantity();
                 // Update total item price
-                totalItemPrice = (checkoutQuantityInput.value * parseFloat(cart[index]["price"].replace("$", ""))).toFixed(2);
+                totalItemPrice = (Math.ceil(checkoutQuantityInput.value) * parseFloat(cart[index]["price"].replace("$", ""))).toFixed(2);
                 checkoutMain.querySelectorAll(".checkout-price")[index].innerHTML = "$" + totalItemPrice;
                 // Update subtotal
                 updateCheckoutSubtotal();
@@ -413,9 +415,11 @@ else if (htmlPage === "/checkout.html") {
                 updateCheckoutGrandTotal();
                 // If user removes all items from cart, redirect them to cart page
                 if (cart.length === 0) {
-                    window.location.href = "/cart.html";
+                    window.location.href = "/templates/cart.html";
                 }
-                return false;
+                else {
+                    window.location.href = "/templates/checkout.html"
+                }
             }
         });
 
@@ -548,7 +552,7 @@ else if (htmlPage === "/checkout.html") {
 // ----------------- //
 // shop.html page   //
 // ----------------- //
-else if (htmlPage === "/shop.html") {
+else if (htmlPage === "/templates/shop.html") {
     window.addEventListener("DOMContentLoaded", async () => {
         // Get product data and main section
         const products = await loadProducts();
@@ -559,7 +563,7 @@ else if (htmlPage === "/shop.html") {
 // ----------------- //
 // contact.html page //
 // ----------------- //
-else if (htmlPage === "/contact.html") {
+else if (htmlPage === "/templates/contact.html") {
     window.addEventListener("DOMContentLoaded", async () => {
         
     });
@@ -583,7 +587,7 @@ else {
 
 // Function to load JSON product data
 async function loadProducts() {
-    const response = await fetch("./products.json");
+    const response = await fetch("/products.json");
     const products = await response.json();
     return products;
 }

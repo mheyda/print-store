@@ -186,12 +186,20 @@ if (htmlPage === "/detail.html") {
                     }
                     else {
                         cart[i]["quantity"] = String(parseInt(cart[i]["quantity"]) + parseInt(productQuantity));
+                        // Notify user that item has been added to cart
+                        addToCartButton = detailMain.querySelector(".add-to-cart");
+                        addToCartButton.value = "Item has been added!";
+                        timeout = setTimeout(addedToCartMessage, 3000);
                     }
                 }
             }
             // If it's not already in the cart, add it to the cart
             if (alreadyExists === false) {
                 cart.push({name: `${productName}`, size: `${productSize}`, quantity: `${productQuantity}`, price:`${productPrice}`, index:`${productIndex}`});
+                // Notify user that item has been added to cart
+                addToCartButton = detailMain.querySelector(".add-to-cart");
+                addToCartButton.value = "Item has been added!";
+                timeout = setTimeout(addedToCartMessage, 3000);
             }
             // Push cart back to session storage
             sessionStorage.setItem("products", JSON.stringify(cart));  
@@ -199,10 +207,7 @@ if (htmlPage === "/detail.html") {
             // Update cart quantity
             updateCartQuantity();
 
-            // Notify user that item has been added to cart
-            addToCartButton = detailMain.querySelector(".add-to-cart");
-            addToCartButton.value = "Item has been added!";
-            timeout = setTimeout(addedToCartMessage, 3000);
+            // Function to display added to cart message
             function addedToCartMessage() {
                 detailMain.querySelector(".add-to-cart").value = "Add to Cart";
             }

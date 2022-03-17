@@ -291,15 +291,15 @@ nav a {
 #print-shop-banner div {
   display: block;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--primaryLight);
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 55%;
   width: 90vw;
   transform: translate(-50%, -50%);
   z-index: 10;
-  line-height: 4rem;
+  line-height: 3.5rem;
 }
 .banner-button {
   background-color: transparent;
@@ -308,6 +308,13 @@ nav a {
   color: var(--primaryLight);
   padding: 0.6rem 1rem;
 }
+@media (min-width: 768px) {
+  #print-shop-banner div {
+    font-size: 2rem;
+    line-height: 4rem;
+  }
+}
+
 
 
 

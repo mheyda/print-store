@@ -10,15 +10,6 @@ One of the biggest challenges I faced while working on this project was deciding
 <br>
 Another aspect that was challenging for me was the design of the project. Since I built it from scratch, I spent a lot of time throughout the project adjusting my vision for how I wanted the finished project to look and function. I got a lot of inspiration looking at other photographer's portfolios and ultimately came out with a simple, but attractive user interface. 
 
-## Areas for Improvement
-<ul>
-    <li>Accessibility</li>
-    <li>Contact Form Submission</li>
-    <li>Secure Payment Processing</li>
-    <li>404 Page and Error Handling</li>
-    <li>User Experience (more animations, better interactivity)</li>
-</ul>
-
 ## Functionality
 ### Shop Page (shop.html)
 The shop page is where all of the available products are displayed, including the primary image and starting price for each, by pulling data from the local JSON file. Users have the option to select a product that they want to view in more detail.
@@ -37,3 +28,12 @@ The home page serves as a simple entry point into the site and has an "About Me"
 
 ### Contact Page (contact.html)
 The contact page allows a user to send a message by filling out the HTML form. This part is not actually functional, but it could be improved with the help of a backend.
+
+## Areas for Improvement
+<ul>
+    <li>Accessibility</li>
+    <li>Contact Form Submission</li>
+    <li>Secure Payment Processing</li>
+    <li>404 Page and Error Handling</li>
+    <li>User Experience (more animations, better interactivity)</li>
+</ul>

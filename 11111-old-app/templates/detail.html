@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="description" content="Marshall's Print Store">
+        <meta name="keywords" content="">
+        <meta name="author" content="Marshall Heyda">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="title" property="og:title" content="Marshall's Print Store" />
+        <meta property="og:type" content="Website" />
+        <meta name="image" property="og:image" content="https://i.ibb.co/3SVhDyf/Print-Store-Cover-Photo-Linked-In.jpg" />
+        <meta name="description" property="og:description" content="Marshall's Print Store" />
+
+        <!-- Link to styles -->
+        <link rel="stylesheet" href="/styles.css">
+
+        <!-- Browser Icon and Title -->
+        <link href="/images/icons/favicon.ico" rel="icon">
+        <title>Shop | Marshall Heyda Photography</title>
+
+        <!-- Font awesome icons -->
+        <script src="https://kit.fontawesome.com/a7e713de55.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        
+        <!-- Navigation Bar -->
+        <nav id="main-nav">
+            <div id="header-nav">
+                <a href="/" class="cursor hover-opacity">Home</a>
+                <a href="/#about" class="cursor hover-opacity">About</a>
+                <a href="/templates/shop.html" class="cursor hover-opacity">Shop</a>
+                <a href="/templates/contact.html" class="cursor hover-opacity">Contact</a>
+            </div>
+
+            <a id="menu"><i class="fa fa-bars"></i></a>
+            <div id="mobile-nav">
+                <a href="/" class="cursor hover-opacity">Home</a>
+                <a href="/#about" class="cursor hover-opacity">About</a>
+                <a href="/templates/shop.html" class="cursor hover-opacity">Shop</a>
+                <a href="/templates/contact.html" class="cursor hover-opacity">Contact</a>
+            </div>
+
+            <a href="/" class="logo cursor hover-opacity" aria-hidden="true"><img src="/images/icons/mountain-logo-white.png" alt="Home Mountain Logo" height="100px"></a>
+            <a href="/templates/cart.html" class="cart cursor hover-opacity">
+                Cart
+                <div class="cart-symbol" aria-hidden="true">
+                    <span class="cart-count"></span>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </a>
+        </nav>
+
+        <!-- Product -->
+        <main id="detail">
+            
+            <div class="detail-image-container">
+                <img class="product-image detail-image object-fit-contain cursor">
+                <div class="thumbnail-container text-align-center">
+                </div>
+            </div>
+
+            <div class="detail-content-container">
+                <p>
+                    <h2 class="product-title"></h2>
+                    <p class="price"></p>
+                    <br>
+                    <form id="add-to-cart">
+                        <div class="options">
+                            <select class="size cursor" required>
+                                <option value="" disabled selected>Select Size</option>
+                            </select>
+                            <select class="quantity cursor" required>
+                                <option value="" disabled selected>Quantity</option>
+                            </select>
+                        </div>
+                        <input class="add-to-cart cursor" type="submit" value="Add to Cart">
+                    </form>
+                </p>
+                
+            </div>
+
+            <div class="modal-container">
+                <div class="modal-content">
+                    <div class="modal-images">
+                    </div>
+                    <a class="prev cursor">&#10094;</a>
+                    <a class="next cursor">&#10095;</a>
+                    <span class="close cursor">&times;</span>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer>
+            &copy <span class="copyright-year"></span> Marshall Heyda
+        </footer>
+
+        <!-- JavaScript File -->
+        <script src="/scripts.js"></script>
+    </body>
+</html>

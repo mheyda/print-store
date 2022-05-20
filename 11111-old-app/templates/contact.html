@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="description" content="Marshall's Print Store">
+        <meta name="keywords" content="">
+        <meta name="author" content="Marshall Heyda">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="title" property="og:title" content="Marshall's Print Store" />
+        <meta property="og:type" content="Website" />
+        <meta name="image" property="og:image" content="https://i.ibb.co/3SVhDyf/Print-Store-Cover-Photo-Linked-In.jpg" />
+        <meta name="description" property="og:description" content="Marshall's Print Store" />
+
+        <!-- Link to styles -->
+        <link rel="stylesheet" href="/styles.css">
+
+        <!-- Browser Icon and Title -->
+        <link href="/images/icons/favicon.ico" rel="icon">
+        <title>Contact | Marshall Heyda Photography</title>
+
+        <!-- Font awesome icons -->
+        <script src="https://kit.fontawesome.com/a7e713de55.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- Loader 
+        <div class="loader">
+            <img src="images/icons/loader.gif" alt="Loading...">
+        </div> -->
+        
+        <!-- Navigation Bar -->
+        <nav id="main-nav">
+            <div id="header-nav">
+                <a href="/" class="cursor hover-opacity">Home</a>
+                <a href="/#about" class="cursor hover-opacity">About</a>
+                <a href="/templates/shop.html" class="cursor hover-opacity">Shop</a>
+                <a href="/templates/contact.html" class="cursor hover-opacity">Contact</a>
+            </div>
+
+            <a id="menu"><i class="fa fa-bars"></i></a>
+            <div id="mobile-nav">
+                <a href="/" class="cursor hover-opacity">Home</a>
+                <a href="/#about" class="cursor hover-opacity">About</a>
+                <a href="/templates/shop.html" class="cursor hover-opacity">Shop</a>
+                <a href="/templates/contact.html" class="cursor hover-opacity">Contact</a>
+            </div>
+
+            <a href="/" class="logo cursor hover-opacity" aria-hidden="true"><img src="/images/icons/mountain-logo-white.png" alt="Home Mountain Logo" height="100px"></a>
+            <a href="/templates/cart.html" class="cart cursor hover-opacity">
+                Cart
+                <div class="cart-symbol" aria-hidden="true">
+                    <span class="cart-count"></span>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </a>
+        </nav>
+
+        <!-- Banner -->
+        <section id="print-shop-banner">
+            <div>
+                <h2>CONTACT</h2>
+                <a href="#contact" class="cursor banner-button hover-opacity">Send a Message</a>
+            </div>
+            <img id="contact-banner" src="/images/banners/banner 4.jpg" alt="Header Background of Rocky Mountains">
+        </section>
+        
+        
+        <!-- Contact Form -->
+        <main id="contact">
+            <form id="contact-form" onsubmit="alert('Your message has been sent!')">
+                <p>*All Fields Required</p>
+                <br>
+                <br>
+                <div class="flex">
+                    <label for="contact-first-name" class="half-width">First Name<br><input id="contact-first-name" class="full-width" type="text" required></label>
+                    <label for="contact-last-name" class="half-width">Last Name<br><input id="contact-last-name" class="full-width" type="text" required></label>
+                </div>
+                <br>
+                <div class="flex">
+                    <label for="contact-email" class="full-width">Email Address<br><input id="contact-email" class="full-width" type="email" required></label>
+                </div>
+                <br>
+                <div class="flex">
+                    <label for="contact-subject" class="full-width">Subject<br><input id="contact-subject" class="full-width" type="text" required></label>
+                </div>
+                <br>
+                <div class="flex">
+                    <label for="contact-message" class="full-width">Message<br><textarea id="contact-message" class="full-width" type="text" required></textarea></label>
+                </div>
+                <br>
+                <div class="text-align-center">
+                    <input id="contact-submit" class="cursor quarter-width" type="submit" aria-label="Submit">
+                </div>
+            </form>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            &copy <span class="copyright-year"></span> Marshall Heyda
+        </footer>
+
+        <!-- JavaScript File -->
+        <script src="/scripts.js"></script>
+    </body>
+</html>

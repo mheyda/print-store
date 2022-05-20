@@ -1,0 +1,272 @@
+[
+    {
+        "name": "Atlanta-Light-Trails",
+        "sizes": [
+            "4\"x6\"",
+            "8\"x12\"",
+            "16\"x24\"",
+            "20\"x30\""
+        ],
+        "prices": [
+            "9.99",
+            "19.99",
+            "29.99",
+            "39.99"
+        ],
+        "maxQuantity": "30",
+        "productImages": [
+            {
+                "mainSrc": "/images/One Night in Atlanta/One Night in Atlanta 400x600.jpg",
+                "mainAlt": "Photo of downtown Atlanta, Georgia with painted light trails from cars on the interstate",
+                "thumbSrc": "/images/One Night in Atlanta/One Night in Atlanta 50x75.jpg",
+                "thumbAlt": "Thumbnail for downtown Atlanta, Georgia with painted light trails from cars on the interstate"
+            },
+            {
+                "mainSrc": "/images/placeholders/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "/images/placeholders/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "/images/placeholders/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "/images/placeholders/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "/images/placeholders/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "/images/placeholders/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            },
+            {
+                "mainSrc": "/images/placeholders/5.jpg",
+                "mainAlt": "Main alt for 5",
+                "thumbSrc": "/images/placeholders/5.jpg",
+                "thumbAlt": "Thumb alt for 5"
+            }
+        ]
+    },
+
+    {
+        "name": "Smoky-Mountain-Sun",
+        "sizes": [
+            "4\"x6\"",
+            "8\"x12\"",
+            "16\"x24\"",
+            "20\"x30\""
+        ],
+        "prices": [
+            "9.99",
+            "19.99",
+            "29.99",
+            "39.99"
+        ],
+        "maxQuantity": "30",
+        "productImages": [
+            {
+                "mainSrc": "/images/Smoky Mountain Sun/Smoky Mountain Sun 1080x675.jpg",
+                "mainAlt": "Photo of the smoky mountains during fall with warm hues",
+                "thumbSrc": "/images/Smoky Mountain Sun/Smoky Mountain Sun 1080x675.jpg",
+                "thumbAlt": "Thumbnail for the smoky mountains during fall with warm hues"
+            },
+            {
+                "mainSrc": "/images/placeholders/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "/images/placeholders/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "/images/placeholders/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "/images/placeholders/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "/images/placeholders/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "/images/placeholders/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            },
+            {
+                "mainSrc": "/images/placeholders/5.jpg",
+                "mainAlt": "Main alt for 5",
+                "thumbSrc": "/images/placeholders/5.jpg",
+                "thumbAlt": "Thumb alt for 5"
+            }
+        ]
+    },
+
+    {
+        "name": "LeConte-Lodge",
+        "sizes": [
+            "4\"x6\"",
+            "8\"x12\"",
+            "16\"x24\"",
+            "20\"x30\""
+        ],
+        "prices": [
+            "9.99",
+            "19.99",
+            "29.99",
+            "39.99"
+        ],
+        "maxQuantity": "40",
+        "productImages": [
+            {
+                "mainSrc": "/images/LeConte Lodge/LeConte Lodge 1080x1350.jpg",
+                "mainAlt": "Photo of LeConte Lodge in Great Smoky Mountain National Park",
+                "thumbSrc": "/images/LeConte Lodge/LeConte Lodge 1080x1350.jpg",
+                "thumbAlt": "Thumbnail of LeConte Lodge in Great Smoky Mountain National Park"
+            },
+            {
+                "mainSrc": "/images/placeholders/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "/images/placeholders/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "/images/placeholders/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "/images/placeholders/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "/images/placeholders/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "/images/placeholders/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            }
+
+        ]
+    },
+    {
+        "name": "Sailboat",
+        "sizes": [
+            "4\"x6\"",
+            "8\"x12\"",
+            "16\"x24\"",
+            "20\"x30\""
+        ],
+        "prices": [
+            "9.99",
+            "19.99",
+            "29.99",
+            "39.99"
+        ],
+        "maxQuantity": "30",
+        "productImages": [
+            {
+                "mainSrc": "/images/Sailboat/Sailboat 1080x1350.jpg",
+                "mainAlt": "Photo of a sailboat at sunset",
+                "thumbSrc": "/images/Sailboat/Sailboat 1080x1350.jpg",
+                "thumbAlt": "Thumbnail of a sailboat at sunset"
+            },
+            {
+                "mainSrc": "/images/placeholders/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "/images/placeholders/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "/images/placeholders/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "/images/placeholders/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "/images/placeholders/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "/images/placeholders/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            }
+
+        ]
+    },
+    {
+        "name": "Rocky-Mountains",
+        "sizes": [
+            "4\"x6\"",
+            "8\"x12\"",
+            "16\"x24\"",
+            "20\"x30\""
+        ],
+        "prices": [
+            "9.99",
+            "19.99",
+            "29.99",
+            "39.99"
+        ],
+        "maxQuantity": "30",
+        "productImages": [
+            {
+                "mainSrc": "/images/Rocky Mountains/Rocky Mountains 1080x675.jpg",
+                "mainAlt": "Photo of the rocky mountains",
+                "thumbSrc": "/images/Rocky Mountains/Rocky Mountains 1080x675.jpg",
+                "thumbAlt": "Thumbnail of the rocky mountains"
+            },
+            {
+                "mainSrc": "/images/placeholders/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "/images/placeholders/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "/images/placeholders/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "/images/placeholders/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "/images/placeholders/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "/images/placeholders/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            }
+
+        ]
+    },
+    {
+        "name": "Mills-Lake",
+        "sizes": [
+            "4\"x6\"",
+            "8\"x12\"",
+            "16\"x24\"",
+            "20\"x30\""
+        ],
+        "prices": [
+            "9.99",
+            "19.99",
+            "29.99",
+            "39.99"
+        ],
+        "maxQuantity": "30",
+        "productImages": [
+            {
+                "mainSrc": "/images/Mills Lake/Mills Lake 675x1080.jpg",
+                "mainAlt": "Photo of Mills Lake in Rocky Mountain National Park",
+                "thumbSrc": "/images/Mills Lake/Mills Lake 675x1080.jpg",
+                "thumbAlt": "Thumbnail of Mills Lake in Rocky Mountain National Park"
+            },
+            {
+                "mainSrc": "/images/placeholders/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "/images/placeholders/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "/images/placeholders/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "/images/placeholders/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "/images/placeholders/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "/images/placeholders/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            }
+
+        ]
+    }
+]

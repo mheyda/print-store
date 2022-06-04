@@ -13,7 +13,7 @@
 As a hobbyist photographer, I wanted to practice my frontend engineering skills by developing a simple and fully responsive ecommerce app from scratch for photography prints. The project was originally built with plain JavaScript, HTML, and CSS, but was later converted into a 
 React and Redux application for better organization and maintainability.
 
-# Functionality
+## Functionality
 The app provides users a full shopping experience, allowing them to adjust their cart at every step along the way. Primary functionality 
 is listed below.
 <ul>

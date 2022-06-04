@@ -1,0 +1,278 @@
+[
+    {
+        "name": "Downtown-Atlanta",
+        "id": 0,
+        "sizes": [
+            "4\"x6\"",
+            "8\"x12\"",
+            "16\"x24\"",
+            "20\"x30\""
+        ],
+        "prices": [
+            "9.99",
+            "19.99",
+            "29.99",
+            "39.99"
+        ],
+        "maxQuantity": "30",
+        "productImages": [
+            {
+                "mainSrc": "Downtown Atlanta/Downtown Atlanta 720x1080.jpg",
+                "mainAlt": "Photo of downtown Atlanta, Georgia with painted light trails from cars on the interstate",
+                "thumbSrc": "Downtown Atlanta/Downtown Atlanta 50x75.jpg",
+                "thumbAlt": "Thumbnail for downtown Atlanta, Georgia with painted light trails from cars on the interstate"
+            },
+            {
+                "mainSrc": "placeholders/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "placeholders/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "placeholders/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "placeholders/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "placeholders/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "placeholders/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            },
+            {
+                "mainSrc": "placeholders/5.jpg",
+                "mainAlt": "Main alt for 5",
+                "thumbSrc": "placeholders/5.jpg",
+                "thumbAlt": "Thumb alt for 5"
+            }
+        ]
+    },
+
+    {
+        "name": "Blue-Ridge-Parkway",
+        "id": 1,
+        "sizes": [
+            "4\"x6\"",
+            "8\"x12\"",
+            "16\"x24\"",
+            "20\"x30\""
+        ],
+        "prices": [
+            "9.99",
+            "19.99",
+            "29.99",
+            "39.99"
+        ],
+        "maxQuantity": "30",
+        "productImages": [
+            {
+                "mainSrc": "Blue Ridge Parkway/Blue Ridge Parkway 1080x675.jpg",
+                "mainAlt": "Photo of Blue Ridge Parkway during fall",
+                "thumbSrc": "Blue Ridge Parkway/Blue Ridge Parkway 1080x675.jpg",
+                "thumbAlt": "Thumbnail for Blue Ridge Parkway during fall"
+            },
+            {
+                "mainSrc": "placeholders/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "placeholders/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "placeholders/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "placeholders/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "placeholders/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "placeholders/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            },
+            {
+                "mainSrc": "placeholders/5.jpg",
+                "mainAlt": "Main alt for 5",
+                "thumbSrc": "placeholders/5.jpg",
+                "thumbAlt": "Thumb alt for 5"
+            }
+        ]
+    },
+
+    {
+        "name": "LeConte-Lodge",
+        "id": 2,
+        "sizes": [
+            "4\"x6\"",
+            "8\"x12\"",
+            "16\"x24\"",
+            "20\"x30\""
+        ],
+        "prices": [
+            "9.99",
+            "19.99",
+            "29.99",
+            "39.99"
+        ],
+        "maxQuantity": "40",
+        "productImages": [
+            {
+                "mainSrc": "LeConte Lodge/LeConte Lodge 1080x1350.jpg",
+                "mainAlt": "Photo of LeConte Lodge in Great Smoky Mountain National Park",
+                "thumbSrc": "LeConte Lodge/LeConte Lodge 1080x1350.jpg",
+                "thumbAlt": "Thumbnail of LeConte Lodge in Great Smoky Mountain National Park"
+            },
+            {
+                "mainSrc": "placeholders/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "placeholders/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "placeholders/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "placeholders/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "placeholders/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "placeholders/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            }
+
+        ]
+    },
+    {
+        "name": "Sailboat",
+        "id": 3,
+        "sizes": [
+            "4\"x6\"",
+            "8\"x12\"",
+            "16\"x24\"",
+            "20\"x30\""
+        ],
+        "prices": [
+            "9.99",
+            "19.99",
+            "29.99",
+            "39.99"
+        ],
+        "maxQuantity": "30",
+        "productImages": [
+            {
+                "mainSrc": "Sailboat/Sailboat 1080x1350.jpg",
+                "mainAlt": "Photo of a sailboat at sunset",
+                "thumbSrc": "Sailboat/Sailboat 1080x1350.jpg",
+                "thumbAlt": "Thumbnail of a sailboat at sunset"
+            },
+            {
+                "mainSrc": "placeholders/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "placeholders/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "placeholders/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "placeholders/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "placeholders/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "placeholders/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            }
+
+        ]
+    },
+    {
+        "name": "Rocky-Mountains",
+        "id": 4,
+        "sizes": [
+            "4\"x6\"",
+            "8\"x12\"",
+            "16\"x24\"",
+            "20\"x30\""
+        ],
+        "prices": [
+            "9.99",
+            "19.99",
+            "29.99",
+            "39.99"
+        ],
+        "maxQuantity": "30",
+        "productImages": [
+            {
+                "mainSrc": "Rocky Mountains/Rocky Mountains 1080x675.jpg",
+                "mainAlt": "Photo of the rocky mountains",
+                "thumbSrc": "Rocky Mountains/Rocky Mountains 1080x675.jpg",
+                "thumbAlt": "Thumbnail of the rocky mountains"
+            },
+            {
+                "mainSrc": "placeholders/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "placeholders/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "placeholders/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "placeholders/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "placeholders/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "placeholders/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            }
+
+        ]
+    },
+    {
+        "name": "Mills-Lake",
+        "id": 5,
+        "sizes": [
+            "4\"x6\"",
+            "8\"x12\"",
+            "16\"x24\"",
+            "20\"x30\""
+        ],
+        "prices": [
+            "9.99",
+            "19.99",
+            "29.99",
+            "39.99"
+        ],
+        "maxQuantity": "30",
+        "productImages": [
+            {
+                "mainSrc": "Mills Lake/Mills Lake 675x1080.jpg",
+                "mainAlt": "Photo of Mills Lake in Rocky Mountain National Park",
+                "thumbSrc": "Mills Lake/Mills Lake 675x1080.jpg",
+                "thumbAlt": "Thumbnail of Mills Lake in Rocky Mountain National Park"
+            },
+            {
+                "mainSrc": "placeholders/2.jpg",
+                "mainAlt": "Main alt for 2",
+                "thumbSrc": "placeholders/2.jpg",
+                "thumbAlt": "Thumb alt for 2"
+            },
+            {
+                "mainSrc": "placeholders/3.jpg",
+                "mainAlt": "Main alt for 3",
+                "thumbSrc": "placeholders/3.jpg",
+                "thumbAlt": "Thumb alt for 3"
+            },
+            {
+                "mainSrc": "placeholders/4.jpg",
+                "mainAlt": "Main alt for 4",
+                "thumbSrc": "placeholders/4.jpg",
+                "thumbAlt": "Thumb alt for 4"
+            }
+
+        ]
+    }
+]

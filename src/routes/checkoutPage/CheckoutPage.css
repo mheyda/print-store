@@ -1,0 +1,129 @@
+/* -------------------- */
+/* Checkout Page        */
+/* -------------------- */
+.remove-from-checkout {
+    color: var(--primaryLight);
+    background-color: var(--primaryDark);
+    border: none;
+}
+.input-quantity {
+    width: 2.4rem;
+    font-size: 1rem;
+}
+.accounting-line-items {
+    border-top: 1px solid var(--primaryLight);
+    padding-top: 1rem;
+}
+.input-form {
+    padding-top: 1rem;
+}
+.user-input {
+    padding-top: 1rem;
+}
+.user-information-box input {
+    font-size: 1rem;
+}
+.active {
+    display: block;
+}
+.input-edit {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.button-plain {
+    background-color: transparent;
+    color: var(--primaryLight);
+    border: none;
+    padding: 0.5rem;
+}
+.button-plain:hover {
+    cursor: pointer;
+}
+.user-information-box {
+    position: relative;
+}
+.checkout-product-name, .cart-product-name {
+    margin: 0;
+}
+#checkout {
+    display: flex;
+    flex-direction: column-reverse;
+}
+#checkout select {
+    padding-left: 0.4rem;
+    background-color: var(--primaryDark);
+    font-size: 1rem;
+    height: 2.4rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: 1px solid var(--primaryLight);
+}
+.checkout-item {
+    display: flex;
+    font-size: 0.8rem;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    padding: 1rem 0;
+}
+.order-summary, .user-information-box {
+    border: 1px solid white;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+.checkout-description {
+    padding: 0 1rem;
+    word-break: break-word;
+}
+.checkout-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+.checkout-specifics {
+    margin-left: auto;
+    display: flex;
+    height: 100px;
+    width: 150px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+.checkout-price {
+    align-items: flex-start;
+    margin: 0;
+}
+.checkout-quantity {
+    background-color: var(--primaryDark);
+    width: 50px;
+    height: 40px;
+    border: 1px solid var(--primaryLight);
+    text-align: center;
+}
+.remove-from-checkout {
+    display: block;
+}
+
+
+@media (min-width: 768px) {
+    #checkout {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .user-information {
+        width: 450px;
+    }
+    .checkout-specifics {
+        height: 150px;
+    }
+    .order-summary {
+        width: 450px;
+        margin-left: 2rem;
+        height: fit-content;
+    }
+    .checkout-image {
+        width: 150px;
+        height: 150px;
+    }
+}

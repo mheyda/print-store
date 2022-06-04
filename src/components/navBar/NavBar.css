@@ -1,0 +1,120 @@
+nav {
+    display: flex;
+    align-items: center;
+    height: 6rem;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    padding: 0.5rem 1rem;
+}
+
+nav a:last-child {
+    margin-left: auto;
+}
+
+/* Responsive Nav Menu */
+#menu {
+    z-index: 2;
+}
+.fa-bars, .fa-xmark {
+    color: var(--primaryLight);
+    width: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem;
+}
+#header-nav {
+    display: none;
+    z-index: 2;
+}
+#mobile-nav {
+    padding-top: 7rem;
+    top: 0;
+    color: var(--primaryDark);
+    background-color: var(--primaryDark);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 1;
+    font-size: 1.8rem;
+}
+#mobile-nav a {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+@media (min-width: 768px) {
+    #menu {
+        display: none;
+    }
+    #header-nav {
+        display: flex;
+    }
+    #mobile-nav {
+        display: none;
+    }
+}
+
+/* Shopping cart icon */
+.fa-cart-shopping {
+    color: var(--primaryLight);
+    font-size: 2rem;
+}
+.cart {
+    display: flex;
+    align-items: center;
+    right: 0;
+    z-index: 2;
+}
+.cart-count {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 20px;
+    transform: translateX(-50%);
+    color: var(--primaryDark);
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+/* Logo (home button) */
+.logo {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+.logo img {
+    height: 2rem;
+    padding: 0 5px;
+}
+
+
+/* -------------------- */
+/* Animations           */
+/* -------------------- */
+.fade-in-animation {
+    animation: fadeIn 0.3s;
+}
+.fade-out-animation {
+    animation: fadeOut 0.3s;
+}
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; visibility: hidden; }
+      to { opacity: 1; visibility: visible; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; visibility: hidden; }
+      to { opacity: 1; visibility: visible; }
+}
+@-webkit-keyframes fadeOut {
+    from { opacity: 1; visibility: visible; }
+      to { opacity: 0; visibility: hidden; }
+}
+@keyframes fadeOut {
+    from { opacity: 1; visibility: visible; }
+      to { opacity: 0; visibility: hidden;}
+}

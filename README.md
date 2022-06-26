@@ -4,7 +4,6 @@
 <ul>
     <li>React</li>
     <li>Redux</li>
-    <li>JSON</li>
     <li>HTML</li>
     <li>CSS</li>
 </ul>
